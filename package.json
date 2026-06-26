@@ -1,0 +1,14 @@
+{
+  "name": "github-actions-cicd-slide",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=20.12.0",
+    "pnpm": ">=11"
+  },
+  "scripts": {
+    "build": "echo 'TODO: assemble dist/ — see specs/build-assemble.md' && exit 1"
+  }
+}

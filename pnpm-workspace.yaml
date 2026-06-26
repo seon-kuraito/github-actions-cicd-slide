@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+
+# Centrally pin one version per dependency; every deck references it via `catalog:`
+catalog:
+  '@slidev/cli': ^52.16.0
+  '@slidev/theme-default': ^0.25.0
+  vue: ^3.5.39
