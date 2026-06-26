@@ -9,6 +9,12 @@
     "pnpm": ">=11"
   },
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "dev:1": "pnpm -C apps/week-1 dev",
+    "dev:2": "pnpm -C apps/week-2 dev",
+    "dev:3": "pnpm -C apps/week-3 dev",
+    "dev:4": "pnpm -C apps/week-4 dev",
+    "dev:5": "pnpm -C apps/week-5 dev",
+    "dev:6": "pnpm -C apps/week-6 dev"
   }
 }
