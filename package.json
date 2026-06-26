@@ -9,6 +9,6 @@
     "pnpm": ">=11"
   },
   "scripts": {
-    "build": "echo 'TODO: assemble dist/ — see specs/build-assemble.md' && exit 1"
+    "build": "node scripts/build.mjs"
   }
 }
