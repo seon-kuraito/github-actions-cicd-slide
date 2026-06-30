@@ -16,6 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      deployments: write
+    # Records a GitHub Deployment so the run/commit/PR shows a clickable link to
+    # the live site in the Actions UI. Name + URL track the branch's target env.
+    environment:
+      name: ${{ github.ref_name == 'preparing' && 'staging' || 'production' }}
+      url: ${{ github.ref_name == 'preparing' && 'https://github-actions-cicd-slide-preparing.seonkuraito.com' || 'https://github-actions-cicd-slide.seonkuraito.com' }}
     steps:
       - uses: actions/checkout@v4
 
