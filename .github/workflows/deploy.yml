@@ -1,0 +1,44 @@
+name: Deploy
+
+# main      → production (wrangler deploy)              → github-actions-cicd-slide.seonkuraito.com
+# preparing → staging    (wrangler deploy --env staging) → github-actions-cicd-slide-preparing.seonkuraito.com
+on:
+  push:
+    branches: [main, preparing]
+
+# One deploy per branch at a time; a newer push supersedes an in-flight one.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm before setup-node so the version is on PATH for setup-node's cache.
+      # action-setup@v4 reads the pinned version from package.json packageManager.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all decks
+        run: pnpm build
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.105.0"
+          # preparing → staging env; main → production env. Always explicit.
+          command: deploy --env ${{ github.ref_name == 'preparing' && 'staging' || 'production' }}
