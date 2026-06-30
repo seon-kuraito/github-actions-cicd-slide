@@ -1,0 +1,36 @@
+{
+  // Deploy target: Cloudflare Workers Static Assets (NOT Pages).
+  // Two named environments, always deployed with an explicit `--env`:
+  //   production → `wrangler deploy --env production` (main branch)      → github-actions-cicd-slide.seonkuraito.com
+  //   staging    → `wrangler deploy --env staging`    (preparing branch) → github-actions-cicd-slide-preparing.seonkuraito.com
+  // The top-level config below is the shared base; it is never deployed directly.
+  "name": "github-actions-cicd-slide",
+  "compatibility_date": "2026-06-30",
+
+  "assets": {
+    "directory": "./dist",
+    // Multi-deck assembly: dist/ root holds a hand-written hub index.html and
+    // each deck lives under /week-N/ with its own index.html. Per-deck
+    // history-mode SPA fallback is handled by dist/_redirects (200-rewrites),
+    // NOT by `single-page-application` here — that would fall back every
+    // unmatched path to the root hub and break deep links into individual decks.
+    "not_found_handling": "none"
+  },
+
+  // Both environments inherit the `assets` base above (an inheritable key); each
+  // overrides only `name` + `routes`. `routes` + `custom_domain: true` makes
+  // wrangler create the custom domain, DNS record, and SSL cert on first deploy,
+  // so the subdomains need not pre-exist.
+  "env": {
+    "production": {
+      "name": "github-actions-cicd-slide",
+      "routes": [{ "pattern": "github-actions-cicd-slide.seonkuraito.com", "custom_domain": true }]
+    },
+    "staging": {
+      "name": "github-actions-cicd-slide-preparing",
+      "routes": [
+        { "pattern": "github-actions-cicd-slide-preparing.seonkuraito.com", "custom_domain": true }
+      ]
+    }
+  }
+}
