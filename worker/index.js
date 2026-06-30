@@ -6,13 +6,18 @@
 // 200-rewrites trip Workers' infinite-loop detector, code 100324) nor
 // not_found_handling: single-page-application (it falls back only to the root
 // hub, breaking deep links into a deck). So we route here instead:
-//   /week-N/<anything>  → serve /week-N/index.html  (that deck's SPA shell)
-//   everything else     → serve /index.html         (the root hub)
+//   /week-N/<anything>  → serve the /week-N/ shell  (that deck's SPA entry)
+//   everything else     → serve the / shell         (the root hub)
+//
+// We fetch the directory form (/week-N/, not /week-N/index.html): default
+// html_handling 307-redirects /index.html → the directory, which would drop the
+// deep path (/week-1/5 → /week-1/, losing slide 5). The directory form serves
+// 200 in place, so the original URL is preserved and Slidev resolves the slide.
 export default {
   async fetch(request, env) {
     const { pathname, origin } = new URL(request.url)
     const deck = pathname.match(/^\/(week-\d+)(?:\/|$)/)
-    const shell = deck ? `/${deck[1]}/index.html` : '/index.html'
+    const shell = deck ? `/${deck[1]}/` : '/'
     return env.ASSETS.fetch(new Request(new URL(shell, origin), request))
   },
 }
