@@ -41,6 +41,10 @@ Static Assets; each deck is served at `<host>/week-N`.
   200-rewrites trip Workers' infinite-loop detector, code 100324) nor
   `not_found_handling: single-page-application` (falls back only to the root hub). A tiny
   Worker (`worker/index.js`) does per-deck fallback: non-asset `/week-N/*` → `/week-N/index.html`.
+- **Base-doubling trap** — Slidev bakes each deck's `--base /week-N/` into both the router
+  history base and the path it pushes on slide nav, so client page-turns double to
+  `/week-N/week-N/2` and hit the 404 route. The shared addon's `setup/main.ts` installs a
+  router `beforeEach` guard that strips the duplicated leading segment.
 
 ## Not doing (yet)
 
