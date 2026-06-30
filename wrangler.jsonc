@@ -1,0 +1,37 @@
+{
+  // Deploy target: Cloudflare Workers Static Assets (NOT Pages).
+  // Two named environments, always deployed with an explicit `--env`:
+  //   production → `wrangler deploy --env production` (main branch)      → github-actions-cicd-slide.seonkuraito.com
+  //   staging    → `wrangler deploy --env staging`    (preparing branch) → github-actions-cicd-slide-preparing.seonkuraito.com
+  // The top-level config below is the shared base; it is never deployed directly.
+  "name": "github-actions-cicd-slide",
+  "compatibility_date": "2026-06-30",
+  "main": "./worker/index.js",
+
+  "assets": {
+    "directory": "./dist",
+    // Bound so the Worker can serve assets (env.ASSETS.fetch) for SPA fallback.
+    "binding": "ASSETS",
+    // Assets are served first; the Worker only runs for non-asset paths and does
+    // per-deck SPA fallback there (see worker/index.js for why not _redirects /
+    // not single-page-application). So not_found_handling is effectively unused.
+    "not_found_handling": "none"
+  },
+
+  // Both environments inherit the `main` + `assets` base above (inheritable keys);
+  // each overrides only `name` + `routes`. `routes` + `custom_domain: true` makes
+  // wrangler create the custom domain, DNS record, and SSL cert on first deploy,
+  // so the subdomains need not pre-exist.
+  "env": {
+    "production": {
+      "name": "github-actions-cicd-slide",
+      "routes": [{ "pattern": "github-actions-cicd-slide.seonkuraito.com", "custom_domain": true }]
+    },
+    "staging": {
+      "name": "github-actions-cicd-slide-preparing",
+      "routes": [
+        { "pattern": "github-actions-cicd-slide-preparing.seonkuraito.com", "custom_domain": true }
+      ]
+    }
+  }
+}

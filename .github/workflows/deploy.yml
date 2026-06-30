@@ -1,0 +1,53 @@
+name: Deploy
+
+# main      → production (wrangler deploy)              → github-actions-cicd-slide.seonkuraito.com
+# preparing → staging    (wrangler deploy --env staging) → github-actions-cicd-slide-preparing.seonkuraito.com
+on:
+  push:
+    branches: [main, preparing]
+
+# One deploy per branch at a time; a newer push supersedes an in-flight one.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    # Records a GitHub Deployment so the run/commit/PR shows a clickable link to
+    # the live site in the Actions UI. Name + URL track the branch's target env.
+    environment:
+      name: ${{ github.ref_name == 'preparing' && 'staging' || 'production' }}
+      url: ${{ github.ref_name == 'preparing' && 'https://github-actions-cicd-slide-preparing.seonkuraito.com' || 'https://github-actions-cicd-slide.seonkuraito.com' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm before setup-node so the version is on PATH for setup-node's cache.
+      # action-setup@v4 reads the pinned version from package.json packageManager.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all decks
+        run: pnpm build
+
+      # Run wrangler directly via `pnpm dlx`, not cloudflare/wrangler-action:
+      # the action installs wrangler with `pnpm add` at the workspace root, which
+      # pnpm refuses without -w (ERR_PNPM_ADDING_TO_ROOT). pnpm dlx runs wrangler
+      # in an isolated store — same invocation validated in the local dry-run.
+      # wrangler reads CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID from the env.
+      - name: Deploy to Cloudflare Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        # preparing → staging env; main → production env. Always explicit.
+        run: pnpm dlx wrangler@4.105.0 deploy --env ${{ github.ref_name == 'preparing' && 'staging' || 'production' }}

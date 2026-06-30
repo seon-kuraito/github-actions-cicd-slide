@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // Build every deck under apps/* and assemble a single deployable dist/.
-// Each deck builds with `--base /<name>/` into dist/<name>/; the per-deck
-// _redirects (which Cloudflare ignores in subfolders) are aggregated into a
-// single root dist/_redirects so history-mode deep links resolve.
-import { readdirSync, existsSync, rmSync, readFileSync, writeFileSync } from 'node:fs'
+// Each deck builds with `--base /<name>/` into dist/<name>/. History-mode SPA
+// fallback for deep links is handled by the deploy Worker (worker/index.js), not
+// by _redirects — so Slidev's per-deck _redirects are dropped during assembly.
+import { readdirSync, existsSync, rmSync, cpSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url'
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const appsDir = join(root, 'apps')
 const distDir = join(root, 'dist')
+const publicDir = join(root, 'public')
 
 // Discover decks: apps/* dirs that actually hold a slides.md (weeks added over
 // time — absent ones simply don't get built, no error).
@@ -38,19 +39,26 @@ for (const name of decks) {
   })
 }
 
-// Cloudflare Pages honors only the dist-root _redirects — fold each deck's
-// path-scoped rule into one file and drop the ignored nested copies.
-const blocks = []
+// Slidev emits a per-deck _redirects (200-rewrite) for history-mode SPA fallback,
+// but Workers Static Assets rejects those: combined with the default html_handling
+// they trip its infinite-loop detector (code 100324). The deploy Worker
+// (worker/index.js) does per-deck fallback instead, so just drop them.
+let dropped = 0
 for (const name of decks) {
   const f = join(distDir, name, '_redirects')
   if (existsSync(f)) {
-    blocks.push(readFileSync(f, 'utf8').trim())
     rmSync(f)
+    dropped++
   }
 }
-if (blocks.length > 0) {
-  writeFileSync(join(distDir, '_redirects'), blocks.join('\n') + '\n')
-  console.log(`\n✓ dist/_redirects (${blocks.length} rule block(s))`)
+if (dropped > 0) console.log(`\n✓ dropped ${dropped} per-deck _redirects (worker handles routing)`)
+
+// Root static assets (Vite-style public/): the hand-written hub index.html that
+// lives at the subdomain root `/`, plus any future favicon/og assets. Copied
+// verbatim into dist/ root, on top of the per-deck /week-N/ folders.
+if (existsSync(publicDir)) {
+  cpSync(publicDir, distDir, { recursive: true })
+  console.log(`✓ dist/ root static assets copied from public/`)
 }
 
 console.log(`✓ dist/ assembled from ${decks.length} deck(s)`)
