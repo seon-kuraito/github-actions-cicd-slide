@@ -1,7 +1,7 @@
 name: Deploy
 
-# main      → production (wrangler deploy)              → github-actions-cicd-slide.seonkuraito.com
-# preparing → staging    (wrangler deploy --env staging) → github-actions-cicd-slide-preparing.seonkuraito.com
+# main      → production (wrangler deploy --env production) → github-actions-cicd-slide.seonkuraito.com
+# preparing → preparing  (wrangler deploy --env preparing)  → github-actions-cicd-slide-preparing.seonkuraito.com
 on:
   push:
     branches: [main, preparing]
@@ -20,7 +20,7 @@ jobs:
     # Records a GitHub Deployment so the run/commit/PR shows a clickable link to
     # the live site in the Actions UI. Name + URL track the branch's target env.
     environment:
-      name: ${{ github.ref_name == 'preparing' && 'staging' || 'production' }}
+      name: ${{ github.ref_name == 'preparing' && 'preparing' || 'production' }}
       url: ${{ github.ref_name == 'preparing' && 'https://github-actions-cicd-slide-preparing.seonkuraito.com' || 'https://github-actions-cicd-slide.seonkuraito.com' }}
     steps:
       - uses: actions/checkout@v4
@@ -49,5 +49,5 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        # preparing → staging env; main → production env. Always explicit.
-        run: pnpm dlx wrangler@4.105.0 deploy --env ${{ github.ref_name == 'preparing' && 'staging' || 'production' }}
+        # preparing → preparing env; main → production env. Always explicit.
+        run: pnpm dlx wrangler@4.105.0 deploy --env ${{ github.ref_name == 'preparing' && 'preparing' || 'production' }}
