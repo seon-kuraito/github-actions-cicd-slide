@@ -13,6 +13,10 @@ const appsDir = join(root, 'apps')
 const distDir = join(root, 'dist')
 const publicDir = join(root, 'public')
 
+// The canonical (production) origin the sitemap advertises to search engines.
+const PROD_ORIGIN = 'https://github-actions-cicd-slide.seonkuraito.com'
+const isProduction = process.env.VITE_ENV === 'production'
+
 // Discover decks: apps/* dirs that actually hold a slides.md (weeks added over
 // time — absent ones simply don't get built, no error).
 const decks = readdirSync(appsDir, { withFileTypes: true })
@@ -69,5 +73,31 @@ if (existsSync(publicDir)) {
     writeFileSync(hubHtml, readFileSync(hubHtml, 'utf8').replaceAll('%VITE_ENV%', hubEnv))
   }
 }
+
+// Per-env indexing control for decks. Production decks stay crawlable; every
+// other env (preparing, local) gets a noindex robots meta injected into each
+// deck's index.html, so staging never surfaces in search. (The hub is noindex
+// in both envs — set statically in public/index.html.) Injecting at build time
+// keeps it in the static HTML, so crawlers honour it without executing JS.
+if (!isProduction) {
+  for (const name of decks) {
+    const f = join(distDir, name, 'index.html')
+    if (!existsSync(f)) continue
+    const html = readFileSync(f, 'utf8')
+    writeFileSync(f, html.replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>'))
+  }
+  console.log(`✓ injected noindex into ${decks.length} deck(s) (non-production build)`)
+}
+
+// sitemap.xml — always advertises the production deck URLs (the canonical site
+// GSC indexes), generated from the discovered decks so it stays in sync as weeks
+// are added. The hub is intentionally omitted (it's noindex).
+const sitemap =
+  `<?xml version="1.0" encoding="UTF-8"?>\n` +
+  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  decks.map((name) => `  <url><loc>${PROD_ORIGIN}/${name}/</loc></url>`).join('\n') +
+  `\n</urlset>\n`
+writeFileSync(join(distDir, 'sitemap.xml'), sitemap)
+console.log(`✓ generated sitemap.xml (${decks.length} deck URL(s))`)
 
 console.log(`✓ dist/ assembled from ${decks.length} deck(s)`)
