@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://github-actions-cicd-slide.seonkuraito.com/sitemap.xml
