@@ -38,6 +38,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build all decks
+        # Vite inlines VITE_ENV into each deck's client bundle (only VITE_-prefixed
+        # vars reach the client); packages/shared/constants/environments.ts reads it.
+        env:
+          VITE_ENV: ${{ github.ref_name == 'preparing' && 'preparing' || 'production' }}
         run: pnpm build
 
       # Run wrangler directly via `pnpm dlx`, not cloudflare/wrangler-action:
