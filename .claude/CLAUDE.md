@@ -35,7 +35,7 @@ Static Assets; each deck is served at `<host>/week-N`.
 - **Deploy** — Cloudflare **Workers Static Assets** (NOT Pages), via GitHub Actions +
   `wrangler` (see `wrangler.jsonc` + [.github/workflows/deploy.yml](.github/workflows/deploy.yml),
   both self-documented). Two named wrangler envs ↔ two subdomains: `--env production`
-  (`main`) and `--env staging` (`preparing`); `routes` + `custom_domain` auto-create the
+  (`main`) and `--env preparing` (`preparing`); `routes` + `custom_domain` auto-create the
   domain/DNS/SSL on first deploy. Rollout: feature → `preparing` (staging) → `main` (prod).
 - **Routing trap** — multi-deck history-mode deep links can't use `_redirects` (Slidev's
   200-rewrites trip Workers' infinite-loop detector, code 100324) nor

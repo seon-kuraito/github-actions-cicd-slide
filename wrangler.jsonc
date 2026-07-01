@@ -2,7 +2,7 @@
   // Deploy target: Cloudflare Workers Static Assets (NOT Pages).
   // Two named environments, always deployed with an explicit `--env`:
   //   production → `wrangler deploy --env production` (main branch)      → github-actions-cicd-slide.seonkuraito.com
-  //   staging    → `wrangler deploy --env staging`    (preparing branch) → github-actions-cicd-slide-preparing.seonkuraito.com
+  //   preparing  → `wrangler deploy --env preparing`  (preparing branch) → github-actions-cicd-slide-preparing.seonkuraito.com
   // The top-level config below is the shared base; it is never deployed directly.
   "name": "github-actions-cicd-slide",
   "compatibility_date": "2026-06-30",
@@ -27,7 +27,7 @@
       "name": "github-actions-cicd-slide",
       "routes": [{ "pattern": "github-actions-cicd-slide.seonkuraito.com", "custom_domain": true }]
     },
-    "staging": {
+    "preparing": {
       "name": "github-actions-cicd-slide-preparing",
       "routes": [
         { "pattern": "github-actions-cicd-slide-preparing.seonkuraito.com", "custom_domain": true }
