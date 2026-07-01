@@ -3,7 +3,7 @@
 // Each deck builds with `--base /<name>/` into dist/<name>/. History-mode SPA
 // fallback for deep links is handled by the deploy Worker (worker/index.js), not
 // by _redirects — so Slidev's per-deck _redirects are dropped during assembly.
-import { readdirSync, existsSync, rmSync, cpSync } from 'node:fs'
+import { readdirSync, existsSync, rmSync, cpSync, readFileSync, writeFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -59,6 +59,15 @@ if (dropped > 0) console.log(`\n✓ dropped ${dropped} per-deck _redirects (work
 if (existsSync(publicDir)) {
   cpSync(publicDir, distDir, { recursive: true })
   console.log(`✓ dist/ root static assets copied from public/`)
+
+  // Inline VITE_ENV into the copied hub index.html. public/ bypasses Vite, so
+  // Vite's own %ENV% replacement never runs on it — we do the same substitution
+  // here. Fallback matches packages/shared/constants/environments.ts.
+  const hubEnv = process.env.VITE_ENV || 'preparing'
+  const hubHtml = join(distDir, 'index.html')
+  if (existsSync(hubHtml)) {
+    writeFileSync(hubHtml, readFileSync(hubHtml, 'utf8').replaceAll('%VITE_ENV%', hubEnv))
+  }
 }
 
 console.log(`✓ dist/ assembled from ${decks.length} deck(s)`)
