@@ -1,4 +1,9 @@
 import { isProduction } from '../constants/environments'
+// Slidev keeps every slide's parsed data (title, frontmatter) in this virtual
+// module. Per-slide titles are NOT on the vue-router routes — all slides share
+// one dynamic `/:no` route with no meta — so we look the title up here by
+// number. Same data the TOC/overview reads.
+import { slides } from '#slidev/slides'
 
 // GA4 Measurement ID. Not a secret — it ships in every page's HTML by design,
 // so hardcoding it here (rather than a build-time secret) is fine.
@@ -7,10 +12,15 @@ const GA4_MEASUREMENT_ID = 'G-PCV1CL95WD'
 // Minimal local shapes for the vue-router bits we touch. vue-router is only a
 // transitive dep (not resolvable from this zero-dependency addon), so we type
 // structurally here instead of importing its types.
-type RouteLike = { path: string; query: unknown; hash: unknown }
+type RouteLike = {
+  path: string
+  query: unknown
+  hash: unknown
+  params: Record<string, string | string[]>
+}
 type RouterLike = {
   beforeEach(guard: (to: RouteLike) => unknown): void
-  afterEach(hook: () => void): void
+  afterEach(hook: (to: RouteLike) => void): void
 }
 
 // SHARED_BASE_FIX: work around Slidev's double-base bug on multi-deck subpath
@@ -74,7 +84,14 @@ function trackSlides(router: RouterLike) {
 
   let currentPath: string | null = null // slide identity, deduped on pathname
   let currentHref = '' // full URL, reported to GA4
+  let currentTitle = '' // this slide's title, reported to GA4
   let enteredAt = 0
+
+  // The slide's own title (frontmatter title/name, else its first heading),
+  // looked up by slide number. Undefined for non-slide routes and headingless
+  // slides — the caller falls back to the deck-wide document.title.
+  const slideTitle = (no: string | string[]) =>
+    slides.value.find((s) => s.no === Number(no))?.meta?.slide?.title
 
   const flushDwell = () => {
     if (currentPath === null) return
@@ -83,20 +100,22 @@ function trackSlides(router: RouterLike) {
     if (ms <= 0) return
     send('slide_dwell', {
       page_location: currentHref,
+      page_title: currentTitle,
       dwell_seconds: Math.round(ms / 1000),
       dwell_ms: ms,
     })
   }
 
   // afterEach fires on the initial navigation too, so the entry slide is counted.
-  router.afterEach(() => {
+  router.afterEach((to) => {
     const path = window.location.pathname
     if (path === currentPath) return // within-slide step / redirect echo — ignore
     flushDwell()
     currentPath = path
     currentHref = window.location.href
+    currentTitle = slideTitle(to.params.no) || document.title
     enteredAt = Date.now()
-    send('page_view', { page_location: currentHref, page_title: document.title })
+    send('page_view', { page_location: currentHref, page_title: currentTitle })
   })
 
   document.addEventListener('visibilitychange', () => {
