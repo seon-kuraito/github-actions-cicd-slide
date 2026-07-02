@@ -66,7 +66,7 @@ if (existsSync(hubDir)) {
 
   // Inline VITE_ENV into the copied hub index.html. hub/ bypasses Vite, so
   // Vite's own %ENV% replacement never runs on it — we do the same substitution
-  // here. Fallback matches packages/shared/constants/environments.ts.
+  // here. Fallback matches shared/constants/environments.ts.
   const hubEnv = process.env.VITE_ENV || 'preparing'
   const hubHtml = join(distDir, 'index.html')
   if (existsSync(hubHtml)) {

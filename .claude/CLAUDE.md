@@ -8,7 +8,7 @@ Static Assets; each deck is served at `<host>/week-N`.
 
 - `apps/week-N/` — one deployable Slidev deck per week (`slides.md` + `package.json`).
   Decks are added over time; a week with no `slides.md` simply isn't built.
-- `packages/shared/` — `slidev-addon-shared`, the shared visual/component layer.
+- `shared/` — `slidev-addon-shared`, the shared visual/component layer.
   A lightweight Slidev **addon**, not a full theme. Each deck opts in with
   `addons: [slidev-addon-shared]` in its `slides.md` frontmatter.
 
