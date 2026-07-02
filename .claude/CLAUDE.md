@@ -30,7 +30,7 @@ Static Assets; each deck is served at `<host>/week-N`.
 
 - **Assemble** — `pnpm build` (→ `scripts/build.mjs`) globs `apps/*`, builds each deck
   with `slidev build --base /week-N/` into `dist/week-N/`, drops Slidev's per-deck
-  `_redirects` (the deploy Worker handles routing instead), and copies `public/` — the
+  `_redirects` (the deploy Worker handles routing instead), and copies `hub/` — the
   hub `index.html` served at `/` — verbatim into `dist/` root.
 - **Deploy** — Cloudflare **Workers Static Assets** (NOT Pages), via GitHub Actions +
   `wrangler` (see `wrangler.jsonc` + [.github/workflows/deploy.yml](.github/workflows/deploy.yml),
