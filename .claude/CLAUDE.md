@@ -8,7 +8,7 @@ Static Assets; each deck is served at `<host>/week-N`.
 
 - `apps/week-N/` — one deployable Slidev deck per week (`slides.md` + `package.json`).
   Decks are added over time; a week with no `slides.md` simply isn't built.
-- `packages/shared/` — `slidev-addon-shared`, the shared visual/component layer.
+- `shared/` — `slidev-addon-shared`, the shared visual/component layer.
   A lightweight Slidev **addon**, not a full theme. Each deck opts in with
   `addons: [slidev-addon-shared]` in its `slides.md` frontmatter.
 
@@ -30,7 +30,7 @@ Static Assets; each deck is served at `<host>/week-N`.
 
 - **Assemble** — `pnpm build` (→ `scripts/build.mjs`) globs `apps/*`, builds each deck
   with `slidev build --base /week-N/` into `dist/week-N/`, drops Slidev's per-deck
-  `_redirects` (the deploy Worker handles routing instead), and copies `public/` — the
+  `_redirects` (the deploy Worker handles routing instead), and copies `hub/` — the
   hub `index.html` served at `/` — verbatim into `dist/` root.
 - **Deploy** — Cloudflare **Workers Static Assets** (NOT Pages), via GitHub Actions +
   `wrangler` (see `wrangler.jsonc` + [.github/workflows/deploy.yml](.github/workflows/deploy.yml),
@@ -40,7 +40,7 @@ Static Assets; each deck is served at `<host>/week-N`.
 - **Routing trap** — multi-deck history-mode deep links can't use `_redirects` (Slidev's
   200-rewrites trip Workers' infinite-loop detector, code 100324) nor
   `not_found_handling: single-page-application` (falls back only to the root hub). A tiny
-  Worker (`worker/index.js`) does per-deck fallback: non-asset `/week-N/*` → `/week-N/index.html`.
+  Worker (`cloudflare/router.mjs`) does per-deck fallback: non-asset `/week-N/*` → `/week-N/index.html`.
 - **Base-doubling trap** — Slidev bakes each deck's `--base /week-N/` into both the router
   history base and the path it pushes on slide nav, so client page-turns double to
   `/week-N/week-N/2` and hit the 404 route. The shared addon's `setup/main.ts` installs a

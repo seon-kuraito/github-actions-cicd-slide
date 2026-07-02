@@ -1,6 +1,6 @@
 packages:
   - apps/*
-  - packages/*
+  - shared
 
 # Centrally pin one version per dependency; every deck references it via `catalog:`
 catalog:

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Build every deck under apps/* and assemble a single deployable dist/.
 // Each deck builds with `--base /<name>/` into dist/<name>/. History-mode SPA
-// fallback for deep links is handled by the deploy Worker (worker/index.js), not
+// fallback for deep links is handled by the deploy Worker (cloudflare/router.mjs), not
 // by _redirects — so Slidev's per-deck _redirects are dropped during assembly.
 import { readdirSync, existsSync, rmSync, cpSync, readFileSync, writeFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url'
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const appsDir = join(root, 'apps')
 const distDir = join(root, 'dist')
-const publicDir = join(root, 'public')
+const hubDir = join(root, 'hub')
 
 // The canonical (production) origin the sitemap advertises to search engines.
 const PROD_ORIGIN = 'https://github-actions-cicd-slide.seonkuraito.com'
@@ -46,7 +46,7 @@ for (const name of decks) {
 // Slidev emits a per-deck _redirects (200-rewrite) for history-mode SPA fallback,
 // but Workers Static Assets rejects those: combined with the default html_handling
 // they trip its infinite-loop detector (code 100324). The deploy Worker
-// (worker/index.js) does per-deck fallback instead, so just drop them.
+// (cloudflare/router.mjs) does per-deck fallback instead, so just drop them.
 let dropped = 0
 for (const name of decks) {
   const f = join(distDir, name, '_redirects')
@@ -57,16 +57,16 @@ for (const name of decks) {
 }
 if (dropped > 0) console.log(`\n✓ dropped ${dropped} per-deck _redirects (worker handles routing)`)
 
-// Root static assets (Vite-style public/): the hand-written hub index.html that
+// Root static assets (hub/): the hand-written hub index.html that
 // lives at the subdomain root `/`, plus any future favicon/og assets. Copied
 // verbatim into dist/ root, on top of the per-deck /week-N/ folders.
-if (existsSync(publicDir)) {
-  cpSync(publicDir, distDir, { recursive: true })
-  console.log(`✓ dist/ root static assets copied from public/`)
+if (existsSync(hubDir)) {
+  cpSync(hubDir, distDir, { recursive: true })
+  console.log(`✓ dist/ root static assets copied from hub/`)
 
-  // Inline VITE_ENV into the copied hub index.html. public/ bypasses Vite, so
+  // Inline VITE_ENV into the copied hub index.html. hub/ bypasses Vite, so
   // Vite's own %ENV% replacement never runs on it — we do the same substitution
-  // here. Fallback matches packages/shared/constants/environments.ts.
+  // here. Fallback matches shared/constants/environments.ts.
   const hubEnv = process.env.VITE_ENV || 'preparing'
   const hubHtml = join(distDir, 'index.html')
   if (existsSync(hubHtml)) {
@@ -77,7 +77,7 @@ if (existsSync(publicDir)) {
 // Per-env indexing control for decks. Production decks stay crawlable; every
 // other env (preparing, local) gets a noindex robots meta injected into each
 // deck's index.html, so staging never surfaces in search. (The hub is noindex
-// in both envs — set statically in public/index.html.) Injecting at build time
+// in both envs — set statically in hub/index.html.) Injecting at build time
 // keeps it in the static HTML, so crawlers honour it without executing JS.
 if (!isProduction) {
   for (const name of decks) {

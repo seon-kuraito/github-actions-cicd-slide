@@ -27,7 +27,7 @@ importers:
         version: 0.25.0
       slidev-addon-shared:
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../shared
 
   apps/week-2:
     dependencies:
@@ -39,7 +39,7 @@ importers:
         version: 0.25.0
       slidev-addon-shared:
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../shared
 
   apps/week-3:
     dependencies:
@@ -51,7 +51,7 @@ importers:
         version: 0.25.0
       slidev-addon-shared:
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../shared
 
   apps/week-4:
     dependencies:
@@ -63,7 +63,7 @@ importers:
         version: 0.25.0
       slidev-addon-shared:
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../shared
 
   apps/week-5:
     dependencies:
@@ -75,7 +75,7 @@ importers:
         version: 0.25.0
       slidev-addon-shared:
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../shared
 
   apps/week-6:
     dependencies:
@@ -87,9 +87,9 @@ importers:
         version: 0.25.0
       slidev-addon-shared:
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../shared
 
-  packages/shared: {}
+  shared: {}
 
 packages:
 
