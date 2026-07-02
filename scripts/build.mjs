@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Build every deck under apps/* and assemble a single deployable dist/.
 // Each deck builds with `--base /<name>/` into dist/<name>/. History-mode SPA
-// fallback for deep links is handled by the deploy Worker (worker/index.js), not
+// fallback for deep links is handled by the deploy Worker (cloudflare/router.mjs), not
 // by _redirects — so Slidev's per-deck _redirects are dropped during assembly.
 import { readdirSync, existsSync, rmSync, cpSync, readFileSync, writeFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
@@ -46,7 +46,7 @@ for (const name of decks) {
 // Slidev emits a per-deck _redirects (200-rewrite) for history-mode SPA fallback,
 // but Workers Static Assets rejects those: combined with the default html_handling
 // they trip its infinite-loop detector (code 100324). The deploy Worker
-// (worker/index.js) does per-deck fallback instead, so just drop them.
+// (cloudflare/router.mjs) does per-deck fallback instead, so just drop them.
 let dropped = 0
 for (const name of decks) {
   const f = join(distDir, name, '_redirects')
