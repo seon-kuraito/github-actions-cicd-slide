@@ -30,13 +30,17 @@ Static Assets; each deck is served at `<host>/week-N`.
 
 - **Assemble** — `pnpm build` (→ `scripts/build.mjs`) globs `apps/*`, builds each deck
   with `slidev build --base /week-N/` into `dist/week-N/`, drops Slidev's per-deck
-  `_redirects` (the deploy Worker handles routing instead), and copies `hub/` — the
-  hub `index.html` served at `/` — verbatim into `dist/` root.
+  `_redirects` (the deploy Worker handles routing instead), and copies the hand-written
+  `hub/` (the hub `index.html` served at `/`, with `%VITE_ENV%` inlined) into `dist/` root.
 - **Deploy** — Cloudflare **Workers Static Assets** (NOT Pages), via GitHub Actions +
   `wrangler` (see `wrangler.jsonc` + [.github/workflows/deploy.yml](.github/workflows/deploy.yml),
   both self-documented). Two named wrangler envs ↔ two subdomains: `--env production`
   (`main`) and `--env preparing` (`preparing`); `routes` + `custom_domain` auto-create the
   domain/DNS/SSL on first deploy. Rollout: feature → `preparing` (staging) → `main` (prod).
+- **Environments** — `VITE_ENV` (CI sets per branch: `main` → `production`, else `preparing`;
+  see `shared/constants/environments.ts`) gates production-only behavior: the shared addon
+  loads GA4 + per-slide tracking, and non-production builds get `noindex` injected. Test
+  prod-only behavior locally with `VITE_ENV=production pnpm -C apps/week-N dev`.
 - **Routing trap** — multi-deck history-mode deep links can't use `_redirects` (Slidev's
   200-rewrites trip Workers' infinite-loop detector, code 100324) nor
   `not_found_handling: single-page-application` (falls back only to the root hub). A tiny
