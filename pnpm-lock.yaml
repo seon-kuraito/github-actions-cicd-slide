@@ -17,6 +17,18 @@ importers:
 
   .: {}
 
+  apps/onboarding:
+    dependencies:
+      '@slidev/cli':
+        specifier: 'catalog:'
+        version: 52.16.0(@nuxt/kit@3.21.8)(@types/markdown-it@14.1.2)(@types/node@22.20.0)(@vue/compiler-sfc@3.5.38)(lightningcss@1.32.0)(markdown-it@14.2.0)(postcss@8.5.15)(rolldown@1.1.3)
+      '@slidev/theme-default':
+        specifier: 'catalog:'
+        version: 0.25.0
+      slidev-addon-shared:
+        specifier: workspace:*
+        version: link:../../shared
+
   apps/week-1:
     dependencies:
       '@slidev/cli':
