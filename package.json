@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
+    "dev:onboarding": "pnpm -C apps/onboarding dev",
     "dev:1": "pnpm -C apps/week-1 dev",
     "dev:2": "pnpm -C apps/week-2 dev",
     "dev:3": "pnpm -C apps/week-3 dev",
