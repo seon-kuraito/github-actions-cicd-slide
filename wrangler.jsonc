@@ -12,26 +12,35 @@
     "directory": "./dist",
     // Bound so the Worker can serve assets (env.ASSETS.fetch) for SPA fallback.
     "binding": "ASSETS",
-    // Assets are served first; the Worker only runs for non-asset paths and does
-    // per-deck SPA fallback there (see cloudflare/router.mjs for why not _redirects /
-    // not single-page-application). So not_found_handling is effectively unused.
-    "not_found_handling": "none"
+    // Non-week paths are served assets-first; the Worker only runs for them as a
+    // not-found fallback (per-deck SPA routing — see cloudflare/router.mjs for why
+    // not _redirects / not single-page-application). So not_found_handling is
+    // effectively unused for them.
+    "not_found_handling": "none",
+    // ...but /week-* front-runs the Worker, so it can gate an unreleased week with
+    // a real 404 before any asset is served (the scheduled-release gate). Released
+    // weeks are passed straight through to env.ASSETS by the Worker.
+    "run_worker_first": ["/week-*"]
   },
 
   // Both environments inherit the `main` + `assets` base above (inheritable keys);
-  // each overrides only `name` + `routes`. `routes` + `custom_domain: true` makes
-  // wrangler create the custom domain, DNS record, and SSL cert on first deploy,
-  // so the subdomains need not pre-exist.
+  // each overrides `name` + `routes` and sets its own `STAGE` var. `routes` +
+  // `custom_domain: true` makes wrangler create the custom domain, DNS record, and
+  // SSL cert on first deploy, so the subdomains need not pre-exist. STAGE tells the
+  // Worker which env it is: the release gate 404s unreleased weeks only when
+  // STAGE === "production" (preparing shows every week, for preview).
   "env": {
     "production": {
       "name": "github-actions-cicd-slide",
-      "routes": [{ "pattern": "github-actions-cicd-slide.seonkuraito.com", "custom_domain": true }]
+      "routes": [{ "pattern": "github-actions-cicd-slide.seonkuraito.com", "custom_domain": true }],
+      "vars": { "STAGE": "production" }
     },
     "preparing": {
       "name": "github-actions-cicd-slide-preparing",
       "routes": [
         { "pattern": "github-actions-cicd-slide-preparing.seonkuraito.com", "custom_domain": true }
-      ]
+      ],
+      "vars": { "STAGE": "preparing" }
     }
   }
 }
