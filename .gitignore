@@ -6,6 +6,9 @@ dist/
 .slidev/
 *.local
 
+# Cloudflare Wrangler local state (wrangler dev / deploy)
+.wrangler/
+
 # macOS
 .DS_Store
 .AppleDouble
