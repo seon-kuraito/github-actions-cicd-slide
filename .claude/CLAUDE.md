@@ -15,6 +15,28 @@ at `<host>/`.
   A lightweight Slidev **addon**, not a full theme. Each deck opts in with
   `addons: [slidev-addon-shared]` in its `slides.md` frontmatter.
 
+## Course content (docs/ + DECISIONS.md)
+
+The course-content workstream lives beside the code and has its own truth chain — never
+restate it here: `DECISIONS.md` (settled decisions + gates) → `docs/README.md` (six-week
+map, marker legend, 【NN】 numbering rules, kit-derivation rules, 發放原則) →
+`docs/curriculum/week-N.md` (page-level deck plans) → `docs/kit/week-N.md` (weekly repo /
+skills / knowledge-point checklists). Read docs/README.md's 標記說明 before editing any of
+them. Editing traps:
+
+- **【NN】 numbers are continuous per product arc** (W1→W2→W3 Dashboard; W4→W5→W6 notify
+  system), NOT per week. Inserting/removing a block renumbers every downstream week in
+  that arc — curriculum headers and kit groups together. Current ranges live in
+  docs/README.md「【NN】編號規則」.
+- **curriculum ↔ kit are coupled**: every 【NN】 block has a same-numbered group in its
+  kit file; edit them as a pair (derivation rules in docs/README.md).
+- **Cross-week prose references carry a source-week prefix** (`W1【03】`) so arc-wide
+  renumbers must skip them.
+- Weekly repos ship **state, not exercises** — see 發放原則 in docs/README.md before adding
+  kit material.
+- Cadence: **v1 (2026-07-10)** froze the W1–W6 page-level plan; **v2** re-grooms W4–W6
+  in the 8/8 off week; per-week deck production may still adjust details.
+
 ## Conventions (and why)
 
 - **pnpm workspaces** — one `pnpm install` at the root installs every deck + the addon.
