@@ -1,0 +1,25 @@
+{
+  // Type-checks the addon's Vue SFCs only (layouts + components). setup/ imports
+  // Slidev virtual modules (#slidev/slides) that vue-tsc can't resolve, so it is
+  // out of scope here. Run: `pnpm -C shared typecheck` (vue-tsc --noEmit).
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "types": []
+  },
+  "vueCompilerOptions": {
+    // Lenient templates: the layouts use Slidev-registered global components
+    // (Eyebrow, PageNo, MdInline, Git*/Gh*/Ai*/Sh*) and globals ($page/$slidev)
+    // that aren't imported here. strictTemplates:false type-checks the <script>
+    // blocks (props, computed) without flooding on those unknown-to-tsc names.
+    "strictTemplates": false
+  },
+  "include": ["layouts/**/*.vue", "components/**/*.vue", "slidev-shims.d.ts", "constants/vite-env.d.ts"]
+}

@@ -7,3 +7,6 @@ catalog:
   '@slidev/cli': ^52.16.0
   '@slidev/theme-default': ^0.25.0
   vue: ^3.5.39
+  # Type-checking the addon's .vue SFCs (shared/tsconfig.json → `pnpm -C shared typecheck`).
+  typescript: ^6.0.0
+  vue-tsc: ^3.3.0
