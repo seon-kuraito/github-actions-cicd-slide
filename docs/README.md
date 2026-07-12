@@ -46,12 +46,12 @@
 | 2 | 7/25 | MODULE · PARALLEL | 平行宇宙——分支與衝突 | 敢開分支、敢合併、敢面對衝突＋發出第一個 PR | 個人 Dashboard（分支/衝突情境） | 分支顧問＋AI 解衝突 | ~148 |
 | 3 | 8/1 | MODULE · REWIND | 時光機與救援 | 搞砸了也救得回來的底氣＋首次發版 | 個人 Dashboard（救援/發版情境） | 救援顧問＋歷史整理 | ~152 |
 | — | 8/8 | — | 停課 | | | | |
-| 4 | 8/15 | MODULE · CREW | 團隊協作與 CI 初見 | 像團隊一樣工作、第一個綠勾 | `notify-w4-teamwork` | MCP＋GitHub 串接＋PR 描述＋AI review | ~114 |
+| 4 | 8/15 | MODULE · TEAMWORK | 團隊協作與 CI 初見 | 像團隊一樣工作、第一個綠勾 | `notify-w4-teamwork` | MCP＋GitHub 串接＋PR 描述＋AI review | ~114 |
 | 5 | 8/22 | MODULE · PIPELINE | 測試與 Pipeline | push 之後測試自己跑、全綠 | `notify-w5-pipeline` | 生成／除錯 workflow YAML | ~136 |
 | 6 | 8/29 | MODULE · LAUNCH | 交付日——容器化與 capstone | push 就部署、部署就通知；結業 | `notify-w6-shipping`（完成自建）＋上游 repo（參考/救援） | 併入 capstone＋Claude Code 壓軸 | ~78 |
 
 Module 名為各 deck 封面與視覺識別（WeekBadge 等）用的英文＋中文雙語主題，敘事弧：
-序章 ONBOARDING → 起源 ORIGIN → 平行 PARALLEL → 倒帶 REWIND → 夥伴 CREW → 流水線 PIPELINE → 發射 LAUNCH。
+序章 ONBOARDING → 起源 ORIGIN → 平行 PARALLEL → 倒帶 REWIND → 協作 TEAMWORK → 流水線 PIPELINE → 發射 LAUNCH。
 
 ## 每日網格（固定模板）
 

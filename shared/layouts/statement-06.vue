@@ -5,20 +5,19 @@ defineProps<{
   contacts?: string[]
 }>()
 
-// THANK YOU 為固定設計字（YOU 走品牌橘）。
-const THANK = 'THANK'
-const YOU = 'YOU'
+// CONGRATULATIONS 為固定設計字樣，整體使用品牌橘。
+const HEADLINE = 'CONGRATULATIONS'
 </script>
 
 <template>
-  <div class="slidev-layout statement-02">
+  <div class="slidev-layout statement-06">
     <PageNo />
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <span class="headline">{{ THANK }} <span class="headline-accent">{{ YOU }}</span></span>
+    <span class="headline">{{ HEADLINE }}</span>
     <span class="sub"><MdInline :text="sub" /></span>
-    <div class="contacts">
+    <div class="chips">
       <span v-if="badge" class="badge">{{ badge }}</span>
       <span v-for="(c, i) in contacts ?? []" :key="i" class="contact-chip">{{ c }}</span>
     </div>
@@ -26,7 +25,7 @@ const YOU = 'YOU'
 </template>
 
 <style scoped>
-.statement-02 {
+.statement-06 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,16 +39,14 @@ const YOU = 'YOU'
   left: 100px;
   z-index: 2;
 }
+/* 家族規格為 180px；CONGRATULATIONS 15 字母在 1920 畫布放不下，降至 148px。 */
 .headline {
   font-family: var(--font-display);
-  font-size: 180px;
+  font-size: 148px;
   font-weight: 700;
   line-height: 1;
-  color: var(--ink);
-  letter-spacing: -0.03em;
-}
-.headline-accent {
   color: var(--brand-git);
+  letter-spacing: -0.03em;
 }
 .sub {
   font-family: var(--font-sans);
@@ -58,18 +55,10 @@ const YOU = 'YOU'
   color: var(--ink-3);
   letter-spacing: 0.1em;
 }
-.contacts {
+.chips {
   display: flex;
   align-items: center;
   gap: 28px;
-}
-.contact-chip {
-  font-family: var(--font-mono);
-  font-size: 25px;
-  font-weight: 500;
-  color: var(--ink-2);
-  border: 1px solid var(--line-2);
-  padding: 14px 32px;
 }
 .badge {
   font-family: var(--font-mono);
@@ -77,6 +66,14 @@ const YOU = 'YOU'
   font-weight: 600;
   color: var(--brand-git);
   border: 1px solid var(--brand-git);
+  padding: 14px 32px;
+}
+.contact-chip {
+  font-family: var(--font-mono);
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--ink-2);
+  border: 1px solid var(--line-2);
   padding: 14px 32px;
 }
 </style>

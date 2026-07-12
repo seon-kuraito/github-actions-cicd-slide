@@ -4,9 +4,8 @@ defineProps<{
   badge?: string
 }>()
 
-// LUNCH. 為固定設計字（句點走品牌橘）。
+// LUNCH 為固定設計字樣，整體使用品牌橘。
 const LUNCH = 'LUNCH'
-const DOT = '.'
 </script>
 
 <template>
@@ -15,7 +14,7 @@ const DOT = '.'
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <span class="headline">{{ LUNCH }}<span class="headline-accent">{{ DOT }}</span></span>
+    <span class="headline">{{ LUNCH }}</span>
     <span class="sub"><MdInline :text="sub" /></span>
     <div class="chips">
       <span v-if="badge" class="badge">{{ badge }}</span>
@@ -43,11 +42,8 @@ const DOT = '.'
   font-size: 180px;
   font-weight: 700;
   line-height: 1;
-  color: var(--ink);
-  letter-spacing: -0.03em;
-}
-.headline-accent {
   color: var(--brand-git);
+  letter-spacing: -0.03em;
 }
 .sub {
   font-family: var(--font-sans);

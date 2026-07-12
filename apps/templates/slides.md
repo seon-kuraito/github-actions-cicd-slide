@@ -667,6 +667,12 @@ badge: BREAK · 10 MIN
 ---
 
 ---
+layout: statement-06
+sub: 結業祝賀佔位 — 六週旅程完成
+badge: "COURSE · COMPLETE"
+---
+
+---
 layout: metric-01
 heading: 成效對比標題佔位
 before: { tag: BEFORE, value: "30", unit: MIN, desc: 指標說明佔位 — 每次手動部署 }
