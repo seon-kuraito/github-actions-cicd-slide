@@ -2,14 +2,12 @@
 theme: default
 canvasWidth: 1920
 title: Week 1
+titleTemplate: "%s"
 favicon: /favicon.svg
 seoMeta:
   ogTitle: "GitHub Actions CI/CD 自動化與 AI 協作實務班 · 第一週"
   ogDescription: "從零開始學 Git 版本控制、終端機、VS Code、GitHub 與 GitHub Pages，完成第一個 commit、push 遠端並親手部署技能樹 Dashboard，體驗作品真正公開上線的那一刻。"
-  ogImage: "https://github-actions-cicd-slide.seonkuraito.com/week-1/og.png"
-  ogUrl: "https://github-actions-cicd-slide.seonkuraito.com/week-1/"
   twitterCard: "summary_large_image"
-  twitterImage: "https://github-actions-cicd-slide.seonkuraito.com/week-1/og.png"
 addons:
   - slidev-addon-shared
 ---
