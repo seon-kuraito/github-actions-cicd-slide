@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   sub?: string
+  badge?: string
   contacts?: string[]
 }>()
 
@@ -18,6 +19,7 @@ const YOU = 'YOU'
     <span class="headline">{{ THANK }} <span class="headline-accent">{{ YOU }}</span></span>
     <span class="sub"><MdInline :text="sub" /></span>
     <div class="contacts">
+      <span v-if="badge" class="badge">{{ badge }}</span>
       <span v-for="(c, i) in contacts ?? []" :key="i" class="contact-chip">{{ c }}</span>
     </div>
   </div>
@@ -67,6 +69,14 @@ const YOU = 'YOU'
   font-weight: 500;
   color: var(--ink-2);
   border: 1px solid var(--line-2);
+  padding: 14px 32px;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--brand-git);
+  border: 1px solid var(--brand-git);
   padding: 14px 32px;
 }
 </style>

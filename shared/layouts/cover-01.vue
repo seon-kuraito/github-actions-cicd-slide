@@ -50,6 +50,9 @@ const moduleName = computed(
   align-items: center;
   justify-content: center;
   gap: 56px;
+  /* 置中群組上移 24px（date 為絕對定位、錨在底部不動）。 */
+  padding-bottom: 48px;
+  box-sizing: border-box;
 }
 .module-row {
   display: flex;
