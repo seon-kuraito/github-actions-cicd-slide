@@ -1,0 +1,97 @@
+/* Design tokens — 1:1 with the Claude Design handoff (templates.html :root / spec.md).
+ * Loaded globally by the addon so every deck (and every custom layout) can
+ * reference var(--token) exactly as the design file does. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* 主題色 — Git 橘 */
+  --brand-git: #F05133;
+  --brand-git-deep: #C93A20;
+  --brand-git-soft: #FFD9CF;
+  --brand-git-tint: #FDEFEA;
+  /* 主題色 — GitHub 藍（主色定為中間調 #388BFD：白底可讀＋比原交接 #0969DA 輕盈；
+   * github/ai 的 base 只落在白底 chrome，深底終端用 --code-blue/-soft，故偏亮無妨。
+   * deep/soft/tint 維持原階，ramp 仍單調） */
+  --brand-github: #388BFD;
+  --brand-github-deep: #0550AE;
+  --brand-github-soft: #B6E3FF;
+  --brand-github-tint: #DDF4FF;
+  /* 主題色 — AI 紫（主色定為中間調 #8B5CF6：同 GitHub 取捨，原交接 #7C3AED） */
+  --brand-ai: #8B5CF6;
+  --brand-ai-deep: #5B21B6;
+  --brand-ai-soft: #C4B5FD;
+  --brand-ai-tint: #F3EEFC;
+  /* 終端品牌裝飾層 — 對話/日誌終端（GitTerminal／AiChat·Mono）的品牌指針。專為深底 #1F1F1F
+   * 調亮、獨立於白底用的 base：橘 base 偏暗故另調更亮的橘，紫 base 太暗故取近 soft 的亮度。
+   * 刻意不 alias ramp（用途＝角色，非階）。github 程式碼終端走語法層 code-blue/orange，不在此列。 */
+  --brand-git-term: #FF7A45;
+  --brand-ai-term: #C4B5FD;
+  /* 亮色模式 */
+  --paper: #FFFFFF;
+  --ink: #37352F;
+  --ink-2: #55504B;
+  --ink-3: #8A837C;
+  --ink-4: #B5AEA6;
+  --line: #E5DED8;
+  --line-2: #D9D2CC;
+  --panel: #F5F1ED;
+  /* 深色模式（Notion 式深灰） */
+  --dark-bg: #1F1F1F;
+  --dark-border: #333333;
+  --dark-ink: #E6E6E6;
+  --dark-ink-2: #ABABAB;
+  --dark-ink-3: #757575;
+  --dark-line: #383838;
+  --dark-node: #454545;
+  --dark-panel: #2A2A2A;
+  /* 終端機表面色：兩模式皆 #2a2a2a 灰（原亮色 #1F1F1F 近黑，已統一為深色模式的灰）。 */
+  --term-bg: #2a2a2a;
+  /* 終端機內部高亮（code 高亮行／對話泡泡）：比表面亮一階 #383838。 */
+  --term-hl: #383838;
+  /* 語意色（終端機／CI 狀態／diff） */
+  --ok: #1A7F37;
+  --err: #CF222E;
+  --code-blue: #6CB6FF;
+  --code-orange: #FF8A75;
+  /* 終端錯誤紅：語意 --err #CF222E 於恆深終端太暗，改用深底可讀的 GitHub 紅（＝深色 diff
+   * 刪除色）；兩模式恆定。與 code-orange（warning）分工：error 紅、warning 橘。 */
+  --code-red: #F85149;
+  --diff-add-bg: #DAFBE1;
+  --diff-add-ink: #116329;
+  --diff-del-bg: #FFEBE9;
+  --diff-del-ink: #A40E26;
+  /* 字體 */
+  --font-sans: 'Noto Sans TC', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-display-tc: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* 深色模式 — Slidev 深色切換（html.dark）時把亮色 token 重映射到 --dark-* 家族，
+ * 所有 layout 因引用 token 而整體翻轉；「白字於品牌色上」等不該翻的點在各 layout
+ * 以字面值釘住。映射表由設計交接的兩張深色樣張（cover-01 · dark、chapter-01 · dark）
+ * 逐色反推，樣張的 SVG hex（線 #383838／圈底 #1F1F1F／圈框 #454545）亦吻合。
+ * 樣張未覆蓋、屬延伸推導（待設計線回填定案）：--ink-2、--ink-4、--panel、三色 tint。 */
+html.dark {
+  --paper: var(--dark-bg);
+  --ink: var(--dark-ink);
+  --ink-2: var(--dark-ink-2);
+  --ink-3: var(--dark-ink-2);
+  --ink-4: #6e6e6e;
+  --line: var(--dark-line);
+  --line-2: var(--dark-node);
+  --panel: var(--dark-panel);
+  --brand-git-tint: rgba(240, 81, 51, 0.16);
+  --brand-github-tint: rgba(56, 139, 253, 0.18);
+  --brand-ai-tint: rgba(139, 92, 246, 0.2);
+  /* diff 綠/紅底＋字：亮色是實色淺底＋深字；深色改半透明色底＋亮字（GitHub 深色 diff 調），
+   * 讓 diff 帶（AiDiffPanel）與 err 節點底（GhWorkflowDag）在深色頁上不再是刺眼亮塊。 */
+  --diff-add-bg: rgba(63, 185, 80, 0.15);
+  --diff-add-ink: #3FB950;
+  --diff-del-bg: rgba(248, 81, 73, 0.15);
+  --diff-del-ink: #F85149;
+  /* 終端機表面／高亮：已在 :root 統一為 #2a2a2a／#383838（兩模式相同），此處毋需再覆寫。 */
+  /* Slidev 預設深色 code 底 #1B1B1B 比頁面 #1F1F1F 還暗、幾乎無對比；
+     改用灰一階的 --dark-border，讓 inline-code chip 讀得出來。 */
+  --slidev-code-background: var(--dark-border);
+}

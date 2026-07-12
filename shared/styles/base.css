@@ -1,0 +1,56 @@
+/* Baseline for the custom design-system layouts (shared/layouts/*).
+ * Decks run at canvasWidth: 1920, so every px value inside layouts is copied
+ * verbatim from templates.html. Theme-default ships its own .slidev-layout
+ * padding/typography for markdown-rendered content — our layouts are fully
+ * self-styled, so neutralise it here (addon styles load after the theme's). */
+.slidev-layout {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font-sans);
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+/* 投影片共用 chrome（templates.html 同名 class，數值照抄） */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--brand-git);
+}
+/* 分隔點：真圓點取代文字「·」，垂直置中對齊大寫字（原字元下沉、看似沒對齊）。 */
+.eyebrow-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ink-3);
+  margin: 0 18px 0 14px;
+}
+.eyebrow-sub {
+  font-weight: 500;
+  color: var(--ink-3);
+}
+.page-no {
+  position: absolute;
+  bottom: 64px;
+  right: 100px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+
+/* 面板圓角：終端機與其配對的淺色面板（class="panel"：git／github 左圖面板、
+ * shell ShPanel）統一 14px 圓角；overflow 裁掉方角內容。ai 左面板為 Ai* 元件、
+ * 各自於 scoped style 加同值。 */
+.slidev-layout .panel {
+  border-radius: 14px;
+  overflow: hidden;
+}

@@ -1,0 +1,72 @@
+<script setup lang="ts">
+defineProps<{
+  sub?: string
+  contacts?: string[]
+}>()
+
+// THANK YOU 為固定設計字（YOU 走品牌橘）。
+const THANK = 'THANK'
+const YOU = 'YOU'
+</script>
+
+<template>
+  <div class="slidev-layout statement-02">
+    <PageNo />
+    <span class="eyebrow-pos">
+      <Eyebrow />
+    </span>
+    <span class="headline">{{ THANK }} <span class="headline-accent">{{ YOU }}</span></span>
+    <span class="sub"><MdInline :text="sub" /></span>
+    <div class="contacts">
+      <span v-for="(c, i) in contacts ?? []" :key="i" class="contact-chip">{{ c }}</span>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.statement-02 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  box-sizing: border-box;
+}
+.eyebrow-pos {
+  position: absolute;
+  top: 72px;
+  left: 100px;
+  z-index: 2;
+}
+.headline {
+  font-family: var(--font-display);
+  font-size: 180px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.headline-accent {
+  color: var(--brand-git);
+}
+.sub {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+}
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.contact-chip {
+  font-family: var(--font-mono);
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--ink-2);
+  border: 1px solid var(--line-2);
+  padding: 14px 32px;
+}
+</style>
