@@ -13,7 +13,33 @@ at `<host>/`.
   at `<host>/` (it replaced the old hand-written `hub/`); its `public/` carries `robots.txt`.
 - `shared/` — `slidev-addon-shared`, the shared visual/component layer.
   A lightweight Slidev **addon**, not a full theme. Each deck opts in with
-  `addons: [slidev-addon-shared]` in its `slides.md` frontmatter.
+  `addons: [slidev-addon-shared]` in its `slides.md` frontmatter. Carries the
+  design system converted from the Claude Design handoff (the `templates.html` +
+  `spec.md` handoff files were discarded after conversion — `apps/templates` is
+  the living reference; decisions in DECISIONS.md「視覺線」):
+  - `layouts/` — one custom layout per design template id (`cover-01`,
+    `chapter-01`, `git-03`, …). Slide content is fed **entirely via frontmatter
+    YAML props** (md body unused); the main-title prop is always `heading` —
+    never `title`, which collides with deck headmatter on slide 1. Variants
+    switch via props (`brand: git|github|ai`).
+  - `components/` — chrome (`Eyebrow`, `PageNo`, auto page number) + `MdInline`
+    (renders `**bold**`/`` `code` ``/`\n` inside YAML strings) + parameterized
+    diagram components (`Git*`, `Gh*`, `Ai*`, `Sh*`) that auto-layout from
+    semantic data. **SVG trap**: never write `<text font-size="22">` — Slidev's
+    UnoCSS attributify mode matches the presentation attribute and emits
+    `[font-size~="22"] { font-size: 5.5rem }`, blowing the text up. Put
+    font-size/font-weight/letter-spacing in `style=""` instead.
+  - `styles/` — design tokens (`:root` vars, 1:1 with spec.md) + Google Fonts.
+    Dark mode = one `html.dark` block remapping neutral tokens (Slidev's dark
+    toggle flips every layout); constant-white-on-brand spots are pinned with
+    `#FFFFFF` literals. Details in DECISIONS.md「視覺線」.
+  - Every deck sets `canvasWidth: 1920` (headmatter); px values inside layouts
+    were copied verbatim from the 1920×1080 design file.
+- `apps/templates/` — **local-only style-guide deck**: renders all 83 template
+  slides; since the handoff files were discarded, this deck IS the visual
+  reference (curated, no longer 1:1 with the original 91-template handoff —
+  see DECISIONS.md「視覺線」). Committed to git but never built or deployed
+  (`LOCAL_ONLY` in `scripts/build.mjs`).
 
 ## Course content (docs/ + DECISIONS.md)
 
@@ -48,8 +74,12 @@ them. Editing traps:
 
 ## Working on a deck
 
-- Dev one deck: `pnpm -C apps/<deck> dev` (`<deck>` = `week-N` or `onboarding`)
+- Dev one deck: `pnpm -C apps/<deck> dev` (`<deck>` = `week-N`, `onboarding`, or `templates`)
 - Build one deck: `pnpm -C apps/<deck> build`
+- Type-check the addon SFCs: `pnpm typecheck` (→ `pnpm -C shared typecheck`, `vue-tsc --noEmit`).
+  Scoped to `shared/layouts` + `shared/components` via `shared/tsconfig.json` (`strictTemplates:
+  false` so Slidev global components / `$page` don't false-positive); `setup/` is excluded (uses
+  the `#slidev/slides` virtual module). Not run in CI — a local safety net, not a test framework.
 
 ## Build & deploy
 
