@@ -32,6 +32,15 @@ const LOCAL_ONLY = new Set(['templates'])
 const PROD_ORIGIN = 'https://github-actions-cicd-slide.seonkuraito.com'
 const isProduction = process.env.VITE_ENV === 'production'
 
+// The origin THIS build actually serves from, used for per-page og:url/og:image.
+// Distinct from PROD_ORIGIN (the sitemap's canonical): a social card must resolve on
+// the host its deck is deployed to, or a preparing card points at an asset only prod
+// has. CI sets VITE_ENV per branch (main → production, else preparing).
+const PREPARING_ORIGIN = 'https://github-actions-cicd-slide-preparing.seonkuraito.com'
+const ORIGIN = isProduction ? PROD_ORIGIN : PREPARING_ORIGIN
+// og:site_name — the brand shown above the title in social cards (Discord/Facebook).
+const SITE_NAME = 'GitHub Actions CICD Slide'
+
 // Discover decks: apps/* dirs that actually hold a slides.md (weeks added over
 // time — absent ones simply don't get built, no error).
 const decks = readdirSync(appsDir, { withFileTypes: true })
@@ -103,6 +112,35 @@ if (hasOnboarding) noindexTargets.push(join(distDir, 'index.html'))
 let noindexed = 0
 for (const f of noindexTargets) if (injectNoindex(f)) noindexed++
 if (noindexed > 0) console.log(`✓ injected noindex into ${noindexed} deck index(es)`)
+
+// Social tags whose URLs must resolve on the origin THIS build serves from
+// (og:url/og:image) — injected here rather than in headmatter so the origin is a
+// deploy-time decision, not baked into each deck's content. og:site_name is a static
+// brand; the plain meta description is mirrored from the deck's own og:description so
+// crawlers get an explicit one. (The sitemap below stays canonical-prod on purpose.)
+function injectSocialMeta(indexHtml, canonicalPath) {
+  if (!existsSync(indexHtml)) return false
+  const html = readFileSync(indexHtml, 'utf8')
+  const url = `${ORIGIN}${canonicalPath}`
+  const image = `${url}og.png`
+  const desc = html.match(/<meta property="og:description" content="([^"]*)"/)?.[1]
+  const tags = [
+    `<meta property="og:image" content="${image}" />`,
+    `<meta property="og:url" content="${url}" />`,
+    `<meta property="og:site_name" content="${SITE_NAME}" />`,
+    `<meta name="twitter:image" content="${image}" />`,
+    desc ? `<meta name="description" content="${desc}" />` : null,
+  ].filter(Boolean)
+  writeFileSync(indexHtml, html.replace('</head>', `  ${tags.join('\n  ')}\n  </head>`))
+  return true
+}
+
+const socialTargets = []
+if (hasOnboarding) socialTargets.push({ index: join(distDir, 'index.html'), path: '/' })
+socialTargets.push(...weeks.map((name) => ({ index: join(distDir, name, 'index.html'), path: `/${name}/` })))
+let socialInjected = 0
+for (const t of socialTargets) if (injectSocialMeta(t.index, t.path)) socialInjected++
+if (socialInjected > 0) console.log(`✓ injected social meta into ${socialInjected} deck index(es)`)
 
 // sitemap.xml — always advertises the production deck URLs (the canonical site
 // GSC indexes), generated from the discovered weeks so it stays in sync as weeks
