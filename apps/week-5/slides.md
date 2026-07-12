@@ -1,5 +1,6 @@
 ---
 theme: default
+canvasWidth: 1920
 title: Week 5
 addons:
   - slidev-addon-shared
