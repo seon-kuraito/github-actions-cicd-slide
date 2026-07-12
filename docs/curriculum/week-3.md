@@ -12,7 +12,7 @@
 
 ## P0 — Starting（2 頁）
 
-- [ ] 簡報封面：MODULE · REWIND · 時光機：搞砸了也救得回來
+- [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · REWIND／2026.08.01 · 第三週）
 - [ ] 本日目標：進度回溯＋發出第一個正式版本
 
 ## P1 — 暫存與檔案操作（19 頁）

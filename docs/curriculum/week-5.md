@@ -12,7 +12,7 @@
 
 ## P0 — Starting（2 頁）
 
-- [ ] 簡報封面：MODULE · PIPELINE · 流水線：讓機器人幫你把關
+- [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · PIPELINE／2026.08.22 · 第五週）
 - [ ] 本日目標：push 之後，測試自己跑
 
 ## P1 — Actions 架構深入（16 頁）
@@ -174,7 +174,7 @@
 ## P8 — Ending（2 頁）
 
 - [ ] ✅ Recap：打開 Dashboard，點亮 W5 這批技能（pipeline 全綠）
-- [ ] 下週預告＋課前準備：交付日——**確保自己 repo 的 CI 全綠**（capstone 的起跑線）
+- [ ] 下週預告＋課前準備：容器化與結業專題——**確保自己 repo 的 CI 全綠**（capstone 的起跑線）
 
 ## Spec 覆蓋
 
