@@ -1,5 +1,6 @@
 ---
 theme: default
+canvasWidth: 1920
 title: CI/CD 簡報系列
 addons:
   - slidev-addon-shared
