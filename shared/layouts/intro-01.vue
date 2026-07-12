@@ -65,9 +65,9 @@ defineProps<{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* 首列內容頂部切齊左側標題頂部（eyebrow 72 + 高 + gap 56 = 標題頂 164；
-     扣掉列自帶的 44px 上內距）。 */
-  padding-top: 48px;
+  /* 對齊基準：左側標題頂 164（eyebrow 72 + 高度 + gap 56），扣除列本身 44px 上內距
+     得到 48，再加 32px 視覺留白。 */
+  padding-top: 80px;
 }
 .agenda-row {
   display: flex;
@@ -85,6 +85,8 @@ defineProps<{
   color: var(--brand-git);
   width: 84px;
   flex-shrink: 0;
+  /* 編號永不折行；長編號（如 W6 的 P4-6）溢入右側 gap 而非換行。 */
+  white-space: nowrap;
 }
 .agenda-text {
   display: flex;

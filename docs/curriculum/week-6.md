@@ -16,7 +16,7 @@
 
 ## P0 — Starting（2 頁）
 
-- [ ] 簡報封面：MODULE · LAUNCH · 交付日：從 code 到上線
+- [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · LAUNCH／2026.08.29 · 第六週）
 - [ ] 本日目標：push 就部署、部署就通知
 
 ## P1 — Docker 概念（14 頁）

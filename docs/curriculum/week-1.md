@@ -13,7 +13,7 @@
 
 ## P0 — Starting（2 頁）
 
-- [ ] 簡報封面：MODULE · ORIGIN · 起點：從零到「我的東西上線了」
+- [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · ORIGIN／2026.07.18 · 第一週）
 - [ ] 本日目標：技能樹 Dashboard 上線
 
 ## P2 — 認識 Git 與環境準備（42 頁）
@@ -218,7 +218,7 @@
 ## P8 — Ending（2 頁）
 
 - [ ] ✅ Recap：打開 Dashboard，確認第一批技能點亮了（實質更新已在 P6【15】commit→push 上線）
-- [ ] 下週預告：平行宇宙——分支與衝突＋回家小任務（口頭發布）
+- [ ] 下週預告：分支與衝突＋回家小任務（口頭發布）
 
 ## Spec 覆蓋
 

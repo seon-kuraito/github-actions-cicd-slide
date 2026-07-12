@@ -12,7 +12,7 @@
 
 ## P0 — Starting（2 頁）
 
-- [ ] 簡報封面：MODULE · PARALLEL · 平行宇宙：分支與衝突
+- [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · PARALLEL／2026.07.25 · 第二週）
 - [ ] 本日目標：開分支、合併、解衝突，發出第一個 PR
 
 ## P1 — 分支概念（32 頁）

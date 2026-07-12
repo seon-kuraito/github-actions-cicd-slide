@@ -23,9 +23,8 @@ const NEXT_ARROW = 'next →'
         <span class="item-text"><MdInline :text="it.text" /></span>
       </div>
     </div>
-    <div class="footer">
-      <span></span>
-      <span v-if="next" class="next">{{ NEXT_ARROW }} {{ next }}</span>
+    <div v-if="next" class="footer">
+      <span class="next">{{ NEXT_ARROW }} {{ next }}</span>
     </div>
   </div>
 </template>
@@ -60,7 +59,7 @@ const NEXT_ARROW = 'next →'
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0;
   max-width: 1500px;
 }
@@ -89,7 +88,7 @@ const NEXT_ARROW = 'next →'
 }
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border-top: 1px solid var(--line);
   padding-top: 36px;
