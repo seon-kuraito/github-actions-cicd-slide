@@ -23,6 +23,11 @@ const distDir = join(root, 'dist')
 // out of the week loop, the sitemap, and the per-env noindex rule (see below).
 const ONBOARDING = 'onboarding'
 
+// Local-only decks: committed for reference but never built or deployed.
+// apps/templates is the design-system style guide (the living reference for
+// every custom layout) — it must stay out of dist/ and the sitemap.
+const LOCAL_ONLY = new Set(['templates'])
+
 // The canonical (production) origin the sitemap advertises to search engines.
 const PROD_ORIGIN = 'https://github-actions-cicd-slide.seonkuraito.com'
 const isProduction = process.env.VITE_ENV === 'production'
@@ -30,7 +35,7 @@ const isProduction = process.env.VITE_ENV === 'production'
 // Discover decks: apps/* dirs that actually hold a slides.md (weeks added over
 // time — absent ones simply don't get built, no error).
 const decks = readdirSync(appsDir, { withFileTypes: true })
-  .filter((d) => d.isDirectory() && existsSync(join(appsDir, d.name, 'slides.md')))
+  .filter((d) => d.isDirectory() && !LOCAL_ONLY.has(d.name) && existsSync(join(appsDir, d.name, 'slides.md')))
   .map((d) => d.name)
   .sort()
 
