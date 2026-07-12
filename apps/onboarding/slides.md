@@ -2,14 +2,12 @@
 theme: default
 canvasWidth: 1920
 title: CI/CD 簡報系列
+titleTemplate: "%s"
 favicon: /favicon.svg
 seoMeta:
   ogTitle: "GitHub Actions CI/CD 自動化與 AI 協作實務班 · 課程導覽"
   ogDescription: "六週實作課程，從 Git 版本控制、GitHub 協作與 GitHub Actions CI/CD，一路走到 Docker 部署、通知系統與 AI 協作，從這裡了解課程設計、技能樹 Dashboard 與逐週內容。"
-  ogImage: "https://github-actions-cicd-slide.seonkuraito.com/og.png"
-  ogUrl: "https://github-actions-cicd-slide.seonkuraito.com/"
   twitterCard: "summary_large_image"
-  twitterImage: "https://github-actions-cicd-slide.seonkuraito.com/og.png"
 addons:
   - slidev-addon-shared
 ---
