@@ -26,14 +26,20 @@
    * 刻意不 alias ramp（用途＝角色，非階）。github 程式碼終端走語法層 code-blue/orange，不在此列。 */
   --brand-git-term: #FF7A45;
   --brand-ai-term: #C4B5FD;
-  /* 亮色模式 */
-  --paper: #FFFFFF;
+  /* 亮色模式
+   * 2026-07-13 調深：--ink-3/-4 與 --line/-2 共壓兩階（投影場景原值對比太低，
+   * 小字與邊框讀不清；--ink-3 白底對比 3.4:1 → 4.7:1）。原交接值：
+   * ink-3 #8A837C、ink-4 #B5AEA6、line #E5DED8、line-2 #D9D2CC。 */
+  /* 2026-07-13 調暖：純白投影太亮，改暖象牙白（原 #FFFFFF）；
+   * 介於白與 --panel 之間，保住 paper→panel 的層差。
+   * 曾試再壓一階 #F8F5F1：紙感更好但與 --panel 只剩 3–4/通道、panel 面讀感消失，退回。 */
+  --paper: #FBFAF8;
   --ink: #37352F;
   --ink-2: #55504B;
-  --ink-3: #8A837C;
-  --ink-4: #B5AEA6;
-  --line: #E5DED8;
-  --line-2: #D9D2CC;
+  --ink-3: #6B645E;
+  --ink-4: #9A938B;
+  --line: #CFC6BE;
+  --line-2: #BFB6AD;
   --panel: #F5F1ED;
   /* 深色模式（Notion 式深灰） */
   --dark-bg: #1F1F1F;
@@ -71,11 +77,14 @@
  * 所有 layout 因引用 token 而整體翻轉；「白字於品牌色上」等不該翻的點在各 layout
  * 以字面值釘住。映射表由設計交接的兩張深色樣張（cover-01 · dark、chapter-01 · dark）
  * 逐色反推，樣張的 SVG hex（線 #383838／圈底 #1F1F1F／圈框 #454545）亦吻合。
- * 樣張未覆蓋、屬延伸推導（待設計線回填定案）：--ink-2、--ink-4、--panel、三色 tint。 */
+ * 樣張未覆蓋、屬延伸推導（待設計線回填定案）：--ink-4、--panel、三色 tint。 */
 html.dark {
   --paper: var(--dark-bg);
   --ink: var(--dark-ink);
-  --ink-2: var(--dark-ink-2);
+  /* 2026-07-12 回填：原折疊進 --dark-ink-2 導致 ink-2/ink-3 深色同值、階層塌陷
+   * （例：intro-02 的 bio vs sub）。值＝照亮色階梯明度比例內插（ink-2 落在
+   * ink→ink-3 約 38% 處，套到 #E6E6E6→#ABABAB）。 */
+  --ink-2: #CDCDCD;
   --ink-3: var(--dark-ink-2);
   --ink-4: #6e6e6e;
   --line: var(--dark-line);
