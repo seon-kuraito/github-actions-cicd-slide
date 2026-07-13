@@ -1,4 +1,4 @@
-/* Design tokens — 1:1 with the Claude Design handoff (templates.html :root / spec.md).
+/* Design tokens — 1:1 with the Claude Design handoff (:root vars).
  * Loaded globally by the addon so every deck (and every custom layout) can
  * reference var(--token) exactly as the design file does. */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
@@ -77,7 +77,8 @@
  * 所有 layout 因引用 token 而整體翻轉；「白字於品牌色上」等不該翻的點在各 layout
  * 以字面值釘住。映射表由設計交接的兩張深色樣張（cover-01 · dark、chapter-01 · dark）
  * 逐色反推，樣張的 SVG hex（線 #383838／圈底 #1F1F1F／圈框 #454545）亦吻合。
- * 樣張未覆蓋、屬延伸推導（待設計線回填定案）：--ink-4、--panel、三色 tint。 */
+ * 樣張未覆蓋、屬延伸推導：--ink-4、--panel、三色 tint——設計交接棄置後
+ * 就地定案（亮暗全量截圖驗證；2026-07-13 收案，見 DECISIONS.md 視覺線）。 */
 html.dark {
   --paper: var(--dark-bg);
   --ink: var(--dark-ink);

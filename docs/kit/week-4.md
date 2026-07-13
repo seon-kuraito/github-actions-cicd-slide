@@ -69,7 +69,6 @@
 - [ ] `write-pr`（AI 生成 PR 描述）
 - [ ] `review-pr`（AI code review）
 - [ ] AI review 邊界
-- [ ] Copilot 補全 ⟦可拆卸⟧ ⟨加分⟩
 - >【11】MCP：把 GitHub 接上 AI
 - [ ] MCP 概念
 - [ ] MCP 串 GitHub
