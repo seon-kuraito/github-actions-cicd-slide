@@ -1,29 +1,31 @@
 <script setup lang="ts">
-type Badge = { text: string; accent?: boolean }
-
 defineProps<{
-  heading?: string
   sub?: string
-  badges?: Badge[]
+  contact?: string
 }>()
+
+// Q&A 為固定設計字（& 走品牌橘）。
+const QA_LEFT = 'Q'
+const QA_AMP = '&'
+const QA_RIGHT = 'A'
 </script>
 
 <template>
-  <div class="slidev-layout statement-04">
+  <div class="slidev-layout outro-01">
     <PageNo />
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <span class="headline"><MdInline :text="heading" /></span>
+    <span class="headline">{{ QA_LEFT }}<span class="headline-accent">{{ QA_AMP }}</span>{{ QA_RIGHT }}</span>
     <span class="sub"><MdInline :text="sub" /></span>
-    <div class="badges">
-      <span v-for="(badge, i) in badges ?? []" :key="i" class="badge" :class="{ accent: badge.accent }">{{ badge.text }}</span>
+    <div v-if="contact" class="contacts">
+      <span class="contact-chip">{{ contact }}</span>
     </div>
   </div>
 </template>
 
 <style scoped>
-.statement-04 {
+.outro-01 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,33 +47,28 @@ defineProps<{
   color: var(--ink);
   letter-spacing: -0.03em;
 }
-/* sub 為較長討論題，維持 statement 副標樣式（36／0.1em／ink-3），加寬度上限與行高供換行。 */
+.headline-accent {
+  color: var(--brand-git);
+}
 .sub {
   font-family: var(--font-sans);
   font-size: 36px;
   font-weight: 500;
   color: var(--ink-3);
   letter-spacing: 0.1em;
-  max-width: 1300px;
-  text-align: center;
-  line-height: 1.6;
 }
-.badges {
+/* 底部聯絡資訊：與 outro-02 同一 in-flow 有框 chip（置中群組內、對齊 p62 排版）。 */
+.contacts {
   display: flex;
   align-items: center;
   gap: 28px;
 }
-.badge {
+.contact-chip {
   font-family: var(--font-mono);
-  font-size: 26px;
-  padding: 14px 32px;
+  font-size: 25px;
   font-weight: 500;
   color: var(--ink-2);
-  border: 1px solid var(--line-2);
-}
-.badge.accent {
-  font-weight: 600;
-  color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--line-2);
+  padding: 14px 32px;
 }
 </style>

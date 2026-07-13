@@ -5,7 +5,7 @@
 ## 週 repo：`notify-w5-pipeline`
 
 - 主線：W4 的 JS 通知服務——含 `formatMessage` 純函式（組訊息、通知管道無關）＋薄 adapter，**無畫面**。
-- 預埋：未升級狀態（無 package.json）、tests 缺席、半成品 workflow（等待修復）、`notify-py/` 迷你對照組（Python 副實作用）。
+- 預埋：未升級狀態（無 package.json）、tests 缺席、半成品 workflow（等待修復）、`notify-py/` 迷你對照組（Python 對照用）。
 - `skills/`：本週 skills。
 
 ## 本週 skills

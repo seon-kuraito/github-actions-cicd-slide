@@ -66,7 +66,7 @@ const LABEL_OPTIONAL = 'OPTIONAL'
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 72px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -86,7 +86,7 @@ const LABEL_OPTIONAL = 'OPTIONAL'
   padding: 24px 0;
 }
 .check-row:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .check-box {
   width: 30px;
@@ -124,12 +124,12 @@ const LABEL_OPTIONAL = 'OPTIONAL'
   padding: 10px 24px;
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
 }
 .check-row.optional .check-tag {
   font-weight: 500;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 .bottom-bar {
   display: flex;

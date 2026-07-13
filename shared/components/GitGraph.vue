@@ -34,7 +34,7 @@ const svgH = computed(() => PAD_TOP + ROW * props.commits.length + 10)
 const nodeY = (i: number) => PAD_TOP + ROW * i + ROW / 2
 const laneX = (i: number) => LANE_X[props.commits[i]?.lane ?? 0] ?? LANE_X[0]
 
-// 色彩走 token（值＝原 hex，亮色不變）；品牌色跨模式恆定，中性色（gray/faint）深色隨頁翻轉。
+// 色彩走 token（值＝原 hex，淺色不變）；品牌色跨模式恆定，中性色（gray/faint）深色隨頁翻轉。
 const EDGE_COLOR = { brand: 'var(--brand-git)', gray: 'var(--ink-4)', deep: 'var(--brand-git-deep)', faint: 'var(--line-2)' } as const
 const NODE_STROKE: Record<GraphNode, string> = {
   head: 'var(--brand-git)',
@@ -147,19 +147,19 @@ function arcHead(a: GraphArc): string {
 .commit-tag.k-brand {
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 5px 14px;
 }
 .commit-tag.k-muted {
   font-weight: 500;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 5px 14px;
 }
 .commit-tag.k-deep {
   font-weight: 600;
   color: var(--brand-git-deep);
-  border: 1px solid var(--brand-git-deep);
+  border: 2px solid var(--brand-git-deep);
   padding: 5px 14px;
 }
 .commit-tag.k-conflict {

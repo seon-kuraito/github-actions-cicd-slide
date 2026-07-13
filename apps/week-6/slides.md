@@ -31,7 +31,7 @@ items:
 <!-- ── P1 09:00–09:50 · 教學（Docker 概念） ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 10:00"
@@ -40,7 +40,7 @@ badge: "BACK · 10:00"
 <!-- ── P2 10:00–10:50 · 教學（Dockerfile） ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 11:00"
@@ -49,7 +49,7 @@ badge: "BACK · 11:00"
 <!-- ── P3 11:00–11:50 · 教學（CI build & push） ── -->
 
 ---
-layout: statement-03
+layout: break-02
 sub: "休息一小時，下午回來繼續完成今天的實作任務"
 badge: "BACK · 13:00"
 ---
@@ -65,7 +65,7 @@ items:
 <!-- ── P4 13:00–13:50 · 結業專題（上）—— P4–P6 為連續結業專題時段 ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 14:00"
@@ -74,7 +74,7 @@ badge: "BACK · 14:00"
 <!-- ── P5 14:00–14:50 · 結業專題（中） ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 15:00"
@@ -83,7 +83,7 @@ badge: "BACK · 15:00"
 <!-- ── P6 15:00–15:50 · 結業專題（下）—— deploy＋notify 驗收 ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 16:00"
@@ -111,6 +111,7 @@ items:
 ---
 
 ---
-layout: statement-06
+layout: outro-03
 sub: "六週旅程完成，感謝參與 🎉"
+badge: CONGRATULATIONS
 ---

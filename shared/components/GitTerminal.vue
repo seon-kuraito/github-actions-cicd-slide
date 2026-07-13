@@ -26,7 +26,7 @@ withDefaults(defineProps<{ lines?: TermLine[] }>(), { lines: () => [] })
 .git-terminal {
   flex: 1;
   background: var(--term-bg);
-  border: 1px solid var(--dark-border);
+  border: 2px solid var(--dark-border);
   border-radius: 14px;
   overflow: hidden;
   display: flex;

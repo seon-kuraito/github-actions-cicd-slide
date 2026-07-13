@@ -1,27 +1,32 @@
 <script setup lang="ts">
 defineProps<{
-  heading?: string
   sub?: string
   badge?: string
+  contacts?: string[]
 }>()
+
+// THANK YOU 為固定設計字（YOU 走品牌橘）。
+const THANK = 'THANK'
+const YOU = 'YOU'
 </script>
 
 <template>
-  <div class="slidev-layout statement-05">
+  <div class="slidev-layout outro-02">
     <PageNo />
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <span class="headline"><MdInline :text="heading" /></span>
+    <span class="headline">{{ THANK }} <span class="headline-accent">{{ YOU }}</span></span>
     <span class="sub"><MdInline :text="sub" /></span>
-    <div class="chips">
+    <div class="contacts">
       <span v-if="badge" class="badge">{{ badge }}</span>
+      <span v-for="(c, i) in contacts ?? []" :key="i" class="contact-chip">{{ c }}</span>
     </div>
   </div>
 </template>
 
 <style scoped>
-.statement-05 {
+.outro-02 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,6 +48,9 @@ defineProps<{
   color: var(--ink);
   letter-spacing: -0.03em;
 }
+.headline-accent {
+  color: var(--brand-git);
+}
 .sub {
   font-family: var(--font-sans);
   font-size: 36px;
@@ -50,17 +58,25 @@ defineProps<{
   color: var(--ink-3);
   letter-spacing: 0.1em;
 }
-.chips {
+.contacts {
   display: flex;
   align-items: center;
   gap: 28px;
+}
+.contact-chip {
+  font-family: var(--font-mono);
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--ink-2);
+  border: 2px solid var(--line-2);
+  padding: 14px 32px;
 }
 .badge {
   font-family: var(--font-mono);
   font-size: 26px;
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 14px 32px;
 }
 </style>

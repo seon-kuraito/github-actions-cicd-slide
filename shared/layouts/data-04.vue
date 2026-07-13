@@ -80,7 +80,7 @@ defineProps<{
   letter-spacing: -0.03em;
 }
 .stat-unit {
-  font-size: 72px;
+  font-size: 64px;
   color: var(--brand-git);
 }
 .stat-heading {

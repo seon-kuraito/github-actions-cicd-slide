@@ -81,7 +81,7 @@ defineProps<{
 .figure-placeholder {
   flex: 1;
   background: var(--panel);
-  border: 1px dashed var(--line-2);
+  border: 2px dashed var(--line-2);
   display: flex;
   flex-direction: column;
   align-items: center;

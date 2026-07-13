@@ -39,7 +39,7 @@ const marker = (l: DiffLine) => (l.kind === 'add' ? '+' : l.kind === 'del' ? 'âˆ
 .diff-panel {
   width: 1000px;
   flex-shrink: 0;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
   display: flex;
@@ -51,7 +51,7 @@ const marker = (l: DiffLine) => (l.kind === 'add' ? '+' : l.kind === 'del' ? 'âˆ
   align-items: center;
   justify-content: space-between;
   padding: 24px 44px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .head-label {
   font-family: var(--font-mono);

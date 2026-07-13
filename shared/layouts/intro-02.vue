@@ -105,7 +105,7 @@ defineProps<{
   font-size: 31px;
   line-height: 1.85;
   color: var(--ink-2);
-  max-width: 900px;
+  max-width: 890px;
 }
 .tags {
   display: flex;
@@ -117,12 +117,14 @@ defineProps<{
   font-size: 25px;
   font-weight: 500;
   padding: 12px 28px;
-  color: var(--ink-2);
-  border: 1px solid var(--line-2);
+  /* 非 active 標籤＝幽靈態：文字與邊框同色（對照 .tag.active 的文字借框色同構）；
+   * 曾用 --line-2 太淡，升一階 --ink-4。 */
+  color: var(--ink-4);
+  border: 2px solid var(--ink-4);
 }
 .tag.active {
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
 }
 .photo-col {
   width: 560px;
@@ -135,7 +137,7 @@ defineProps<{
   width: 560px;
   height: 560px;
   object-fit: cover;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   background: var(--panel);
   display: block;
 }
@@ -143,7 +145,7 @@ defineProps<{
   width: 560px;
   height: 560px;
   object-fit: cover;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   background: var(--panel);
   display: flex;
   align-items: center;
@@ -158,7 +160,7 @@ defineProps<{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-top: none;
   padding: 20px 28px;
 }

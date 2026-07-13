@@ -2,7 +2,7 @@
 defineProps<{
   heading?: string
   sub?: string
-  src?: string
+  image?: string
   alt?: string
   imageLabel?: string
   imageNote?: string
@@ -12,8 +12,8 @@ defineProps<{
 <template>
   <div class="slidev-layout image-02">
     <PageNo />
-    <div v-if="src" class="media">
-      <img :src="src" :alt="alt" class="media-img" />
+    <div v-if="image" class="media">
+      <img :src="image" :alt="alt" class="media-img" />
     </div>
     <div v-else class="placeholder">
       <span class="ph-label">{{ imageLabel }}</span>
@@ -52,7 +52,7 @@ defineProps<{
 }
 .placeholder {
   flex: 1;
-  border-bottom: 1px dashed var(--line-2);
+  border-bottom: 2px dashed var(--line-2);
   display: flex;
   flex-direction: column;
   align-items: center;

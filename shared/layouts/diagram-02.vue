@@ -78,7 +78,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -110,7 +110,7 @@ defineProps<{
 .expected .tag {
   font-weight: 500;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 /* 品牌色實底上的白字無深色版：釘 #FFFFFF，不得換回 var(--paper)（深色重映射會翻轉）。 */
 .actual .tag {
@@ -132,7 +132,7 @@ defineProps<{
 .diagram-box {
   flex: 1;
   background: var(--panel);
-  border: 1px dashed var(--line-2);
+  border: 2px dashed var(--line-2);
   display: flex;
   flex-direction: column;
   align-items: center;

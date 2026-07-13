@@ -53,13 +53,13 @@ withDefaults(defineProps<{ areas?: Area[]; arrows?: Arrow[] }>(), { areas: () =>
   display: flex;
   flex-direction: column;
   /* 非 active 區框線用 --ink-3（＝「commit →」箭頭灰，比 --line-2 明顯）；亮暗皆隨 token 翻。 */
-  border: 1px solid var(--ink-3);
+  border: 2px solid var(--ink-3);
 }
 .area.is-dashed {
   border-style: dashed;
 }
 .area.is-active {
-  border: 2px solid var(--brand-git);
+  border: 3px solid var(--brand-git);
   background: var(--brand-git-tint);
 }
 .area-label {
@@ -68,11 +68,11 @@ withDefaults(defineProps<{ areas?: Area[]; arrows?: Arrow[] }>(), { areas: () =>
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.14em;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
   color: var(--ink-3);
 }
 .is-dashed .area-label {
-  border-bottom: 1px dashed var(--line-2);
+  border-bottom: 2px dashed var(--line-2);
 }
 .is-active .area-label {
   border-bottom-color: var(--brand-git);

@@ -65,7 +65,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -96,7 +96,7 @@ defineProps<{
 .placeholder {
   flex: 1;
   background: var(--panel);
-  border: 1px dashed var(--line-2);
+  border: 2px dashed var(--line-2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,13 +128,13 @@ defineProps<{
   padding: 8px 20px;
   flex-shrink: 0;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 /* AFTER 反白釘 #FFFFFF（非 var(--paper)）：深色模式下橘底上維持白字，不得改回 var。 */
 .tag.active {
   color: #FFFFFF;
   background: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
 }
 .caption {
   font-family: var(--font-sans);

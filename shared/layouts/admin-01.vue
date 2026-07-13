@@ -55,7 +55,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -69,7 +69,7 @@ defineProps<{
   align-content: center;
 }
 .info-card {
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 48px 52px;
   box-sizing: border-box;
   display: flex;

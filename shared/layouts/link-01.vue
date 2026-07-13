@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps<{
-  src?: string
+  image?: string
+  heading?: string
   url?: string
-  desc?: string
 }>()
 
 const QR_PLACEHOLDER_LABEL = 'QR CODE'
@@ -15,13 +15,13 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <img v-if="src" :src="src" class="qr-img" />
+    <img v-if="image" :src="image" class="qr-img" />
     <div v-else class="qr-placeholder">
       <span class="qr-ph-label">{{ QR_PLACEHOLDER_LABEL }}</span>
       <span class="qr-ph-size">{{ QR_PLACEHOLDER_SIZE }}</span>
     </div>
-    <span class="url">{{ url }}</span>
-    <span class="desc"><MdInline :text="desc" /></span>
+    <span class="heading"><MdInline :text="heading" /></span>
+    <span v-if="url" class="url-badge">{{ url }}</span>
   </div>
 </template>
 
@@ -40,16 +40,18 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
   left: 100px;
   z-index: 2;
 }
+/* 實照 QR 白底在淺色 paper 上幾乎無邊界，加灰 hairline 框。 */
 .qr-img {
   width: 400px;
   height: 400px;
   flex-shrink: 0;
+  border: 2px solid var(--line-2);
 }
 .qr-placeholder {
   width: 400px;
   height: 400px;
   background: var(--panel);
-  border: 1px dashed var(--line-2);
+  border: 2px dashed var(--line-2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -70,15 +72,23 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
   font-size: 21px;
   color: var(--ink-4);
 }
-.url {
+/* heading＝content-03 置中宣言層規格；url 降為底部品牌 badge（同 outro／break 家族 badge 規格）。 */
+.heading {
+  font-family: var(--font-sans);
+  font-size: 84px;
+  font-weight: 900;
+  line-height: 1.6;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  text-align: center;
+  max-width: 1400px;
+}
+.url-badge {
   font-family: var(--font-mono);
-  font-size: 52px;
+  font-size: 26px;
   font-weight: 600;
   color: var(--brand-git);
-}
-.desc {
-  font-family: var(--font-sans);
-  font-size: 32px;
-  color: var(--ink-3);
+  border: 2px solid var(--brand-git);
+  padding: 14px 32px;
 }
 </style>
