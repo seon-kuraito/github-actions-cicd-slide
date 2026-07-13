@@ -138,7 +138,7 @@
 - [ ] *兩張關閉的 Issue＋兩個 merged PR，全程無人直推 main*
 - [ ] >進階：走一次 request changes 流程
 
-## P7 — AI 協作全開（~13 頁，溢出風險段）
+## P7 — AI 協作全開（~12 頁，溢出風險段）
 
 - [ ] **【10】AI 代寫代審 PR**
 - [ ] 【？】開 PR、審 PR 這種例行功夫，AI 能不能代勞？
@@ -146,7 +146,6 @@
 - [ ] Demo：AI 生成 PR 描述（skill: `write-pr`）〔d4-PM②〕
 - [ ] Demo：AI 當第一位 reviewer（skill: `review-pr`）〔d4-PM③〕
 - [ ] 邊界頁：AI review 抓得到與抓不到的
-- [ ] ⟦可拆卸⟧ Copilot：編輯器裡的補全（授權到位才上）
 
 - [ ] **【11】MCP：把 GitHub 接上 AI**
 - [ ] 【？】gh 讓 AI 用指令，但還是隔一層——能不能讓 AI 直接讀你的 repo？
@@ -155,7 +154,7 @@
 - [ ] MCP 串 GitHub：讓 AI 直接讀你的 repo〔d4-PM⑤〕
 - [ ] Demo：AI 讀 Issue→開分支→發 PR 全程〔d4-PM⑤〕
 - [ ] *AI 全程不用你打指令，跑完 Issue→PR*
-- [ ] >降級備援：gh 版加深——MCP 不順（7/14 閘門或現場炸）就讓 AI 用 gh 走同一條鏈（gh issue view → 開分支 → gh pr create，回收 W2），少掉的只有「協定」那一課
+- [ ] >降級備援：gh 版加深——MCP 不順（W4 備課實測或現場炸）就讓 AI 用 gh 走同一條鏈（gh issue view → 開分支 → gh pr create，回收 W2），少掉的只有「協定」那一課
 - [ ] 今天帶走的 skills
 
 ## P8 — Ending（2 頁）
