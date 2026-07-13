@@ -1,4 +1,4 @@
-/* Design tokens — 1:1 with the Claude Design handoff (templates.html :root / spec.md).
+/* Design tokens — 1:1 with the Claude Design handoff (:root vars).
  * Loaded globally by the addon so every deck (and every custom layout) can
  * reference var(--token) exactly as the design file does. */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');

@@ -1,6 +1,6 @@
 /* Baseline for the custom design-system layouts (shared/layouts/*).
  * Decks run at canvasWidth: 1920, so every px value inside layouts is copied
- * verbatim from templates.html. Theme-default ships its own .slidev-layout
+ * verbatim from the design file. Theme-default ships its own .slidev-layout
  * padding/typography for markdown-rendered content — our layouts are fully
  * self-styled, so neutralise it here (addon styles load after the theme's). */
 .slidev-layout {
@@ -15,7 +15,7 @@
   text-autospace: normal;
 }
 
-/* 投影片共用 chrome（templates.html 同名 class，數值照抄） */
+/* 投影片共用 chrome（設計稿同名 class，數值照抄） */
 .eyebrow {
   display: inline-flex;
   align-items: center;
