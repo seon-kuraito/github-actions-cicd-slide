@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  qrs?: { url?: string; desc?: string; src?: string }[]
+  qrs?: { heading?: string; url?: string; src?: string }[]
 }>()
 
 const QR_PLACEHOLDER_LABEL = 'QR CODE'
@@ -14,15 +14,15 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
       <Eyebrow />
     </span>
     <div class="qrs">
-      <!-- 每欄＝link-01 中心那組（QR 圖＋橘色 url＋灰色 desc），兩欄水平並排。 -->
+      <!-- 每欄＝link-01 中心那組（QR 圖＋heading 名稱＋URL 品牌 badge），兩欄水平並排。 -->
       <div v-for="(qr, i) in qrs ?? []" :key="i" class="qr-item">
         <img v-if="qr.src" :src="qr.src" class="qr-img" />
         <div v-else class="qr-placeholder">
           <span class="qr-ph-label">{{ QR_PLACEHOLDER_LABEL }}</span>
           <span class="qr-ph-size">{{ QR_PLACEHOLDER_SIZE }}</span>
         </div>
-        <span class="qr-url">{{ qr.url }}</span>
-        <span class="qr-desc"><MdInline :text="qr.desc" /></span>
+        <span class="qr-heading"><MdInline :text="qr.heading" /></span>
+        <span v-if="qr.url" class="url-badge">{{ qr.url }}</span>
       </div>
     </div>
   </div>
@@ -53,10 +53,12 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
   align-items: center;
   gap: 44px;
 }
+/* 實照 QR 白底在亮色 paper 上幾乎無邊界，加灰 hairline 框（同 link-01）。 */
 .qr-img {
   width: 400px;
   height: 400px;
   flex-shrink: 0;
+  border: 2px solid var(--line-2);
 }
 .qr-placeholder {
   width: 400px;
@@ -83,18 +85,23 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
   font-size: 21px;
   color: var(--ink-4);
 }
-/* 橘色 url／灰色 desc：字級與群組內間距對齊 link-01（url 52／desc 32／gap 44）。 */
-.qr-url {
+/* heading／url-badge 規格同 link-01（置中宣言層 84＋家族 badge）；heading 收 760 寬供欄內換行。 */
+.qr-heading {
+  font-family: var(--font-sans);
+  font-size: 84px;
+  font-weight: 900;
+  line-height: 1.6;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  text-align: center;
+  max-width: 760px;
+}
+.url-badge {
   font-family: var(--font-mono);
-  font-size: 52px;
+  font-size: 26px;
   font-weight: 600;
   color: var(--brand-git);
-}
-.qr-desc {
-  font-family: var(--font-sans);
-  font-size: 32px;
-  color: var(--ink-3);
-  text-align: center;
-  max-width: 600px;
+  border: 2px solid var(--brand-git);
+  padding: 14px 32px;
 }
 </style>

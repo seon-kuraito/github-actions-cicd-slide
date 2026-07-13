@@ -528,15 +528,15 @@ items:
 
 ---
 layout: link-01
+heading: 簡報名稱佔位
 url: url.placeholder/xyz
-desc: 掃碼說明佔位 — 開啟今天的教材
 ---
 
 ---
 layout: link-02
 qrs:
-  - { url: go.placeholder/slides, desc: 掃碼佔位 — 開啟今天的教材 }
-  - { url: go.placeholder/notes, desc: 掃碼佔位 — 加入課堂共筆 }
+  - { heading: 今日教材佔位, url: go.placeholder/slides }
+  - { heading: 課堂共筆佔位, url: go.placeholder/notes }
 ---
 
 ---

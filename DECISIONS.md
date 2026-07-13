@@ -185,6 +185,8 @@ hairline 邊框升 2px（2026-07-13，接續灰階調深；同為投影可讀性
 
 statement 家族拆分正名（2026-07-13，接續前一則；不影響張數）：六頁 statement 依語意拆成兩家族並改名——**收尾儀式頁 `outro-*`**（與 intro-* 成對）：outro-01←statement-01（Q&A）、outro-02←statement-02（THANK YOU）、outro-03←statement-06（COURSE COMPLETE），編號＝時序（段落收尾→日收尾→課程結業）；**課間中場頁 `break-*`**：break-01←statement-05（BREAK，回歸其前身 break-01 舊名、亦為最常用頁）、break-02←statement-03（LUNCH）、break-03←statement-04（GROUP）。檔名（git mv 保留歷史）、內部 class、七份 deck 的 layout key 全數同步；templates 參考頁重排為 outro-01→03、break-01→03。歷史條目照慣例維持舊名不回改。
 
+link 家族改版：URL 讓位大標（2026-07-13，不影響張數）：onboarding p2 定案時嫌 mono 52px 橘 URL 當大標太長——link-01／link-02 統一改為三層：**QR 實照加 2px `--line-2` 灰框**（QR 白底在亮色 `--paper` 上幾乎無邊界；佔位框原有虛線不動）→ **heading 名稱**（新 prop；沿用 content-03 置中宣言層規格 sans 84／900／ls 0.04em；link-02 每欄收 760 寬）→ **URL 品牌 badge**（沿用 outro／break 家族 badge 規格 mono 26／600 橘字橘框，「品牌色由底部 chip 承載」慣例）。原 desc 副標整層移除（首版曾降為家族 sub 36 規格、隨即定案砍掉——名稱＋badge 已足，資訊少一層）；link-02 的 qrs 項目 key `url`／`desc` → `heading`／`url`（項目內 `src` 不變）。消費者：onboarding p2 傳「課程簡報」、templates 兩頁補 heading 佔位。
+
 ## 技術決策（v1 存活項）
 
 | 分支 | 決策 | 備註 |
