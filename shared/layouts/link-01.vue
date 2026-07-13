@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  src?: string
+  image?: string
   url?: string
   desc?: string
 }>()
@@ -15,7 +15,7 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <img v-if="src" :src="src" class="qr-img" />
+    <img v-if="image" :src="image" class="qr-img" />
     <div v-else class="qr-placeholder">
       <span class="qr-ph-label">{{ QR_PLACEHOLDER_LABEL }}</span>
       <span class="qr-ph-size">{{ QR_PLACEHOLDER_SIZE }}</span>
@@ -49,7 +49,7 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
   width: 400px;
   height: 400px;
   background: var(--panel);
-  border: 1px dashed var(--line-2);
+  border: 2px dashed var(--line-2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

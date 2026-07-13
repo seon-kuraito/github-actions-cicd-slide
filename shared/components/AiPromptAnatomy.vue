@@ -31,7 +31,7 @@ const meta = computed(() => (props.sections.length ? `${props.sections.length} æ
 .anatomy-panel {
   width: 1000px;
   flex-shrink: 0;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
   display: flex;
@@ -44,7 +44,7 @@ const meta = computed(() => (props.sections.length ? `${props.sections.length} æ
   align-items: center;
   justify-content: space-between;
   padding: 24px 44px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .head-meta {
   font-family: var(--font-mono);
@@ -72,7 +72,7 @@ const meta = computed(() => (props.sections.length ? `${props.sections.length} æ
   padding: 26px 44px;
 }
 .section:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .section.is-active {
   background: var(--brand-ai-tint);

@@ -60,7 +60,7 @@ defineProps<{
   font-size: 26px;
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 14px 32px;
 }
 </style>

@@ -4,9 +4,6 @@ defineProps<{
   badge?: string
   contacts?: string[]
 }>()
-
-// CONGRATULATIONS 為固定設計字樣，整體使用品牌橘。
-const HEADLINE = 'CONGRATULATIONS'
 </script>
 
 <template>
@@ -15,7 +12,8 @@ const HEADLINE = 'CONGRATULATIONS'
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <span class="headline">{{ HEADLINE }}</span>
+    <!-- 固定結業字樣：COURSE COMPLETE（COMPLETE 品牌橘）；CONGRATULATIONS 由底部 badge 承載 -->
+    <span class="headline">COURSE <span class="accent">COMPLETE</span></span>
     <span class="sub"><MdInline :text="sub" /></span>
     <div class="chips">
       <span v-if="badge" class="badge">{{ badge }}</span>
@@ -39,14 +37,16 @@ const HEADLINE = 'CONGRATULATIONS'
   left: 100px;
   z-index: 2;
 }
-/* 家族規格為 180px；CONGRATULATIONS 15 字母在 1920 畫布放不下，降至 148px。 */
 .headline {
   font-family: var(--font-display);
-  font-size: 148px;
+  font-size: 180px;
   font-weight: 700;
   line-height: 1;
-  color: var(--brand-git);
+  color: var(--ink);
   letter-spacing: -0.03em;
+}
+.headline .accent {
+  color: var(--brand-git);
 }
 .sub {
   font-family: var(--font-sans);
@@ -64,8 +64,8 @@ const HEADLINE = 'CONGRATULATIONS'
   font-family: var(--font-mono);
   font-size: 26px;
   font-weight: 600;
-  color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  color: var(--ink-2);
+  border: 2px solid var(--line-2);
   padding: 14px 32px;
 }
 .contact-chip {
@@ -73,7 +73,7 @@ const HEADLINE = 'CONGRATULATIONS'
   font-size: 25px;
   font-weight: 500;
   color: var(--ink-2);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 14px 32px;
 }
 </style>

@@ -39,7 +39,7 @@ const heading = computed(() => 'CODE')
 .review-panel {
   width: 1000px;
   flex-shrink: 0;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
   display: flex;
@@ -51,7 +51,7 @@ const heading = computed(() => 'CODE')
   align-items: center;
   justify-content: space-between;
   padding: 24px 44px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .head-label {
   font-family: var(--font-mono);
@@ -102,7 +102,7 @@ const heading = computed(() => 'CODE')
 }
 .note-card {
   margin: 24px 44px 24px 128px;
-  border: 2px solid var(--brand-ai);
+  border: 3px solid var(--brand-ai);
   background: var(--paper);
   padding: 22px 28px;
   display: flex;

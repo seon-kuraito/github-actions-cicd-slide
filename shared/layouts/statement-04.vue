@@ -67,11 +67,11 @@ defineProps<{
   padding: 14px 32px;
   font-weight: 500;
   color: var(--ink-2);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 .badge.accent {
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
 }
 </style>

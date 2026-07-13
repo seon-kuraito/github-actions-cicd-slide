@@ -75,7 +75,7 @@ const LABEL_NEXT = 'UP NEXT'
 }
 .col-covered {
   padding-right: 96px;
-  border-right: 1px solid var(--line);
+  border-right: 2px solid var(--line);
 }
 .col-next {
   padding-left: 96px;

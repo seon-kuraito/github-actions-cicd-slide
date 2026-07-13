@@ -419,8 +419,8 @@ steps:
   - { label: 當前步驟佔位, active: true }
   - { label: 步驟佔位 }
   - { label: 步驟佔位 }
-zoomTag: ZOOM IN · STEP 02
-zoomText: 放大說明佔位 — 這一步內部發生什麼事、有哪些設定可以調整，兩到三行的細節描述。
+calloutTag: ZOOM IN · STEP 02
+calloutText: 放大說明佔位 — 這一步內部發生什麼事、有哪些設定可以調整，兩到三行的細節描述。
 ---
 
 ---
@@ -669,7 +669,7 @@ badge: BREAK · 10 MIN
 ---
 layout: statement-06
 sub: 結業祝賀佔位 — 六週旅程完成
-badge: "COURSE · COMPLETE"
+badge: CONGRATULATIONS
 ---
 
 ---

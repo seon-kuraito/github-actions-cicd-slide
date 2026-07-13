@@ -75,7 +75,7 @@ const PANEL_LABEL = 'FILE FLOW'
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -97,7 +97,7 @@ const PANEL_LABEL = 'FILE FLOW'
 .panel {
   width: 1000px;
   flex-shrink: 0;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -107,7 +107,7 @@ const PANEL_LABEL = 'FILE FLOW'
   align-items: center;
   justify-content: space-between;
   padding: 24px 36px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .panel-label {
   font-family: var(--font-mono);

@@ -88,7 +88,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -110,7 +110,7 @@ defineProps<{
 .panel {
   width: 1000px;
   flex-shrink: 0;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -120,7 +120,7 @@ defineProps<{
   align-items: center;
   justify-content: space-between;
   padding: 24px 44px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .panel-label {
   font-family: var(--font-mono);
@@ -135,7 +135,7 @@ defineProps<{
   font-size: 20px;
   font-weight: 600;
   color: var(--ok);
-  border: 1px solid var(--ok);
+  border: 2px solid var(--ok);
   padding: 3px 14px;
 }
 .pr-body {
@@ -162,7 +162,7 @@ defineProps<{
   font-size: 23px;
   font-weight: 600;
   color: var(--brand-github);
-  border: 1px solid var(--brand-github);
+  border: 2px solid var(--brand-github);
   padding: 6px 16px;
 }
 .branch-arrow {
@@ -174,7 +174,7 @@ defineProps<{
   font-family: var(--font-mono);
   font-size: 23px;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 6px 16px;
 }
 /* 生命週期時間軸：藍點＋連接線；current（可合併）用環狀強調節點，比照線圖 head。 */

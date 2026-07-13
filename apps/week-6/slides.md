@@ -113,4 +113,5 @@ items:
 ---
 layout: statement-06
 sub: "六週旅程完成，感謝參與 🎉"
+badge: CONGRATULATIONS
 ---

@@ -147,19 +147,19 @@ function arcHead(a: GraphArc): string {
 .commit-tag.k-brand {
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 5px 14px;
 }
 .commit-tag.k-muted {
   font-weight: 500;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 5px 14px;
 }
 .commit-tag.k-deep {
   font-weight: 600;
   color: var(--brand-git-deep);
-  border: 1px solid var(--brand-git-deep);
+  border: 2px solid var(--brand-git-deep);
   padding: 5px 14px;
 }
 .commit-tag.k-conflict {

@@ -2,7 +2,7 @@
 defineProps<{
   heading?: string
   body?: string
-  src?: string
+  image?: string
   alt?: string
   imageLabel?: string
   imageNote?: string
@@ -15,8 +15,8 @@ defineProps<{
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <div v-if="src" class="media">
-      <img :src="src" :alt="alt" class="media-img" />
+    <div v-if="image" class="media">
+      <img :src="image" :alt="alt" class="media-img" />
     </div>
     <div v-else class="placeholder">
       <span class="ph-label">{{ imageLabel }}</span>
@@ -53,7 +53,7 @@ defineProps<{
   height: 560px;
   flex-shrink: 0;
   background: var(--panel);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .media {
   overflow: hidden;
@@ -106,7 +106,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 60px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.35;
   color: var(--ink);

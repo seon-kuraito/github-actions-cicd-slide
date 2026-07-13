@@ -4,7 +4,6 @@ defineProps<{
   badge?: string
 }>()
 
-// LUNCH 為固定設計字樣，整體使用品牌橘。
 const LUNCH = 'LUNCH'
 </script>
 
@@ -42,7 +41,7 @@ const LUNCH = 'LUNCH'
   font-size: 180px;
   font-weight: 700;
   line-height: 1;
-  color: var(--brand-git);
+  color: var(--ink);
   letter-spacing: -0.03em;
 }
 .sub {
@@ -62,7 +61,7 @@ const LUNCH = 'LUNCH'
   font-size: 26px;
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 14px 32px;
 }
 </style>

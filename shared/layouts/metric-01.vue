@@ -76,7 +76,7 @@ const ARROW = '→'
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);

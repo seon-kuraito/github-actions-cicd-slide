@@ -3,7 +3,7 @@ defineProps<{
   slug?: string
   heading?: string
   body?: string
-  src?: string
+  image?: string
   alt?: string
   imageLabel?: string
   imageNote?: string
@@ -24,8 +24,8 @@ defineProps<{
         <span class="heading"><MdInline :text="heading" /></span>
         <span class="body-text"><MdInline :text="body" /></span>
       </div>
-      <div v-if="src" class="media">
-        <img :src="src" :alt="alt" class="media-img" />
+      <div v-if="image" class="media">
+        <img :src="image" :alt="alt" class="media-img" />
       </div>
       <div v-else class="placeholder">
         <span class="ph-label">{{ imageLabel }}</span>
@@ -64,7 +64,7 @@ defineProps<{
   align-items: center;
 }
 .text-col {
-  width: 720px;
+  width: 732px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 72px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -107,7 +107,7 @@ defineProps<{
   flex: 1;
   align-self: stretch;
   background: var(--panel);
-  border: 1px dashed var(--line-2);
+  border: 2px dashed var(--line-2);
   display: flex;
   flex-direction: column;
   align-items: center;

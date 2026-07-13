@@ -58,7 +58,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -82,7 +82,7 @@ defineProps<{
   padding: 24px 0;
 }
 .key-row:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .keys {
   display: flex;
@@ -97,7 +97,7 @@ defineProps<{
   font-weight: 600;
   color: var(--ink);
   background: var(--panel);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   border-bottom-width: 3px;
   border-radius: 8px;
   padding: 10px 20px;

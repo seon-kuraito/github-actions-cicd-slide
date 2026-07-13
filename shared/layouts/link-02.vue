@@ -62,7 +62,7 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
   width: 400px;
   height: 400px;
   background: var(--panel);
-  border: 1px dashed var(--line-2);
+  border: 2px dashed var(--line-2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

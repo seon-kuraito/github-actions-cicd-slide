@@ -68,7 +68,7 @@ const QA_RIGHT = 'A'
   font-size: 25px;
   font-weight: 500;
   color: var(--ink-2);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 14px 32px;
 }
 </style>

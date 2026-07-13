@@ -16,7 +16,7 @@ withDefaults(defineProps<{ label?: string; meta?: string; padY?: number }>(), { 
 
 <style scoped>
 .sh-panel {
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -26,7 +26,7 @@ withDefaults(defineProps<{ label?: string; meta?: string; padY?: number }>(), { 
   align-items: center;
   justify-content: space-between;
   padding: 24px 44px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .label {
   font-family: var(--font-mono);

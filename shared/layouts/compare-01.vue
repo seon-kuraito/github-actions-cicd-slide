@@ -67,7 +67,7 @@ withDefaults(
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -88,7 +88,7 @@ withDefaults(
 }
 .col.dont {
   background: var(--panel);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 .col.do {
   border: 3px solid var(--brand-git);

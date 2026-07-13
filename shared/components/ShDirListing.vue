@@ -49,7 +49,7 @@ const isHidden = (e: ShDirEntry) => e.hidden ?? e.name.startsWith('.')
   padding: 22px 44px;
 }
 .entry:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .entry-icon {
   flex-shrink: 0;
@@ -66,7 +66,7 @@ const isHidden = (e: ShDirEntry) => e.hidden ?? e.name.startsWith('.')
   font-family: var(--font-mono);
   font-size: 18px;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 4px 12px;
 }
 .entry-meta {

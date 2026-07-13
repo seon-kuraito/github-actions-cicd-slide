@@ -68,7 +68,7 @@ const YOU = 'YOU'
   font-size: 25px;
   font-weight: 500;
   color: var(--ink-2);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 14px 32px;
 }
 .badge {
@@ -76,7 +76,7 @@ const YOU = 'YOU'
   font-size: 26px;
   font-weight: 600;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 14px 32px;
 }
 </style>

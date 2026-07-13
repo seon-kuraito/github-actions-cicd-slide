@@ -115,7 +115,7 @@ const isDir = (n: ShTreeNode) => (n.kind ? n.kind === 'dir' : n.name.endsWith('/
   font-family: var(--font-mono);
   font-size: 20px;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 5px 14px;
 }
 .node-label {
