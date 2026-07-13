@@ -27,7 +27,8 @@ at `<host>/`.
     from the deck; use `image` instead (`src` keys nested inside array items
     are fine).
   - `components/` — chrome (`Eyebrow`, `PageNo`, auto page number) + `MdInline`
-    (renders `**bold**`/`` `code` ``/`\n` inside YAML strings) + parameterized
+    (renders a small inline-markup subset — bold / code / accent / link / newline —
+    inside YAML strings; see `MdInline.vue` for the live set) + parameterized
     diagram components (`Git*`, `Gh*`, `Ai*`, `Sh*`) that auto-layout from
     semantic data. **SVG trap**: never write `<text font-size="22">` — Slidev's
     UnoCSS attributify mode matches the presentation attribute and emits
@@ -39,10 +40,10 @@ at `<host>/`.
     `#FFFFFF` literals. Details in DECISIONS.md「視覺線」.
   - Every deck sets `canvasWidth: 1920` (headmatter); px values inside layouts
     were copied verbatim from the 1920×1080 design file.
-- `apps/templates/` — **local-only style-guide deck**: renders all 83 template
-  slides; since the handoff files were discarded, this deck IS the visual
-  reference (curated, no longer 1:1 with the original 91-template handoff —
-  see DECISIONS.md「視覺線」). Committed to git but never built or deployed
+- `apps/templates/` — **local-only style-guide deck**: one slide per layout;
+  since the handoff files were discarded, this deck IS the visual reference
+  (curated, no longer 1:1 with the original design handoff — see DECISIONS.md
+  「視覺線」). Committed to git but never built or deployed
   (`LOCAL_ONLY` in `scripts/build.mjs`).
 
 ## Course content (docs/ + DECISIONS.md)
@@ -64,8 +65,9 @@ them. Editing traps:
   renumbers must skip them.
 - Weekly repos ship **state, not exercises** — see 發放原則 in docs/README.md before adding
   kit material.
-- Cadence: **v1 (2026-07-10)** froze the W1–W6 page-level plan; **v2** re-grooms W4–W6
-  in the 8/8 off week; per-week deck production may still adjust details.
+
+The plan is versioned (v1 frozen, v2 re-grooms W4–W6) and per-week deck production still
+adjusts details — current status lives in DECISIONS.md, not here.
 
 ## Conventions (and why)
 
