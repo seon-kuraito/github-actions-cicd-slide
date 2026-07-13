@@ -18,6 +18,13 @@ date: 2026.07.18 · 課程導覽
 ---
 
 ---
+layout: link-01
+image: /qr-slides.png
+heading: 課程簡報
+url: github-actions-cicd-slide.seonkuraito.com
+---
+
+---
 layout: content-03
 heading: 你是老闆，還是員工？
 cite: "破冰環節 · 用幾個問題快速暖場"
