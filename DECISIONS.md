@@ -183,6 +183,8 @@ hairline 邊框升 2px（2026-07-13，接續灰階調深；同為投影可讀性
 
 結業頁改版與 LUNCH 去橘（2026-07-13，不影響張數）：statement-06 headline 由 CONGRATULATIONS（15 字母塞不下、降 148px 的家族例外）改為固定字「COURSE **COMPLETE**」——回歸家族 180px，品牌橘只留 COMPLETE 單字 accent（同 THANK YOU 的 YOU）；CONGRATULATIONS 降為底部 badge 承載，badge 並由品牌橘改為灰 chip 同款（`--ink-2`／`--line-2`；26px／600 維持）。statement-03 LUNCH 同步去整字橘（→ `--ink`）。兩消費者（week-6／templates）改傳 `badge: CONGRATULATIONS`；前述階梯化條目的「statement-06 148」例外就此消失，statement 家族 headline 全數歸隊 180。
 
+statement 家族拆分正名（2026-07-13，接續前一則；不影響張數）：六頁 statement 依語意拆成兩家族並改名——**收尾儀式頁 `outro-*`**（與 intro-* 成對）：outro-01←statement-01（Q&A）、outro-02←statement-02（THANK YOU）、outro-03←statement-06（COURSE COMPLETE），編號＝時序（段落收尾→日收尾→課程結業）；**課間中場頁 `break-*`**：break-01←statement-05（BREAK，回歸其前身 break-01 舊名、亦為最常用頁）、break-02←statement-03（LUNCH）、break-03←statement-04（GROUP）。檔名（git mv 保留歷史）、內部 class、七份 deck 的 layout key 全數同步；templates 參考頁重排為 outro-01→03、break-01→03。歷史條目照慣例維持舊名不回改。
+
 ## 技術決策（v1 存活項）
 
 | 分支 | 決策 | 備註 |

@@ -1,31 +1,27 @@
 <script setup lang="ts">
 defineProps<{
+  heading?: string
   sub?: string
-  contact?: string
+  badge?: string
 }>()
-
-// Q&A 為固定設計字（& 走品牌橘）。
-const QA_LEFT = 'Q'
-const QA_AMP = '&'
-const QA_RIGHT = 'A'
 </script>
 
 <template>
-  <div class="slidev-layout statement-01">
+  <div class="slidev-layout break-01">
     <PageNo />
     <span class="eyebrow-pos">
       <Eyebrow />
     </span>
-    <span class="headline">{{ QA_LEFT }}<span class="headline-accent">{{ QA_AMP }}</span>{{ QA_RIGHT }}</span>
+    <span class="headline"><MdInline :text="heading" /></span>
     <span class="sub"><MdInline :text="sub" /></span>
-    <div v-if="contact" class="contacts">
-      <span class="contact-chip">{{ contact }}</span>
+    <div class="chips">
+      <span v-if="badge" class="badge">{{ badge }}</span>
     </div>
   </div>
 </template>
 
 <style scoped>
-.statement-01 {
+.break-01 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,9 +43,6 @@ const QA_RIGHT = 'A'
   color: var(--ink);
   letter-spacing: -0.03em;
 }
-.headline-accent {
-  color: var(--brand-git);
-}
 .sub {
   font-family: var(--font-sans);
   font-size: 36px;
@@ -57,18 +50,17 @@ const QA_RIGHT = 'A'
   color: var(--ink-3);
   letter-spacing: 0.1em;
 }
-/* 底部聯絡資訊：與 statement-02 同一 in-flow 有框 chip（置中群組內、對齊 p62 排版）。 */
-.contacts {
+.chips {
   display: flex;
   align-items: center;
   gap: 28px;
 }
-.contact-chip {
+.badge {
   font-family: var(--font-mono);
-  font-size: 25px;
-  font-weight: 500;
-  color: var(--ink-2);
-  border: 2px solid var(--line-2);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 14px 32px;
 }
 </style>

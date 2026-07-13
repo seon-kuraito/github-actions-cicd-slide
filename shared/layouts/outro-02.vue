@@ -11,7 +11,7 @@ const YOU = 'YOU'
 </script>
 
 <template>
-  <div class="slidev-layout statement-02">
+  <div class="slidev-layout outro-02">
     <PageNo />
     <span class="eyebrow-pos">
       <Eyebrow />
@@ -26,7 +26,7 @@ const YOU = 'YOU'
 </template>
 
 <style scoped>
-.statement-02 {
+.outro-02 {
   display: flex;
   flex-direction: column;
   align-items: center;

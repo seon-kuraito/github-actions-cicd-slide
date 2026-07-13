@@ -631,13 +631,13 @@ groups:
 ---
 
 ---
-layout: statement-01
+layout: outro-01
 sub: 問題與討論
 contact: "contact@placeholder.dev · @handle-placeholder"
 ---
 
 ---
-layout: statement-02
+layout: outro-02
 sub: 感謝參與，下次課程見
 contacts:
   - "contact@placeholder.dev"
@@ -645,31 +645,31 @@ contacts:
 ---
 
 ---
-layout: statement-03
-sub: 下午預告佔位 — 回來後進入實作
-badge: "BACK AT · 13:30"
+layout: outro-03
+sub: 結業祝賀佔位 — 六週旅程完成
+badge: CONGRATULATIONS
 ---
 
 ---
-layout: statement-04
-heading: GROUP
-sub: 討論題目佔位——這一節的概念，如何應用在你自己的工作流程？
-badges:
-  - { text: TIME · 5 MIN, accent: true }
-  - { text: TEAM · 3–4 人 }
----
-
----
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "回來時間佔位 — 14:00 繼續"
 badge: BREAK · 10 MIN
 ---
 
 ---
-layout: statement-06
-sub: 結業祝賀佔位 — 六週旅程完成
-badge: CONGRATULATIONS
+layout: break-02
+sub: 下午預告佔位 — 回來後進入實作
+badge: "BACK AT · 13:30"
+---
+
+---
+layout: break-03
+heading: GROUP
+sub: 討論題目佔位——這一節的概念，如何應用在你自己的工作流程？
+badges:
+  - { text: TIME · 5 MIN, accent: true }
+  - { text: TEAM · 3–4 人 }
 ---
 
 ---
