@@ -16,7 +16,7 @@ const props = withDefaults(
   { stages: () => [] },
 )
 
-// 版面常數（templates.html #github-01 SVG 數值）
+// 版面常數（設計稿 github-01 的 SVG 數值）
 const CY = 230
 const TRIG = { x: 30, w: 170, h: 64 }
 const NODE_W = 210

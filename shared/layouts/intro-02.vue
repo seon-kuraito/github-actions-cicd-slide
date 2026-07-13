@@ -184,7 +184,7 @@ defineProps<{
 
 <style>
 /* 照片佔位灰 #E3E3E3 是設計稿字面值（非 token），深色樣張未覆蓋 —
- * 深色下映射到 --dark-node（延伸推導，待設計線回填）。 */
+ * 深色下映射到 --dark-node（延伸推導，2026-07-13 就地定案，見 DECISIONS.md 視覺線）。 */
 html.dark .slidev-layout.intro-02 {
   --intro02-photo-ph: var(--dark-node);
 }
