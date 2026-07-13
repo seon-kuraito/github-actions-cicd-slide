@@ -34,7 +34,7 @@ const svgH = computed(() => PAD_TOP + ROW * props.commits.length + 10)
 const nodeY = (i: number) => PAD_TOP + ROW * i + ROW / 2
 const laneX = (i: number) => LANE_X[props.commits[i]?.lane ?? 0] ?? LANE_X[0]
 
-// 色彩走 token（值＝原 hex，亮色不變）；品牌色跨模式恆定，中性色（gray/faint）深色隨頁翻轉。
+// 色彩走 token（值＝原 hex，淺色不變）；品牌色跨模式恆定，中性色（gray/faint）深色隨頁翻轉。
 const EDGE_COLOR = { brand: 'var(--brand-git)', gray: 'var(--ink-4)', deep: 'var(--brand-git-deep)', faint: 'var(--line-2)' } as const
 const NODE_STROKE: Record<GraphNode, string> = {
   head: 'var(--brand-git)',

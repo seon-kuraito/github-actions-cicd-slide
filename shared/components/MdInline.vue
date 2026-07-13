@@ -47,7 +47,7 @@ const segs = computed<Seg[]>(() => {
   color: var(--brand-git);
   font-weight: 700;
 }
-/* [text](href) 連結＝高亮色＋底線；相對路徑（如 /week-1/1）自動落在當前環境的 domain。
+/* [text](href) 連結＝品牌高亮＋底線；相對路徑（如 /week-1/1）自動落在當前環境的 domain。
  * border-bottom: none 蓋掉 Slidev 預設主題給 a 的 1px dashed（否則與底線疊成雙線）。
  * hover 不變色（釘住品牌色、改以移除底線回饋）；active 下沉 1px（position 位移，
  * 不用 transform——inline 元素吃不到）。 */

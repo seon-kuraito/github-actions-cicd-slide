@@ -10,7 +10,7 @@ const X0 = 180
 const DX = 210
 const slotX = (i: number) => X0 + DX * i
 
-// 色彩走 token（值＝原 hex，亮色不變）；品牌色恆定，中性色深色隨頁翻轉。
+// 色彩走 token（值＝原 hex，淺色不變）；品牌色恆定，中性色深色隨頁翻轉。
 const LANE_TONE = {
   brand: { line: 'var(--brand-git)', label: 'var(--brand-git)' },
   muted: { line: 'var(--ink-4)', label: 'var(--ink-3)' },

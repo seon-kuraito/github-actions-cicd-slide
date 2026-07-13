@@ -53,7 +53,7 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
   align-items: center;
   gap: 44px;
 }
-/* 實照 QR 白底在亮色 paper 上幾乎無邊界，加灰 hairline 框（同 link-01）。 */
+/* 實照 QR 白底在淺色 paper 上幾乎無邊界，加灰 hairline 框（同 link-01）。 */
 .qr-img {
   width: 400px;
   height: 400px;

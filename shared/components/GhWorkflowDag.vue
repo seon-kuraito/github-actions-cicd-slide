@@ -26,7 +26,7 @@ const ROW_GAP = 156
 const AREA_L = 256
 const AREA_R = 968
 
-// 色彩走 token（值＝原 hex，亮色像素不變），深色由 html.dark 重映射自動翻轉。
+// 色彩走 token（值＝原 hex，淺色像素不變），深色由 html.dark 重映射自動翻轉。
 // 品牌／語意色跨模式恆定；卡片底 var(--paper)、面板色 var(--panel)、線 var(--line-2)。
 const NODE_STYLE: Record<DagStatus, { fill: string; stroke: string; text: string }> = {
   ok: { fill: 'var(--paper)', stroke: 'var(--line-2)', text: 'var(--ink)' },
