@@ -75,6 +75,11 @@ them. Editing traps:
   one version with no duplicate installs.
 - **Node pinned** via `.nvmrc` + `package.json` `engines`; CI matches it.
 - **No Turborepo** — at this size, cache savings don't pay for the config complexity.
+- **Branch naming** — a whole workstream *version* lands on one branch as one PR, named
+  `<type>/<workstream>-vN` and mirrored across parallel workstreams so they read as a pair
+  (`docs/course-content-v1` ↔ `feat/course-visual-v1`); smaller one-off work uses plain
+  `<type>/<description>` (`feat/deck-common-slides`, `feat/favicon-og-meta`) with no `-vN`.
+  Type follows Conventional Commits (`docs` for the planning line, `feat` for implementation).
 
 ## Working on a deck
 
