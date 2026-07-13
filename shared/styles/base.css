@@ -11,6 +11,8 @@
   background: var(--paper);
   color: var(--ink);
   overflow: hidden;
+  /* 中英夾雜自動加間隙（CJK ↔ Latin/數字）；不支援的瀏覽器忽略此行。 */
+  text-autospace: normal;
 }
 
 /* 投影片共用 chrome（templates.html 同名 class，數值照抄） */

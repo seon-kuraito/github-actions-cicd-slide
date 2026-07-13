@@ -8,8 +8,8 @@ withDefaults(
   defineProps<{
     heading?: string
     steps?: Step[]
-    zoomTag?: string
-    zoomText?: string
+    calloutTag?: string
+    calloutText?: string
   }>(),
   { steps: () => [] },
 )
@@ -35,9 +35,9 @@ const ARROW = '→'
           <span class="step" :class="{ active: s.active }"><MdInline :text="s.label" /></span>
         </template>
       </div>
-      <div class="zoom">
-        <span class="zoom-tag">{{ zoomTag }}</span>
-        <span class="zoom-text"><MdInline :text="zoomText" /></span>
+      <div class="callout">
+        <span class="callout-tag">{{ calloutTag }}</span>
+        <span class="callout-text"><MdInline :text="calloutText" /></span>
       </div>
     </div>
     <div class="bottom-bar">
@@ -71,7 +71,7 @@ const ARROW = '→'
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -101,30 +101,29 @@ const ARROW = '→'
   padding: 20px 32px;
   white-space: nowrap;
   color: var(--ink-2);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 .step.active {
   font-weight: 700;
   color: var(--ink);
   border: 3px solid var(--brand-git);
 }
-.zoom {
+.callout {
   border: 3px solid var(--brand-git);
   padding: 52px 56px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 1400px;
 }
-.zoom-tag {
+.callout-tag {
   font-family: var(--font-mono);
   font-size: 25px;
   font-weight: 600;
   letter-spacing: 0.18em;
   color: var(--brand-git);
 }
-.zoom-text {
+.callout-text {
   font-family: var(--font-sans);
   font-size: 33px;
   line-height: 1.8;

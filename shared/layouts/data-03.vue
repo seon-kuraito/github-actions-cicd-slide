@@ -69,7 +69,7 @@ defineProps<{
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 40px;
   padding: 24px 0;
-  border-bottom: 2px solid var(--ink-2);
+  border-bottom: 3px solid var(--ink-2);
 }
 .head-cell {
   font-family: var(--font-mono);
@@ -89,7 +89,7 @@ defineProps<{
   align-items: baseline;
 }
 .table-row:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .row-item {
   font-family: var(--font-sans);

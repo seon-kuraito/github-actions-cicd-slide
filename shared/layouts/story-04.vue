@@ -54,7 +54,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 60px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -74,7 +74,7 @@ defineProps<{
   flex-direction: column;
   gap: 28px;
   background: var(--panel);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 .ending-card.active {
   background: transparent;

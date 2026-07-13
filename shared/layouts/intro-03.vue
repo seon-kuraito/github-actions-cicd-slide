@@ -67,7 +67,7 @@ const BADGE_NOW = 'NOW'
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 72px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -86,7 +86,7 @@ const BADGE_NOW = 'NOW'
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 .card.active {
   border: 3px solid var(--brand-git);

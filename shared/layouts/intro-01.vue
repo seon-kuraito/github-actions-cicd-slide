@@ -76,7 +76,7 @@ defineProps<{
   padding: 44px 0;
 }
 .agenda-row:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .agenda-no {
   font-family: var(--font-display);

@@ -21,7 +21,11 @@ at `<host>/`.
     `chapter-01`, `git-03`, …). Slide content is fed **entirely via frontmatter
     YAML props** (md body unused); the main-title prop is always `heading` —
     never `title`, which collides with deck headmatter on slide 1. Variants
-    switch via props (`brand: git|github|ai`).
+    switch via props (`brand: git|github|ai`). **`src` trap**: never name a
+    top-level layout prop `src` — it's Slidev's reserved per-slide key (imports
+    an external .md as the slide's content), so the slide silently vanishes
+    from the deck; use `image` instead (`src` keys nested inside array items
+    are fine).
   - `components/` — chrome (`Eyebrow`, `PageNo`, auto page number) + `MdInline`
     (renders `**bold**`/`` `code` ``/`\n` inside YAML strings) + parameterized
     diagram components (`Git*`, `Gh*`, `Ai*`, `Sh*`) that auto-layout from

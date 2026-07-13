@@ -419,8 +419,8 @@ steps:
   - { label: 當前步驟佔位, active: true }
   - { label: 步驟佔位 }
   - { label: 步驟佔位 }
-zoomTag: ZOOM IN · STEP 02
-zoomText: 放大說明佔位 — 這一步內部發生什麼事、有哪些設定可以調整，兩到三行的細節描述。
+calloutTag: ZOOM IN · STEP 02
+calloutText: 放大說明佔位 — 這一步內部發生什麼事、有哪些設定可以調整，兩到三行的細節描述。
 ---
 
 ---
@@ -528,15 +528,15 @@ items:
 
 ---
 layout: link-01
+heading: 簡報名稱佔位
 url: url.placeholder/xyz
-desc: 掃碼說明佔位 — 開啟今天的教材
 ---
 
 ---
 layout: link-02
 qrs:
-  - { url: go.placeholder/slides, desc: 掃碼佔位 — 開啟今天的教材 }
-  - { url: go.placeholder/notes, desc: 掃碼佔位 — 加入課堂共筆 }
+  - { heading: 今日教材佔位, url: go.placeholder/slides }
+  - { heading: 課堂共筆佔位, url: go.placeholder/notes }
 ---
 
 ---
@@ -631,13 +631,13 @@ groups:
 ---
 
 ---
-layout: statement-01
+layout: outro-01
 sub: 問題與討論
 contact: "contact@placeholder.dev · @handle-placeholder"
 ---
 
 ---
-layout: statement-02
+layout: outro-02
 sub: 感謝參與，下次課程見
 contacts:
   - "contact@placeholder.dev"
@@ -645,31 +645,31 @@ contacts:
 ---
 
 ---
-layout: statement-03
-sub: 下午預告佔位 — 回來後進入實作
-badge: "BACK AT · 13:30"
+layout: outro-03
+sub: 結業祝賀佔位 — 六週旅程完成
+badge: CONGRATULATIONS
 ---
 
 ---
-layout: statement-04
-heading: GROUP
-sub: 討論題目佔位——這一節的概念，如何應用在你自己的工作流程？
-badges:
-  - { text: TIME · 5 MIN, accent: true }
-  - { text: TEAM · 3–4 人 }
----
-
----
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "回來時間佔位 — 14:00 繼續"
 badge: BREAK · 10 MIN
 ---
 
 ---
-layout: statement-06
-sub: 結業祝賀佔位 — 六週旅程完成
-badge: "COURSE · COMPLETE"
+layout: break-02
+sub: 下午預告佔位 — 回來後進入實作
+badge: "BACK AT · 13:30"
+---
+
+---
+layout: break-03
+heading: GROUP
+sub: 討論題目佔位——這一節的概念，如何應用在你自己的工作流程？
+badges:
+  - { text: TIME · 5 MIN, accent: true }
+  - { text: TEAM · 3–4 人 }
 ---
 
 ---

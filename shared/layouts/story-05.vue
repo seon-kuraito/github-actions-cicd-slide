@@ -55,7 +55,7 @@ defineProps<{
   max-width: 1550px;
 }
 .quote-block {
-  border-left: 6px solid var(--brand-git);
+  border-left: 8px solid var(--brand-git);
   padding-left: 56px;
   display: flex;
   flex-direction: column;

@@ -42,7 +42,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 88px;
+  font-size: 84px;
   font-weight: 900;
   line-height: 1.4;
   color: var(--ink);

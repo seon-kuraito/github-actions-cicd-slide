@@ -51,7 +51,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.4;
   color: var(--ink);
@@ -83,7 +83,7 @@ defineProps<{
   font-size: 38px;
   font-weight: 700;
   /* 非 active 選項方框：對齊 p21 BEFORE／p45 EXPECTED 的淡框樣式（1px line-2＋ink-3）。 */
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   color: var(--ink-3);
 }
 /* 答案反白釘 #FFFFFF：橘底上的白字，深色模式不得隨 --paper 重映射翻轉。 */

@@ -31,7 +31,7 @@ items:
 <!-- ── P1 09:00–09:50 · 教學（PR 深化） ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 10:00"
@@ -40,7 +40,7 @@ badge: "BACK · 10:00"
 <!-- ── P2 10:00–10:50 · 教學（Code Review 與協作者） ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 11:00"
@@ -49,7 +49,7 @@ badge: "BACK · 11:00"
 <!-- ── P3 11:00–11:50 · 教學（Issue 與分支保護） ── -->
 
 ---
-layout: statement-03
+layout: break-02
 sub: "休息一小時，下午回來繼續完成今天的實作任務"
 badge: "BACK · 13:00"
 ---
@@ -67,7 +67,7 @@ items:
 <!-- ── P4 13:00–13:50 · 教學（CI 初見：概念） ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 14:00"
@@ -76,7 +76,7 @@ badge: "BACK · 14:00"
 <!-- ── P5 14:00–14:50 · 教學（CI 初見：第一個 workflow） ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 15:00"
@@ -85,7 +85,7 @@ badge: "BACK · 15:00"
 <!-- ── P6 15:00–15:50 · 情境挑戰「完整跑一輪 sprint」 ── -->
 
 ---
-layout: statement-05
+layout: break-01
 heading: BREAK
 sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 16:00"
@@ -119,7 +119,7 @@ body: 下週會把測試接進 pipeline，加上 cache、artifacts 與 matrix，
 ---
 
 ---
-layout: statement-02
+layout: outro-02
 sub: "感謝參與，下週同一時間見"
 badge: "BACK · 08.22 09:00"
 ---

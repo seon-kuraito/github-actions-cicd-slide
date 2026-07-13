@@ -67,7 +67,7 @@ defineProps<{
   align-content: center;
 }
 .term-cell {
-  border-top: 1px solid var(--line);
+  border-top: 2px solid var(--line);
   padding: 40px 0 48px;
   display: flex;
   flex-direction: column;

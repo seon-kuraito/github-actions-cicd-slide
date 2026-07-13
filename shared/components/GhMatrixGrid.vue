@@ -54,10 +54,10 @@ const st = (c: Cell): Status => c.status ?? 'ok'
   align-items: center;
   justify-content: center;
   gap: 12px;
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
 }
 .cell.st-running {
-  border: 2px solid var(--brand-github);
+  border: 3px solid var(--brand-github);
   background: var(--brand-github-tint);
 }
 .cell.st-err {

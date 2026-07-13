@@ -49,7 +49,7 @@ const NEXT_ARROW = 'next →'
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 72px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -70,7 +70,7 @@ const NEXT_ARROW = 'next →'
   padding: 40px 0;
 }
 .item:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .item-no {
   font-family: var(--font-display);
@@ -90,7 +90,7 @@ const NEXT_ARROW = 'next →'
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-top: 1px solid var(--line);
+  border-top: 2px solid var(--line);
   padding-top: 36px;
 }
 .next {

@@ -31,7 +31,7 @@ withDefaults(
 .context-panel {
   width: 1000px;
   flex-shrink: 0;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
   display: flex;
@@ -43,7 +43,7 @@ withDefaults(
   align-items: center;
   justify-content: space-between;
   padding: 24px 44px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .head-label {
   font-family: var(--font-mono);
@@ -75,7 +75,7 @@ withDefaults(
 }
 /* 列間分隔線：IN 列用 paper、OUT 列用 line（分隔線顏色跟當列狀態走）。 */
 .ctx-row:not(:first-child) {
-  border-top: 1px solid var(--line);
+  border-top: 2px solid var(--line);
 }
 .ctx-row.is-in:not(:first-child) {
   border-top-color: var(--paper);
@@ -122,7 +122,7 @@ withDefaults(
   font-size: 19px;
   font-weight: 600;
   color: var(--ink-3);
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   padding: 4px 13px;
 }
 </style>

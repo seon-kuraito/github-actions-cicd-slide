@@ -178,4 +178,4 @@
 
 ## Spec 覆蓋
 
-day-5 AM ②–⑥ 全數（①與第一個 workflow 已前移 W4 ★5）；day-5 PM ①–⑥ 全數（五語言以 Node 深入＋Python CI 副實作＋matrix/對照頁處理 ★3）。
+day-5 AM ②–⑥ 全數（①與第一個 workflow 已前移 W4 ★5）；day-5 PM ①–⑥ 全數（五語言以 Node.js／Python 示範載體＋matrix/對照頁處理 ★3）。

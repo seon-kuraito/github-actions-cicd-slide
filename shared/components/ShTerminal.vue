@@ -47,7 +47,7 @@ const padded = (l: ShTermLine) => l.text.padEnd(cmdPad.value, ' ')
 /* 終端面板固定走 --dark-* token：兩模式皆深，不隨 html.dark 重映射。 */
 .sh-terminal {
   background: var(--term-bg);
-  border: 1px solid var(--dark-border);
+  border: 2px solid var(--dark-border);
   border-radius: 14px;
   overflow: hidden;
   display: flex;

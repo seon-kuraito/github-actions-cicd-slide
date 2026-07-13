@@ -61,7 +61,7 @@ defineProps<{
   gap: 48px;
 }
 .card {
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   padding: 52px 52px;
   display: flex;
   flex-direction: column;

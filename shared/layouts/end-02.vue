@@ -54,7 +54,7 @@ defineProps<{
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -74,7 +74,7 @@ defineProps<{
   padding: 34px 0;
 }
 .item:not(:last-child) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 .item-tag {
   font-family: var(--font-mono);
@@ -82,7 +82,7 @@ defineProps<{
   font-weight: 600;
   letter-spacing: 0.14em;
   color: var(--brand-git);
-  border: 1px solid var(--brand-git);
+  border: 2px solid var(--brand-git);
   padding: 10px 24px;
   width: 170px;
   text-align: center;

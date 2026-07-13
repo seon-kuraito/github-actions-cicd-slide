@@ -66,7 +66,7 @@ withDefaults(
 }
 .heading {
   font-family: var(--font-sans);
-  font-size: 64px;
+  font-size: 68px;
   font-weight: 900;
   line-height: 1.3;
   color: var(--ink);
@@ -91,7 +91,7 @@ withDefaults(
   display: flex;
   align-items: center;
   gap: 32px;
-  border: 1px solid var(--line-2);
+  border: 2px solid var(--line-2);
   background: var(--panel);
 }
 .layer.active .layer-card {
