@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 interface SkillTag {
   label?: string
   active?: boolean
@@ -35,7 +37,7 @@ defineProps<{
         </div>
       </div>
       <div class="photo-col">
-        <img v-if="photo" :src="photo" class="photo" />
+        <img v-if="photo" :src="withBase(photo)" class="photo" />
         <div v-else class="photo-placeholder">
           {{ photoLabel }}
         </div>

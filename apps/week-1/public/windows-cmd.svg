@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Windows command prompt icon">
+  <defs>
+    <linearGradient id="w-frame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafb"></stop>
+      <stop offset="0.18" stop-color="#eef2f6"></stop>
+      <stop offset="0.55" stop-color="#d6dfe9"></stop>
+      <stop offset="1" stop-color="#c2cddb"></stop>
+    </linearGradient>
+    <linearGradient id="w-refl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#414141"></stop>
+      <stop offset="0.55" stop-color="#1c1c1c"></stop>
+      <stop offset="1" stop-color="#0c0c0c"></stop>
+    </linearGradient>
+    <filter id="w-shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.30"></feDropShadow>
+    </filter>
+  </defs>
+
+  <rect x="2.5" y="22.5" width="247" height="203" rx="3" ry="3" fill="url(#w-frame)" stroke="#aab6c4" stroke-width="1" filter="url(#w-shadow)"></rect>
+
+  <path d="M3.5,33 V26 Q3.5,23.5 6,23.5 H246 Q248.5,23.5 248.5,26 V33 Z" fill="#ffffff"></path>
+
+  <rect x="6" y="33" width="240" height="188" rx="1" ry="1" fill="#36475e"></rect>
+  <rect x="8" y="34" width="236" height="186" fill="#040404"></rect>
+  <path d="M8 34 L244 34 L244 74 Q152 96 92 108 Q48 117 8 132 Z" fill="url(#w-refl)"></path>
+
+  <g>
+    <rect x="196" y="24" width="13" height="8" rx="1.5" fill="#e9edf2" stroke="#5b6577" stroke-width="1.1"></rect>
+    <rect x="214" y="24" width="13" height="8" rx="1.5" fill="#e9edf2" stroke="#5b6577" stroke-width="1.1"></rect>
+    <rect x="232" y="24" width="13" height="8" rx="1.5" fill="#e9edf2" stroke="#5b6577" stroke-width="1.1"></rect>
+  </g>
+  <g stroke="#3a4351" stroke-width="1" stroke-linecap="round">
+    <line x1="200" y1="30" x2="205" y2="30"></line>
+    <rect x="218" y="26.5" width="5" height="4" fill="none"></rect>
+    <line x1="236.5" y1="26.5" x2="240.5" y2="30"></line>
+    <line x1="240.5" y1="26.5" x2="236.5" y2="30"></line>
+  </g>
+
+  <text x="25" y="56" font-family="Consolas, &#39;Courier New&#39;, monospace" font-size="16" font-weight="700" fill="#f2f2f2" letter-spacing="-0.5">C:\_</text>
+</svg>

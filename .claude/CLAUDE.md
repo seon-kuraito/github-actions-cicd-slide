@@ -17,15 +17,41 @@ at `<host>/`.
   design system converted from the Claude Design handoff (the `templates.html` +
   `spec.md` handoff files were discarded after conversion — `apps/templates` is
   the living reference; decisions in DECISIONS.md「視覺線」):
-  - `layouts/` — one custom layout per design template id (`cover-01`,
-    `chapter-01`, `git-03`, …). Slide content is fed **entirely via frontmatter
+  - `layouts/` — **numeric suffix = base vocabulary, has a templates page**
+    (`cover-01`, `chapter-01`, `git-03`, …); **non-numeric = scenario-customized,
+    NOT in templates** (`git-files`, `git-push`, `git-term`, `git-diff`,
+    `git-areas`, `shell-dir`, `shell-term`, `ai-skill`, `ai-context`). Bases are
+    the **starting point for per-scenario customization**, not a fixed catalogue —
+    so `shared/layouts` having what `templates` lacks is the expected state, not a
+    gap to "fill in". (The older rule "numeric = design-handoff template id" was
+    demoted once the handoff was discarded; see DECISIONS「視覺線」→「情境版型落地」
+    for the naming rule and the base-vs-custom boundary.) Slide content is fed **entirely via frontmatter
     YAML props** (md body unused); the main-title prop is always `heading` —
     never `title`, which collides with deck headmatter on slide 1. Variants
     switch via props (`brand: git|github|ai`). **`src` trap**: never name a
     top-level layout prop `src` — it's Slidev's reserved per-slide key (imports
     an external .md as the slide's content), so the slide silently vanishes
     from the deck; use `image` instead (`src` keys nested inside array items
-    are fine).
+    are fine). **`---` trap**: three or more consecutive dashes **anywhere** in
+    frontmatter truncate the slide's YAML at that point — the rest of the block
+    silently vanishes and the slide still renders (Slidev splits on `---` before
+    YAML runs, so quoting does *not* help, single or double). Bites terminal
+    output that contains rules or PowerShell's `Mode` column (`d----`, `-a----`).
+    **"Anywhere" includes YAML comments** — a `# ---（…）` comment written *to warn
+    about this very trap* silently truncated the slide (2026-07-17); the split runs
+    before YAML, so comment-vs-value is not a distinction it makes.
+    Escape as `"\x2D\x2D\x2D"` (double-quoted YAML) when the literal dashes are
+    required. **Leading-`*` trap**: a YAML plain scalar *starting* with `*` is an
+    **alias reference**, so a bullet like `- **一個人**做完…` dies with
+    `ReferenceError: Unresolved alias`. Only bites at the **start** of a value —
+    the same `**bold**` mid-sentence is fine, which is why it hides until someone
+    front-loads the emphasis. Quote the string. Sibling of the `---` trap in the
+    way that matters: **`pnpm typecheck` is green** (it never parses `slides.md`)
+    — only `dev`/`build` catch either. **Base trap**: image paths are authored root-absolute
+    (`/foo.png`) but must resolve through `withBase` (`shared/utils/with-base.ts`)
+    so they respect each deck's `--base` — a raw `:src="/foo.png"` hits the site
+    root (onboarding's same-named asset) on a `/week-N/` deck, silently loading
+    the wrong image; new image layouts wrap the binding (`:src="withBase(image)"`).
   - `components/` — chrome (`Eyebrow`, `PageNo`, auto page number) + `MdInline`
     (renders a small inline-markup subset — bold / code / accent / link / newline —
     inside YAML strings; see `MdInline.vue` for the live set) + parameterized

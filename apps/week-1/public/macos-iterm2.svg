@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="iTerm2 icon">
+  <defs>
+    <linearGradient id="b-rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6f0f3"></stop>
+      <stop offset="0.09" stop-color="#c6d0d2"></stop>
+      <stop offset="0.45" stop-color="#a6adae"></stop>
+      <stop offset="0.8" stop-color="#868b8c"></stop>
+      <stop offset="1" stop-color="#5d6061"></stop>
+    </linearGradient>
+    <linearGradient id="b-screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#243032"></stop>
+      <stop offset="1" stop-color="#1c2628"></stop>
+    </linearGradient>
+    <filter id="b-shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.45"></feDropShadow>
+    </filter>
+  </defs>
+
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="url(#b-rim)" filter="url(#b-shadow)"></rect>
+  <rect x="139" y="139" width="746" height="746" rx="146" ry="146" fill="#000000"></rect>
+  <rect x="192" y="192" width="640" height="640" rx="93" ry="93" fill="url(#b-screen)"></rect>
+
+  <rect x="371" y="232" width="84" height="172" rx="4" ry="4" fill="#12741d"></rect>
+  <text x="286" y="322" font-family="Menlo, Monaco, Consolas, &#39;DejaVu Sans Mono&#39;, monospace" font-size="250" font-weight="700" fill="#0bf024" text-anchor="middle" dominant-baseline="central">$</text>
+</svg>

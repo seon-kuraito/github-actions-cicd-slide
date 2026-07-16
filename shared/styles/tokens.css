@@ -22,9 +22,14 @@
   --brand-ai-soft: #C4B5FD;
   --brand-ai-tint: #F3EEFC;
   /* 終端品牌裝飾層 — 對話/日誌終端（GitTerminal／AiChat·Mono）的品牌指針。專為深底 #1F1F1F
-   * 調亮、獨立於白底用的 base：橘 base 偏暗故另調更亮的橘，紫 base 太暗故取近 soft 的亮度。
-   * 刻意不 alias ramp（用途＝角色，非階）。github 程式碼終端走語法層 code-blue/orange，不在此列。 */
+   * 調亮、獨立於白底用的 base：橘 base 偏暗故另調更亮的橘，紫 base 太暗故取近 soft 的亮度，
+   * 藍 base（#388BFD 是白底 chrome 調的，深底僅 4.29:1、比同族都暗）故另調更亮的藍。
+   * 刻意不 alias ramp（用途＝角色，非階）。github **程式碼**終端（GhCodePanel）走語法層
+   * code-blue/orange、不在此列；--brand-github-term 是給「github 段裡的 git 終端」隨段
+   * 翻藍用（2026-07-14 區段染色優先，見 base.css .brand-github）。
+   * 深底對比：git 5.55／github 6.68／ai 7.77（vs --term-bg #2a2a2a）。 */
   --brand-git-term: #FF7A45;
+  --brand-github-term: #6CB6FF;
   --brand-ai-term: #C4B5FD;
   /* 淺色模式
    * 2026-07-13 調深：--ink-3/-4 與 --line/-2 共壓兩階（投影場景原值對比太低，
@@ -41,12 +46,30 @@
   --line: #CFC6BE;
   --line-2: #BFB6AD;
   --panel: #F5F1ED;
+  /* 左側面板的面（base.css 的 .slidev-layout .panel，23 個版型）。**與 --panel 分家的理由＝面積**：
+   * --panel 是為小色塊調的（佔位框／卡片／節點底／麵包屑），那些地方要「看得出是一塊」故容得下
+   * 較高對比與暖度；同一個值鋪滿 1000×470 的面板卻讀成泛黃舊紙——**暖度才是主因**：--panel 的
+   * R−B＝8，是 --paper（R−B＝3）的 2.7 倍，而 --paper 定案那輪已經否決過 R−B＝5（「暖度略高」，
+   * 見 DECISIONS 視覺線）。故此值對齊 --paper 的中性度（R−B＝3）並淡一階。
+   * 深色不分家（→ --dark-panel）：深色側無此問題（可用色帶只有 1.148、且無暖度殘留）。 */
+  --panel-face: #F6F5F3;
+  /* qa-01/02 巨型「?」「!」浮水印：比 --panel 再深一階（--panel 於 --paper 上對比僅 ~6/通道、投影會糊掉）；深色維持 --dark-panel。 */
+  --qa-watermark: #E6E0DA;
+  /* inline-code chip 底（MdInline 的 .mdi-c，全 deck 唯一 inline code 落點）。
+   * Slidev 預設淺色底 #F5F5F5 有兩個問題：①與 --paper 對比僅 1.045，是深色側
+   * （#1F1F1F→#333333，1.305）的四分之一，投影上幾乎看不見 ②冷中性灰（R=G=B），
+   * 貼在暖象牙白紙面上色溫不合。值＝沿 --paper→--line 暖向量上對比 1.168 的一格，逐輪
+   * 看畫面收斂而來（#E2DCD6 1.305＝與深色等對比 → #E6E0DA 1.255 → 此值）：**淺色側不該
+   * 與深色等對比**——chip 是小色塊，同一個對比值在淺底上讀起來明顯比深底重。
+   * 下界是 --panel 的 1.077（tokens 上一則已載明「投影會糊掉」），故 1.168 已接近可用區底部，
+   * 再淡就進入糊掉區。刻意寫字面值而非 var(--qa-watermark)／var(--panel)——那兩顆各有語意，
+   * 與 code chip 無關，綁在一起會一改就連動。 */
+  --slidev-code-background: #EDE8E2;
   /* 深色模式（Notion 式深灰） */
   --dark-bg: #1F1F1F;
   --dark-border: #333333;
   --dark-ink: #E6E6E6;
   --dark-ink-2: #ABABAB;
-  --dark-ink-3: #757575;
   --dark-line: #383838;
   --dark-node: #454545;
   --dark-panel: #2A2A2A;
@@ -54,9 +77,39 @@
   --term-bg: #2a2a2a;
   /* 終端機內部高亮（code 高亮行／對話泡泡）：比表面亮一階 #383838。 */
   --term-hl: #383838;
+  /* 終端機框架 padding：五個終端元件（GitTerminal／ShTerminal／AiChatPanel／
+   * AiMonoPanel／GhCodePanel）＋兩個內嵌終端版型（shell-term／lab-04）共用——改此處＝七處同步。
+   * body 上緣 2026 由 48→32 收斂。 */
+  --term-pad-head: 32px 32px 16px;
+  --term-pad-body: 32px 32px 32px;
+  /* 終端機文字色：指令＋輸出同白（以 $ 前綴區分指令）、註解為唯一暗階（低於白、拉開層級）；
+   * 兩模式恆定。四個 shell/git 終端（GitTerminal／ShTerminal／shell-term／lab-04）共用。 */
+  --term-ink-cmd: var(--dark-ink);
+  --term-ink-out: var(--dark-ink);
+  --term-ink-comment: #969696;
   /* 語意色（終端機／CI 狀態／diff） */
   --ok: #1A7F37;
   --err: #CF222E;
+  /* git 檔案狀態「新增」：ShDirListing 的 status: 'new'（對齊 VS Code 檔案總管把未追蹤／
+   * 已 add 的檔案標綠）。**兩模式恆定**：不同於終端機恆定是因為終端表面恆定（#2a2a2a），
+   * 這顆是靠選值——同時活在 --paper 兩個值上（紙 #FBFAF8 3.57／深 #1F1F1F 4.42，皆過
+   * 27px 大字的 AA 3:1）。恆定的代價＝一顆值扛兩個底，兩側是蹺蹺板：調亮利深色、必然
+   * 削弱淺色。逐輪看畫面收斂：#116329（紙 7.09、淺色過重）→ #1F883D（4.33/3.65、深色偏暗）
+   * → 此值。再亮一階是 #2DA44E（紙 3.08），已貼著 AA 門檻、投影會有風險，是實質下界。
+   * 不共用既有綠，兩顆都試過：--diff-add-ink #116329 是給「--diff-add-bg 綠底帶上的字」
+   * 調的，放到白紙面上過重（此頁最初的 bug）；--ok #1A7F37 語意是「CI 通過」、另有 8 個
+   * 消費者，且深色側僅 3.25。 */
+  --status-new: #2C974B;
+  /* git 檔案狀態「已編輯」。**橘而非黃**：黃色明度天生高、在象牙白紙上撐不出對比
+   * （VS Code 自己的 modified 色 #E2C08D 於紙面僅 1.66），偏橘才拿得回淺色側。
+   * 兩模式恆定（紙 #FBFAF8 3.56／深 #1F1F1F 4.44）——**與 --status-new 的 3.57／4.42
+   * 幾乎相同**，兩個狀態色視覺重量對齊，不會一個搶戲一個消失。逐輪看畫面收斂：
+   * #BF8700（偏黃、紙 3.01）→ #C4661F（3.82/4.13、淺色偏深）→ 此值。
+   * **注意品牌撞色**：與 --brand-git #F05133 的 RGB 色距僅 53——git 段（P2–P4，橘）上若
+   * 出現 modified 圓點，可能被誤讀成品牌元素。現況安全（唯一消費者 git-files 只用在
+   * github 藍段），但要往 git 段推廣時得重評。更遠離品牌的替代：#BC4C00（色距 73，
+   * 但深側僅 3.27、偏暗）。目前尚無消費頁（W1 只用到 'new'），未經實機投影驗證。 */
+  --status-modified: #C96C24;
   --code-blue: #6CB6FF;
   --code-orange: #FF8A75;
   /* 終端錯誤紅：語意 --err #CF222E 於恆深終端太暗，改用深底可讀的 GitHub 紅（＝深色 diff
@@ -91,6 +144,9 @@ html.dark {
   --line: var(--dark-line);
   --line-2: var(--dark-node);
   --panel: var(--dark-panel);
+  /* 深色不與 --panel 分家：面積問題源於淺色的暖度，深色側無殘留（使用者確認深色沒問題）。 */
+  --panel-face: var(--dark-panel);
+  --qa-watermark: var(--dark-panel);
   --brand-git-tint: rgba(240, 81, 51, 0.16);
   --brand-github-tint: rgba(56, 139, 253, 0.18);
   --brand-ai-tint: rgba(139, 92, 246, 0.2);
@@ -101,7 +157,12 @@ html.dark {
   --diff-del-bg: rgba(248, 81, 73, 0.15);
   --diff-del-ink: #F85149;
   /* 終端機表面／高亮：已在 :root 統一為 #2a2a2a／#383838（兩模式相同），此處毋需再覆寫。 */
-  /* Slidev 預設深色 code 底 #1B1B1B 比頁面 #1F1F1F 還暗、幾乎無對比；
-     改用灰一階的 --dark-border，讓 inline-code chip 讀得出來。 */
-  --slidev-code-background: var(--dark-border);
+  /* inline-code chip 底（深色側；淺色見 :root 同名那則，兩邊皆字面值）。
+   * Slidev 預設深色底 #1B1B1B 比頁面 #1F1F1F 還暗、幾乎無對比；此值＝比頁面亮一階，
+   * 讓 chip 讀得出來（對比 1.305）。
+   * 2026-07-15 由 var(--dark-border) 改為字面值、值不變（--dark-border 恰為 #333333，
+   * 故無視覺變更）：--dark-border 的語意是邊框，另有 8 個消費者（五個終端／面板元件 ＋
+   * shell-term／lab-04 的 border ＋ 捲軸 thumb），為邊框理由調它會連帶讓 code chip 跟著跑。
+   * 與淺色側同一條原則：chip 底不寄生在別種語意的 token 上。 */
+  --slidev-code-background: #333333;
 }

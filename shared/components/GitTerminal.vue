@@ -35,7 +35,7 @@ withDefaults(defineProps<{ lines?: TermLine[] }>(), { lines: () => [] })
 .terminal-head {
   display: flex;
   align-items: center;
-  padding: 32px 32px 16px;
+  padding: var(--term-pad-head);
 }
 .terminal-lights {
   display: flex;
@@ -57,7 +57,7 @@ withDefaults(defineProps<{ lines?: TermLine[] }>(), { lines: () => [] })
 }
 .terminal-body {
   flex: 1;
-  padding: 48px 32px 32px;
+  padding: var(--term-pad-body);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -65,21 +65,24 @@ withDefaults(defineProps<{ lines?: TermLine[] }>(), { lines: () => [] })
   font-size: 25px;
   line-height: 1.55;
   min-height: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-/* 行內保留連續空格（對齊 git status --short 這類輸出）。 */
+/* 行內保留連續空格（對齊 git status --short 這類輸出），過長則折行。
+ * 曾試過不折行＋橫向捲動（為了避免長指令折行被學員照著打），但投影片上沒人會捲、
+ * 尾巴等於消失，比折行更糟。長指令改在文案端解決——見 p151/p183 的 <你的 repo 網址>。 */
 .term-line {
   white-space: pre-wrap;
 }
 .ln-cmd,
 .ln-out {
-  color: var(--dark-ink);
+  color: var(--term-ink-cmd);
 }
 .ln-comment {
-  color: var(--dark-ink-3);
+  color: var(--term-ink-comment);
 }
 .ln-dim {
-  color: var(--dark-ink-2);
+  color: var(--term-ink-out);
 }
 .ln-note {
   margin-top: auto;

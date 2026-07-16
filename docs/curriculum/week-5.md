@@ -10,12 +10,12 @@
 
 見 [docs/kit/week-5.md](../kit/week-5.md)（週 repo／skills／知識點清單）。
 
-## P0 — Starting（2 頁）
+## P0 — Starting
 
 - [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · PIPELINE／2026.08.22 · 第五週）
 - [ ] 本日目標：push 之後，測試自己跑
 
-## P1 — Actions 架構深入（16 頁）
+## P1 — Actions 架構深入
 
 - [ ] **【12】機器人的解剖學**
 - [ ] 【？】workflow 執行的那台電腦是誰的？在哪裡？
@@ -29,12 +29,13 @@
 - [ ] Workflow／Job／Step 三層
 - [ ] YAML 基礎：縮排、清單、鍵值
 - [ ] YAML 常見雷區
-- [ ] *✋ 開 hello.yml → 複製 job 區塊改名 → push → Actions 看到兩個 job*
+- [ ] *【12】章節實作：✋ 開 hello.yml → 複製 job 區塊改名 → push → Actions 看到兩個 job*
+- [ ] *【12】章節補充*
 - [ ] >job 之間的 needs 依賴
 - [ ] >runner 的作業系統選擇
 - [ ] >self-hosted runner：不用 GitHub 派的機器、自己養一台跑 job（要 GPU／碰內網才用；public repo 別用——外部 PR 會在你機器上跑程式碼）
 
-## P2 — Marketplace 與 Secrets（21 頁）
+## P2 — Marketplace 與 Secrets
 
 - [ ] **【13】別人寫好的積木（Marketplace）**
 - [ ] 【？】每個步驟都自己手刻 shell script，撐得住嗎？
@@ -44,7 +45,8 @@
 - [ ] 【！】不安全——它會拿到你的 code 和 token，挑可信的、釘死版本
 - [ ] uses 語法：owner/repo@version
 - [ ] actions/checkout 為什麼幾乎必用
-- [ ] *在 workflow 用上一個現成 action*
+- [ ] *【13】章節實作：在 workflow 用上一個現成 action*
+- [ ] *【13】章節補充*
 - [ ] >怎麼判斷一個 action 可不可信：stars、verified、看原始碼
 - [ ] >action 的版本釘選：@v4 還是 @hash
 
@@ -55,11 +57,12 @@
 - [ ] Secrets 是什麼：token、金鑰、webhook URL
 - [ ] 設定入口：Settings → Secrets and variables → Actions
 - [ ] 在 workflow 引用：`${{ secrets.MY_KEY }}`
-- [ ] *設一個 secret → workflow 裡引用 → 看 log 自動遮罩成 ＊＊＊*
+- [ ] *【14】章節實作：設一個 secret → workflow 裡引用 → 看 log 自動遮罩成 ＊＊＊*
+- [ ] *【14】章節補充*
 - [ ] >Secrets 為什麼印不出來
 - [ ] >env 跟 secret 差在哪：什麼該放哪邊
 
-## P3 — 專案結構與 npm（14 頁）
+## P3 — 專案結構與 npm
 
 - [ ] **【15】專案升級時刻：為什麼需要 npm**
 - [ ] npm init：package.json 誕生
@@ -71,12 +74,13 @@
 - [ ] 認識 notify 服務結構：`formatMessage` 純函式（組訊息、好測）＋薄 adapter（送出去）
 - [ ] 【？】為什麼把「組訊息」和「送出去」拆兩塊？（純函式好測的伏筆）
 - [ ] ✋ 跟做：npm init → 加 scripts → 擺好 `formatMessage` 模組
-- [ ] *package.json 就緒、`formatMessage` 模組可被 import（下段 P4 補測試）*
+- [ ] *【15】章節實作：package.json 就緒、`formatMessage` 模組可被 import（下段 P4 補測試）*
+- [ ] *【15】章節補充*
 - [ ] >node_modules 為什麼不進版控（呼應 W1 .gitignore）
 - [ ] >Windows 排雷：npm 噴「指令碼已停用」→ ExecutionPolicy（回收 W1【02】）
 - [ ] >package-lock.json 是什麼、要不要 commit
 
-## P4 — 測試進場（24 頁）
+## P4 — 測試進場
 
 - [ ] **【16】為什麼要自動化測試**
 - [ ] 【？】每次改完都手動點一輪功能，第幾次你會放棄？
@@ -90,7 +94,8 @@
 - [ ] 【？】formatMessage 的「對」，該怎麼定義？
 - [ ] ✋ 跟做：為 formatMessage 寫兩個測試
 - [ ] npm test：scripts 加 test、本機跑
-- [ ] *本機綠燈*
+- [ ] *【16】章節實作：本機綠燈*
+- [ ] *【16】章節補充*
 - [ ] >測試該測什麼、不該測什麼
 - [ ] >watch mode 的開發節奏
 
@@ -100,11 +105,12 @@
 - [ ] 【？】workflow 裡要 npm ci 還是 npm install？
 - [ ] 【！】用 npm ci——照 lockfile、可重現（npm install 留給本機裝新套件）
 - [ ] 紅燈的價值：故意改壞一次
-- [ ] *本機綠、CI 綠*
+- [ ] *【17】章節實作：本機綠、CI 綠*
+- [ ] *【17】章節補充*
 - [ ] >CI 上的紅燈怎麼讀：從 log 定位失敗的 step
 - [ ] >本機綠、CI 紅：環境差異的第一課
 
-## P5 — Pipeline 完全體（26 頁）
+## P5 — Pipeline 完全體
 
 - [ ] **【18】pipeline 的配件**
 - [ ] 【？】測試全過＝程式沒 bug 嗎？
@@ -119,7 +125,8 @@
 - [ ] artifacts：把報告帶下來
 - [ ] upload-artifact 用法：name 與 path
 - [ ] PR 上的測試狀態全景
-- [ ] *說得出 cache 與 artifact 的差別*
+- [ ] *【18】章節實作：說得出 cache 與 artifact 的差別*
+- [ ] *【18】章節補充*
 - [ ] >badge：README 掛狀態徽章
 - [ ] >cache 該放什麼、不該放什麼（secrets 不進 cache）
 
@@ -131,10 +138,11 @@
 - [ ] matrix 語法：strategy.matrix 與 `${{ matrix.x }}`
 - [ ] matrix demo：Node 多版本 × Python ★3
 - [ ] 其他語言一頁通：ASP.NET Core／PHP／JSP 的 CI 長相 ★3
-- [ ] *讀懂一份帶 matrix 的 workflow*
+- [ ] *【19】章節實作：讀懂一份帶 matrix 的 workflow*
+- [ ] *【19】章節補充*
 - [ ] >matrix 太大會怎樣：組合爆炸與 exclude
 
-## P6 — 情境挑戰「把 pipeline 修到全綠」（~18 頁）
+## P6 — 情境挑戰「把 pipeline 修到全綠」
 
 - [ ] **【20】🔨 先讓紅轉綠：讀懂失敗、補上測試**
 - [ ] 🧭 Step 0：clone notify-w5 → npm install → npm test 看紅燈
@@ -142,7 +150,8 @@
 - [ ] 【？】紅燈訊息裡，哪一行才是關鍵線索？
 - [ ] 【！】從紅字牆裡挑第一個 Error——最先失敗那行才是線索，後面多半是連鎖反應
 - [ ] Step 1：補測試讓紅轉綠
-- [ ] *本機 npm test 綠燈*
+- [ ] *【20】章節實作：本機 npm test 綠燈*
+- [ ] *【20】章節補充*
 - [ ] >紅字牆讀法：stack trace 從哪看起
 
 - [ ] **【21】🔨 再裝上配件：cache、artifact、matrix**
@@ -152,11 +161,12 @@
 - [ ] Step 3：coverage 報告上傳 artifact
 - [ ] Step 4：發 PR → 搭檔 review＋approve（延續 W4 配對）→ 看 checks 全景
 - [ ] Step 5（進階）：加一格 matrix
-- [ ] *PR checks 全綠、搭檔 approve、artifact 下載得到*
+- [ ] *【21】章節實作：PR checks 全綠、搭檔 approve、artifact 下載得到*
+- [ ] *【21】章節補充*
 - [ ] >cache 沒命中？從 key 開始排查
 - [ ] >搭檔不在這個 repo？回 W4【03】重加 Collaborator（30 秒）——協作不因換週斷線
 
-## P7 — AI 寫 pipeline（~12 頁）
+## P7 — AI 寫 pipeline
 
 - [ ] **【22】AI 生成 workflow YAML**
 - [ ] 【？】YAML 縮排一多就手殘，能不能讓 AI 直接生一份？
@@ -171,7 +181,7 @@
 - [ ] Demo：貼錯誤訊息，AI 除錯 workflow（skill: `debug-workflow`）
 - [ ] 今天帶走的 skills
 
-## P8 — Ending（2 頁）
+## P8 — Ending
 
 - [ ] ✅ Recap：打開 Dashboard，點亮 W5 這批技能（pipeline 全綠）
 - [ ] 下週預告＋課前準備：容器化與結業專題——**確保自己 repo 的 CI 全綠**（capstone 的起跑線）
