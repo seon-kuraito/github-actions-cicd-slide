@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   heading?: string
-  items?: { no: string | number; text: string }[]
+  items?: { no: string | number; text: string; brand?: 'git' | 'github' | 'ai' }[]
   next?: string
 }>()
 
@@ -18,7 +18,7 @@ const NEXT_ARROW = 'next →'
     </div>
     <span class="heading"><MdInline :text="heading" /></span>
     <div class="items">
-      <div v-for="(it, i) in items ?? []" :key="i" class="item">
+      <div v-for="(it, i) in items ?? []" :key="i" class="item" :class="it.brand && `brand-${it.brand}`">
         <span class="item-no">{{ it.no }}</span>
         <span class="item-text"><MdInline :text="it.text" /></span>
       </div>

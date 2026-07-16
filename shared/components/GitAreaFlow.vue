@@ -9,7 +9,12 @@ type AreaItem = {
   indent?: boolean
 }
 type Area = { name?: string; state?: 'dashed' | 'active' | 'solid'; items?: AreaItem[] }
-type Arrow = { label?: string; active?: boolean }
+/* back＝箭頭反指（右→左），給逆向操作用（`git restore --staged` 把檔案從暫存區退回工作目錄）。
+ * hidden＝該格完全不畫箭頭（例：restore 頁與 commit 無關，不該佔一支箭頭）；88px 欄位仍保留
+ * 當間距，否則區塊會位移。**必須是明確旗標、不能用「沒給就不畫」**：p88 三層架構首發頁整個
+ * 沒有 arrows key，靠的正是「沒給＝畫無標籤灰箭頭」指出流向（add／commit 的字要到 p90／p91
+ * 才登場）——把兩者混為一談會讓那頁的箭頭無聲消失。 */
+type Arrow = { label?: string; active?: boolean; back?: boolean; hidden?: boolean }
 
 withDefaults(defineProps<{ areas?: Area[]; arrows?: Arrow[] }>(), { areas: () => [], arrows: () => [] })
 </script>
@@ -29,11 +34,13 @@ withDefaults(defineProps<{ areas?: Area[]; arrows?: Arrow[] }>(), { areas: () =>
         </div>
       </div>
       <div v-if="i < areas.length - 1" class="arrow-col">
-        <span :class="['arrow-label', { 'is-active': arrows[i]?.active }]">{{ arrows[i]?.label }}</span>
-        <svg width="56" height="24" viewBox="0 0 56 24">
-          <path d="M 2 12 H 44" fill="none" :stroke="arrows[i]?.active ? 'var(--brand-git)' : 'var(--ink-3)'" stroke-width="4"></path>
-          <path d="M 38 3 L 52 12 L 38 21" fill="none" :stroke="arrows[i]?.active ? 'var(--brand-git)' : 'var(--ink-3)'" stroke-width="4" stroke-linejoin="round"></path>
-        </svg>
+        <template v-if="!arrows[i]?.hidden">
+          <span :class="['arrow-label', { 'is-active': arrows[i]?.active }]">{{ arrows[i]?.label }}</span>
+          <svg width="56" height="24" viewBox="0 0 56 24" :class="{ 'is-back': arrows[i]?.back }">
+            <path d="M 2 12 H 44" fill="none" :stroke="arrows[i]?.active ? 'var(--brand-git)' : 'var(--ink-3)'" stroke-width="4"></path>
+            <path d="M 38 3 L 52 12 L 38 21" fill="none" :stroke="arrows[i]?.active ? 'var(--brand-git)' : 'var(--ink-3)'" stroke-width="4" stroke-linejoin="round"></path>
+          </svg>
+        </template>
       </div>
     </template>
   </div>
@@ -68,19 +75,27 @@ withDefaults(defineProps<{ areas?: Area[]; arrows?: Arrow[] }>(), { areas: () =>
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.14em;
-  border-bottom: 2px solid var(--line);
+  /* 非 active 的 heading 底線同框線用 --ink-3（不用更淡的 --line/-2）：底線與卡片外框同一階，
+   * 只有 active 區才靠 brand-git 亮起——「淡」是留給 active/非 active 的對比，不是框內再分階。 */
+  border-bottom: 2px solid var(--ink-3);
   color: var(--ink-3);
 }
 .is-dashed .area-label {
-  border-bottom: 2px dashed var(--line-2);
+  border-bottom: 2px dashed var(--ink-3);
 }
 .is-active .area-label {
   border-bottom-color: var(--brand-git);
   color: var(--brand-git);
 }
+/* 左右內距 28 → 22（2026-07-16，**偏離設計稿的少數數值之一**）：三區各約 236–242px 內寬，
+ * 28px 只留 180–186px 給文字，連 templates 自己的 git-02 參考頁都撐不住——`feat: 登入表單驗證`
+ * （182.2px）與 W1 p88 的 `a1b2c3d 新增首頁`（193.6px）皆折行。22px 給到 192px，兩者都收得住。
+ * 這是共用元件、git-02 與 git-areas 同吃：**不做 git-areas 側的 scoped 覆寫**——參考頁自己壞掉
+ * 卻讓客製頁正常，正是 DECISIONS「templates 是現行視覺參考」最不該出現的狀況。
+ * 上下維持 24px（垂直沒有壓力，動它只是無謂偏離）。 */
 .area-items {
   flex: 1;
-  padding: 24px 28px;
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -124,9 +139,19 @@ withDefaults(defineProps<{ areas?: Area[]; arrows?: Arrow[] }>(), { areas: () =>
 .arrow-label {
   font-family: var(--font-mono);
   font-size: 19px;
+  line-height: 1.5;
+  /* 空標籤不會生出線盒 → 實高 0 → arrow-col 是 center 對齊，箭頭就往上跑 14px，跟有標籤的頁
+   * 對不齊（p88 三層架構首發頁只要流向不要字，正是這樣比 p90／p91 高 14.25px，翻頁時箭頭會跳）。
+   * min-height 撐住線盒，讓「有沒有字」不再影響箭頭位置。1.5em＝1.5×19px＝28.5px，與上一行同源。 */
+  min-height: 1.5em;
   color: var(--ink-3);
 }
 .arrow-label.is-active {
   color: var(--brand-git);
+}
+/* 鏡射整支 svg 而非另寫一組反向 path：兩支路徑（軸線＋箭頭）得各自鏡射，算錯一個座標就歪；
+ * scaleX 一定對稱。用 class 不用 style/attr——attributify 會咬 SVG 的呈現屬性（見 CLAUDE.md）。 */
+.arrow-col svg.is-back {
+  transform: scaleX(-1);
 }
 </style>

@@ -39,7 +39,7 @@ withDefaults(
 .terminal-head {
   display: flex;
   align-items: center;
-  padding: 32px 32px 16px;
+  padding: var(--term-pad-head);
 }
 .terminal-lights {
   display: flex;
@@ -61,11 +61,12 @@ withDefaults(
 }
 .mono-body {
   flex: 1;
-  padding: 48px 32px 32px;
+  padding: var(--term-pad-body);
   display: flex;
   flex-direction: column;
   font-family: var(--font-mono);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 /* variant 控制字級節奏：doc／log 兩組數值照設計稿。 */
 .mono-body.is-doc {
@@ -78,8 +79,10 @@ withDefaults(
   line-height: 1.55;
   gap: 16px;
 }
+/* 保留連續空格、過長折行（比照 ShTerminal／GhCodePanel）。 */
 .mono-line {
   color: var(--dark-ink);
+  white-space: pre-wrap;
 }
 /* 高亮 note 恆在最後一行 → 推到終端機最底（tone-accent 與 ## 共用，故鎖 :last-child）。 */
 .mono-line:last-child {

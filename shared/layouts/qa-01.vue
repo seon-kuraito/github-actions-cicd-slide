@@ -45,7 +45,7 @@ defineProps<{
   font-size: 1000px;
   font-weight: 700;
   line-height: 0.85;
-  color: var(--panel);
+  color: var(--qa-watermark);
   letter-spacing: -0.05em;
 }
 .header,

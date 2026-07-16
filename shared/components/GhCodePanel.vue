@@ -83,7 +83,7 @@ const parsed = computed<Parsed[]>(() =>
 .terminal-head {
   display: flex;
   align-items: center;
-  padding: 32px 32px 16px;
+  padding: var(--term-pad-head);
 }
 .terminal-lights {
   display: flex;
@@ -105,7 +105,7 @@ const parsed = computed<Parsed[]>(() =>
 }
 .code-body {
   flex: 1;
-  padding: 48px 32px 32px;
+  padding: var(--term-pad-body);
   display: flex;
   flex-direction: column;
   gap: var(--line-gap);
@@ -113,10 +113,11 @@ const parsed = computed<Parsed[]>(() =>
   font-size: var(--line-size);
   line-height: 1.55;
   min-height: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .code-line {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 /* 高亮 note 恆在最後一行 → 推到終端機最底（比照 AiChatPanel chat-note）。 */
 .code-line:last-child {

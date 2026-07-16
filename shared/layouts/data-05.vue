@@ -1,8 +1,22 @@
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+
+const props = defineProps<{
   heading?: string
   steps?: { no?: string; heading?: string; desc?: string; state?: 'done' | 'now' | 'todo' }[]
 }>()
+
+/* 連線點亮到「最後一個已點亮節點」：dot 間距＝(100% + gap)/N，故填到第 L 點的寬度
+ * ＝ L/N ×(100% + 56px)。只有第一點亮（L=0）或全暗時無連線。 */
+const trackFill = computed(() => {
+  const s = props.steps ?? []
+  let last = -1
+  s.forEach((st, i) => {
+    if (st.state === 'now' || st.state === 'done') last = i
+  })
+  if (last < 1) return '0px'
+  return `calc(${last / s.length} * (100% + 56px))`
+})
 </script>
 
 <template>
@@ -17,6 +31,7 @@ defineProps<{
     <div class="steps-area">
       <div class="steps">
         <span class="track"></span>
+        <span class="track-fill" :style="{ width: trackFill }"></span>
         <div v-for="(step, i) in steps" :key="i" class="step" :class="step.state ?? 'todo'">
           <span class="step-dot"></span>
           <span class="step-no">{{ step.no }}</span>
@@ -81,6 +96,14 @@ defineProps<{
   height: 3px;
   background: var(--line);
 }
+/* 已點亮段（覆蓋灰底 track，止於最後一個點亮節點；色隨 brand class 翻） */
+.track-fill {
+  position: absolute;
+  top: 23px;
+  left: 12px;
+  height: 3px;
+  background: var(--brand-git);
+}
 .step {
   position: relative;
   display: flex;
@@ -92,16 +115,15 @@ defineProps<{
   height: 26px;
   border-radius: 999px;
 }
-.step.done .step-dot {
+/* 進行中（now）與已完成（done）皆點亮＝填色；尚未進行（todo）為空心。
+ * 節點一旦點亮就保持，隨投影片逐一亮起、不再熄滅。 */
+.step.done .step-dot,
+.step.now .step-dot {
   background: var(--brand-git);
 }
-.step.now .step-dot,
 .step.todo .step-dot {
   box-sizing: border-box;
   background: var(--paper);
-}
-.step.now .step-dot,
-.step.todo .step-dot {
   border: 6px solid var(--line-2);
 }
 .step-no {
@@ -111,7 +133,8 @@ defineProps<{
   letter-spacing: 0.18em;
   color: var(--ink-3);
 }
-.step.done .step-no {
+.step.done .step-no,
+.step.now .step-no {
   color: var(--brand-git);
 }
 .step-heading {

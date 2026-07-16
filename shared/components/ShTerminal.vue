@@ -56,7 +56,7 @@ const padded = (l: ShTermLine) => l.text.padEnd(cmdPad.value, ' ')
 .terminal-head {
   display: flex;
   align-items: center;
-  padding: 32px 32px 16px;
+  padding: var(--term-pad-head);
 }
 .terminal-lights {
   display: flex;
@@ -78,7 +78,7 @@ const padded = (l: ShTermLine) => l.text.padEnd(cmdPad.value, ' ')
 }
 .terminal-body {
   flex: 1;
-  padding: 48px 32px 32px;
+  padding: var(--term-pad-body);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -86,26 +86,30 @@ const padded = (l: ShTermLine) => l.text.padEnd(cmdPad.value, ' ')
   font-size: var(--term-font);
   line-height: var(--term-lh);
   min-height: 0;
-  overflow: hidden;
-  white-space: pre;
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: pre-wrap;
 }
 .line-cmd {
-  color: var(--dark-ink);
+  color: var(--term-ink-cmd);
 }
+/* 終端裝飾一律 --brand-{x}-term，不用 ramp base（DECISIONS 2026-07-11 的 -term 語意層）。
+ * 橘色下 base 與 term 都可讀，所以這裡長年掛 base 也沒露餡；`.brand-github` 讓兩者分岔後
+ * 才現形——base 的 #388BFD 是白底 chrome 調的，深底 --term-bg 上只有 4.29:1。 */
 .prompt {
-  color: var(--brand-git);
+  color: var(--brand-git-term);
 }
 .cmd-comment {
-  color: var(--dark-ink-3);
+  color: var(--term-ink-comment);
 }
 .line-output {
-  color: var(--dark-ink-2);
+  color: var(--term-ink-out);
 }
 .line-comment {
-  color: var(--dark-ink-3);
+  color: var(--term-ink-comment);
 }
 .line-comment.is-accent {
   margin-top: auto;
-  color: var(--brand-git);
+  color: var(--brand-git-term);
 }
 </style>

@@ -15,6 +15,32 @@
   text-autospace: normal;
 }
 
+/* 區段品牌覆寫：把該頁的 git 強調色 ramp 重映成另一品牌（github／ai），供主題
+ * 章節用（如 W1 P5【11】–【14】走 github、P7 AI 段走 ai）。掛在 slide frontmatter
+ * 的 `class: brand-github`／`class: brand-ai`。
+ * 2026-07-14 改制（**區段染色優先**，取代原「git/shell 終端頁刻意不掛、-term 不動」）：
+ * github 段裡的 git 終端頁（git-01＋GitTerminal，如 W1 p151–154）整頁隨段翻藍，故
+ * `.brand-github` 連 `-term` 一起重映（→ --brand-github-term，深底 6.68:1）。
+ * 2026-07-15：`.brand-ai` 補上同一行（原註記「不需重映 -term：AI 對話/日誌終端
+ * AiChat／AiMono 本就直接引用 --brand-ai-term」——該前提**已失效**：p212 起 AI 段
+ * 也放 git/shell 終端（git-files ＋ ShTerminal，吃 --brand-git-term），沒重映就整頁
+ * 紫、只有終端裝飾是橘。三個品牌自此一致重映 -term。
+ * -tint 深色 override 由 token 承載，引用 token 即自動跟著模式翻。 */
+.brand-github {
+  --brand-git: var(--brand-github);
+  --brand-git-deep: var(--brand-github-deep);
+  --brand-git-soft: var(--brand-github-soft);
+  --brand-git-tint: var(--brand-github-tint);
+  --brand-git-term: var(--brand-github-term);
+}
+.brand-ai {
+  --brand-git: var(--brand-ai);
+  --brand-git-deep: var(--brand-ai-deep);
+  --brand-git-soft: var(--brand-ai-soft);
+  --brand-git-tint: var(--brand-ai-tint);
+  --brand-git-term: var(--brand-ai-term);
+}
+
 /* 投影片共用 chrome（設計稿同名 class，數值照抄） */
 .eyebrow {
   display: inline-flex;
@@ -49,10 +75,56 @@
   color: var(--ink-3);
 }
 
-/* 面板圓角：終端機與其配對的淺色面板（class="panel"：git／github 左圖面板、
- * shell ShPanel）統一 14px 圓角；overflow 裁掉方角內容。ai 左面板為 Ai* 元件、
- * 各自於 scoped style 加同值。 */
+/* 左側面板的共同外觀。`class="panel"` ＝ 全 deck「與終端機並排的淺色左面板」的唯一選擇器，
+ * 三種實作共用：git／github 左圖面板（手寫 .panel）、shell／git-files（ShPanel 元件）、
+ * ai 左面板（Ai* 元件，2026-07-15 起於各自 template 補掛 panel class 併入本族——原本
+ * 各自在 scoped style 複製 border-radius，已刪除）。改此處＝ 23 個版型同步。
+ * 內部結構三族一致：.panel > (.panel-head | ShPanel 的 .head) ＋ 其後的內容區。
+ *
+ * 圓角 14px：overflow 裁掉方角內容。
+ *
+ * 面底 --panel-face（2026-07-15）：原本面板整塊透明、只靠 2px --line 邊框撐出範圍，量起來
+ * head 與 body 都**就是頁面底色本身**（對比 1.000，兩模式皆是）——旁邊的終端機卻是實色面
+ * （--term-bg，淺色下與紙面 13.76），並排時左邊只是四條邊框、右邊才是個面。
+ * 曾直接沿用既有的 --panel（同為「離紙面一階」），**淺色下讀成髒**、退回：--panel 是為小色塊
+ * 調的值（R−B＝8 的暖米色），鋪滿 1000×470 就成泛黃舊紙。分家理由與值見 tokens.css --panel-face。
+ *
+ * **head 與 body 同底、整塊一個面**（曾試 head 釘 --paper／body 上底，退回）：
+ * ① 右側終端機的 head（紅黃綠燈那條）與 body 本就同為 --term-bg、中間無分隔，左右是並排的
+ *    一對，左邊拆兩色會不對稱；② head 的界線已由自帶的 border-bottom ＋ 大寫 mono
+ *    ＋ letter-spacing .18em ＋ --ink-3（淡於 body 的 --ink）畫過三次，再加色塊是重複編碼，
+ *    且本設計系統通篇描邊驅動、無陰影層疊，拆 head/body 等於為一條 chrome 引進第二套文法；
+ * ③ **深色沒有空間**：可用色帶只有 頁 #1F1F1F → 終端 #2a2a2a ＝ 1.148，body 佔掉 #2a2a2a 後，
+ *    head 想分開只剩「回到頁面色（＝本次要修的問題）」「亮過終端（chrome 大過內容，且 #333333
+ *    正是終端邊框色）」「取中間值 ~1.05 一階（投影會糊掉，同 tokens.css 已載明的失敗類別）」。
+ *    只在淺色成立的規則不是規則。
+ *
+ * 深色撞色（已知、刻意）：--panel 於深色 ＝ --dark-panel #2A2A2A ＝ --term-bg #2a2a2a，故深色
+ * 下左面板與右終端同色（量測 1.000），僅靠紅黃綠燈與等寬白字區分（邊框 #383838 vs #333333
+ * 差 1.03、看不出）。上述 1.148 色帶內無第二個選擇，取捨為：與其用一個既不像紙也不像終端的
+ * 中間值，不如讓「浮起的面 ＝ #2a2a2a」在深色下一致。淺色無此問題（面 vs 終端 12.77）。 */
 .slidev-layout .panel {
   border-radius: 14px;
   overflow: hidden;
+  background: var(--panel-face);
+  /* PanelToggle（面板右下角操作鈕）的定位基準。放在這條共用選擇器上＝23 個左面板一次到位，
+   * 版型端只要擺進 <PanelToggle> 就定得住位；否則每個要用的版型都得自己補一次 relative。
+   * 對沒有 toggle 的面板無副作用（relative 不改變佈局），且 overflow: hidden 也不會裁到它
+   * ——按鈕的偏移量（44px）在面板內。 */
+  position: relative;
+}
+
+/* 終端機類面板的捲軸（各元件 body 皆 overflow-y: auto；行內容折行，故不橫捲）。
+ * mac 是 overlay 捲軸、不碰不顯示，所以本機看不出問題；Windows／Linux 的經典捲軸
+ * 只要有溢出就常駐，預設亮灰粗條壓在深色終端機上很搶眼——而學員課後複習多半正是
+ * 在 Windows 上開。這裡收成細捲軸＋深色 thumb。
+ * 走 scoped style 之外的全域規則：五個元件各自 scoped，但 scoped 只是多加屬性選擇器、
+ * class 名仍在，故此處選得到。 */
+.terminal-body,
+.term-body,
+.sh-body,
+.code-body,
+.mono-body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-border) transparent;
 }
