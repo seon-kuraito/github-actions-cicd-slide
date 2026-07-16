@@ -5,7 +5,7 @@
 ## 週 repo：你的 Dashboard（延續 W2）
 
 - 延續你自己的 Dashboard——本週在它上面**故意搞爛、再一一救回**，最後打第一個正式版本。
-- 災難**現場製造**：P6 挑戰卡引導你親手製造四種災情（手滑 hard reset、三顆 WIP 爛歷史、散落他枝的修復、推錯的公開 commit），再用對的工具救回。親手弄壞才知道怎麼救。
+- 災難**現場製造**：P6 挑戰卡引導你親手製造四種災情（手滑 hard reset、三個 WIP 爛歷史、散落他枝的修復、推錯的公開 commit），再用對的工具救回。親手弄壞才知道怎麼救。
 - ✋ sandbox：P1–P5 各工具（stash/reset/reflog/cherry-pick/rebase -i）的即幤練習另開丟棄式 sandbox，與 Dashboard 分開。
 - 本週 skills：deck 一頁提供 skills repo 下載連結（同 W2 載體）。
 
@@ -45,7 +45,7 @@
 - [ ] reflog 救援
 - [ ] reflog 保存期限 ⟨加分⟩
 - [ ] 救不回的：沒 commit 過的變更 ⟨加分⟩
-- >【37】只摘那一顆（cherry-pick）
+- >【37】只摘那一個（cherry-pick）
 - [ ] git cherry-pick
 - [ ] cherry-pick 衝突處理 ⟨加分⟩
 - [ ] 範圍語法 A..B ⟨加分⟩

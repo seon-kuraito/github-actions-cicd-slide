@@ -15,7 +15,8 @@ const heading = computed(() => 'CODE')
 </script>
 
 <template>
-  <div class="review-panel">
+  <!-- panel＝全 deck 左側面板共同外觀（圓角／body 底）的掛勾，見 base.css。 -->
+  <div class="review-panel panel">
     <div class="panel-head">
       <span class="head-label">{{ heading }}</span>
       <span v-if="badge" class="head-badge">{{ badge }}</span>
@@ -36,12 +37,11 @@ const heading = computed(() => 'CODE')
 </template>
 
 <style scoped>
+/* 圓角與 body 底由 base.css 的 .slidev-layout .panel 統一供給（template 已掛 panel class）。 */
 .review-panel {
   width: 1000px;
   flex-shrink: 0;
   border: 2px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

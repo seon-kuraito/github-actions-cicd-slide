@@ -147,7 +147,7 @@ defineProps<{
 .terminal-head {
   display: flex;
   align-items: center;
-  padding: 32px 32px 16px;
+  padding: var(--term-pad-head);
 }
 .terminal-lights {
   display: flex;
@@ -169,7 +169,7 @@ defineProps<{
 }
 .terminal-body {
   flex: 1;
-  padding: 48px 32px 32px;
+  padding: var(--term-pad-body);
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -181,12 +181,12 @@ defineProps<{
   color: var(--brand-git);
 }
 .line-command .command-text {
-  color: var(--dark-ink);
+  color: var(--term-ink-cmd);
 }
 .line-comment {
-  color: var(--ink-3);
+  color: var(--term-ink-comment);
 }
 .line-output {
-  color: var(--dark-ink-2);
+  color: var(--term-ink-out);
 }
 </style>

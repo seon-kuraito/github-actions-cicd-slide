@@ -54,6 +54,15 @@ defineProps<{
   background: var(--brand-git);
   margin-left: 14px;
   vertical-align: -6px;
+  animation: cursor-blink 1.06s infinite;
+}
+/* hard on/off toggle (真游標式閃爍，非淡入淡出)；50.01% 讓切換近乎瞬間 */
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; }
 }
 .sub {
   font-family: var(--font-sans);

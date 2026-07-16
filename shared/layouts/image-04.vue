@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 defineProps<{
   heading?: string
   figures?: { src?: string; alt?: string; label?: string; note?: string; no?: string | number; caption?: string }[]
@@ -19,7 +21,7 @@ defineProps<{
     <div class="figures">
       <div v-for="(fig, i) in figures" :key="i" class="figure">
         <div v-if="fig.src" class="media">
-          <img :src="fig.src" :alt="fig.alt" class="media-img" />
+          <img :src="withBase(fig.src)" :alt="fig.alt" class="media-img" />
         </div>
         <div v-else class="placeholder">
           <span class="ph-label">{{ fig.label }}</span>

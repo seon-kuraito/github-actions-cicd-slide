@@ -3,6 +3,7 @@ interface AgendaItem {
   no?: string | number
   heading?: string
   desc?: string
+  brand?: 'git' | 'github' | 'ai'
 }
 
 defineProps<{
@@ -22,7 +23,7 @@ defineProps<{
       <span></span>
     </div>
     <div class="agenda">
-      <div v-for="(item, i) in items ?? []" :key="i" class="agenda-row">
+      <div v-for="(item, i) in items ?? []" :key="i" class="agenda-row" :class="item.brand && `brand-${item.brand}`">
         <span class="agenda-no">{{ item.no }}</span>
         <div class="agenda-text">
           <span class="agenda-heading"><MdInline :text="item.heading" /></span>

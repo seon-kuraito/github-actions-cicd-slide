@@ -10,12 +10,12 @@
 
 見 [docs/kit/week-2.md](../kit/week-2.md)（週 repo／skills／知識點清單）。
 
-## P0 — Starting（2 頁）
+## P0 — Starting
 
 - [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · PARALLEL／2026.07.25 · 第二週）
 - [ ] 本日目標：開分支、合併、解衝突，發出第一個 PR
 
-## P1 — 分支概念（32 頁）
+## P1 — 分支概念
 
 - [ ] **【18】為什麼需要分支**
 - [ ] 【？】想試大改動又怕改壞，你現在會怎麼做？
@@ -24,9 +24,10 @@
 - [ ] 分支不是資料夾複製：一個資料夾、多條世界線
 - [ ] HEAD 是什麼？
 - [ ] 【？】HEAD、main、commit——誰指著誰？
-- [ ] 【！】HEAD 指著你所在的分支、分支指著它最新那顆 commit——一路指下去
+- [ ] 【！】HEAD 指著你所在的分支、分支指著它最新那個 commit——一路指下去
 - [ ] 三者關係圖：HEAD → branch → commit
-- [ ] *git log --oneline 找到 `HEAD -> main`，說出 HEAD 現在指著誰*
+- [ ] *【18】章節實作：git log --oneline 找到 `HEAD -> main`，說出 HEAD 現在指著誰*
+- [ ] *【18】章節補充*
 - [ ] >分支的實體：.git/refs 裡的一個小檔案
 
 - [ ] **【19】建立與切換分支**
@@ -37,7 +38,8 @@
 - [ ] git switch \<name\>：切換分支（checkout 的新家）
 - [ ] git switch -c：建立並切換一次完成
 - [ ] 切換之後看什麼：git status 與 git log 的變化
-- [ ] *✋ 開兩條分支 → 各切換一次 → 在其中一條發一顆 commit → 回 main 比較 log*
+- [ ] *【19】章節實作：✋ 開兩條分支 → 各切換一次 → 在其中一條發一個 commit → 回 main 比較 log*
+- [ ] *【19】章節補充*
 - [ ] >checkout vs switch：舊指令還到處都是
 - [ ] >切換分支時手上有未 commit 的變更會怎樣（下週 stash 伏筆）
 
@@ -48,11 +50,12 @@
 - [ ] 好名字 vs 壞名字：對照範例
 - [ ] Conventional Commits：type 總覽（feat／fix／docs／chore…）
 - [ ] Conventional Commits：格式解剖 `type(scope): subject`
-- [ ] *開一條 feature/ 分支、發一顆合規的 commit*
+- [ ] *【20】章節實作：開一條 feature/ 分支、發一個合規的 commit*
+- [ ] *【20】章節補充*
 - [ ] >團隊為什麼在乎命名
 - [ ] >Conventional Commits 的 scope：feat(site): …
 
-## P2 — 歷史漫遊、GUI 與 SSH（33 頁）
+## P2 — 歷史漫遊、GUI 與 SSH
 
 - [ ] **【21】時光旅行**
 - [ ] git checkout \<hash\>：回到過去看看
@@ -60,7 +63,8 @@
 - [ ] 【！】改得了，但留不住——那些 commit 沒分支接、之後會被回收
 - [ ] detached HEAD：你現在不在任何分支上
 - [ ] 迷路了怎麼回家：git switch main
-- [ ] *git log 抄下兩個 commit 前的 hash → checkout 過去 → 看檔案內容 → switch main 回家*
+- [ ] *【21】章節實作：git log 抄下兩個 commit 前的 hash → checkout 過去 → 看檔案內容 → switch main 回家*
+- [ ] *【21】章節補充*
 - [ ] >detached HEAD 上的 commit 會被回收
 - [ ] >只想看不想動：checkout 單一檔案的舊版本
 
@@ -72,7 +76,8 @@
 - [ ] 讀圖法：一條線一個世界
 - [ ] 讀圖法：merge 的交會點長怎樣
 - [ ] SourceTree 一瞥：另一種選擇
-- [ ] *在 Git Graph 找到自己剛開的分支與那顆 commit*
+- [ ] *【22】章節實作：在 Git Graph 找到自己剛開的分支與那個 commit*
+- [ ] *【22】章節補充*
 - [ ] >git log --graph 與 GUI 的對照（回收 W1）
 - [ ] >Git Graph 上直接操作：右鍵選單一瞥
 
@@ -86,11 +91,12 @@
 - [ ] 【？】公鑰跟私鑰，哪一把可以給別人？
 - [ ] 【！】公鑰——私鑰只留自己，絕不外流
 - [ ] 交給 GitHub：Settings → SSH and GPG keys → New SSH key
-- [ ] *ssh -T git@github.com 打招呼成功*
+- [ ] *【23】章節實作：ssh -T git@github.com 打招呼成功*
+- [ ] *【23】章節補充*
 - [ ] >PAT vs SSH：什麼時候用哪個
 - [ ] >一台電腦多把鑰匙：多帳號的 SSH config 一瞥
 
-## P3 — 合併與遠端同步（23 頁）
+## P3 — 合併與遠端同步
 
 - [ ] **【24】把世界線收回來（merge）**
 - [ ] 【？】合併有方向嗎——A 合 B 跟 B 合 A 一樣嗎？
@@ -99,9 +105,10 @@
 - [ ] Fast-forward：什麼都沒發生的合併
 - [ ] Three-way merge：三方會談
 - [ ] 【？】兩種 merge 之後，歷史線長得一樣嗎？
-- [ ] 【！】不一樣——FF 不留痕、three-way 留一顆 merge commit
+- [ ] 【！】不一樣——FF 不留痕、three-way 留一個 merge commit
 - [ ] merge commit 長什麼樣：兩個 parent
-- [ ] *開分支發 commit → 回 main FF merge；再讓兩邊都有 commit → three-way merge，Git Graph 對照兩種形狀*
+- [ ] *【24】章節實作：開分支發 commit → 回 main FF merge；再讓兩邊都有 commit → three-way merge，Git Graph 對照兩種形狀*
+- [ ] *【24】章節補充*
 - [ ] >--no-ff：強制留下合併痕跡
 - [ ] >merge 完的分支要刪嗎：git branch -d 的時機
 
@@ -113,29 +120,31 @@
 - [ ] git pull = fetch + merge
 - [ ] pull 的時機：動手改之前先同步
 - [ ] 團隊日常：push 前先 pull
-- [ ] *在 GitHub 網頁直接改一個檔案（製造一顆「別人推的」遠端 commit）→ fetch → Git Graph 看 origin/main 與 main 的差*
+- [ ] *【25】章節實作：在 GitHub 網頁直接改一個檔案（製造一個「別人推的」遠端 commit）→ fetch → Git Graph 看 origin/main 與 main 的差*
+- [ ] *【25】章節補充*
 - [ ] >pull --rebase 是什麼
 - [ ] >git remote -v：查看遠端設定
 
-## P4 — rebase 與抉擇（15 頁）
+## P4 — rebase 與抉擇
 
 - [ ] **【26】搬家重演（rebase）**
-- [ ] rebase 是什麼：commit 一顆顆重放
+- [ ] rebase 是什麼：commit 一個個重放
 - [ ] 【？】同一段分岔歷史，merge 和 rebase 後的 log 差在哪？
 - [ ] rebase 圖解（before）：分岔的兩條線
 - [ ] rebase 圖解（after）：接成一直線
-- [ ] 【！】merge 留著分岔＋一顆會合點；rebase 把你的 commit 接成一直線，像沒分岔過
+- [ ] 【！】merge 留著分岔＋一個會合點；rebase 把你的 commit 接成一直線，像沒分岔過
 - [ ] merge vs rebase：歷史的兩種哲學
 - [ ] 【？】這段歷史，該 merge 還是 rebase？
 - [ ] 【！】看「推出去了沒」：已推的用 merge、還沒推的可 rebase（想留痕 merge、要直線 rebase）
 - [ ] 【？】為什麼「推過的分支」碰不得？
 - [ ] 【！】因為 rebase 換掉 commit 的身分證（hash）——別人拉走的是舊的，兩邊歷史就對不上
 - [ ] 黃金法則：推過的分支不要 rebase
-- [ ] *在 sandbox 開分支讓兩邊分岔 → 站在分支上 rebase main → log --graph 前後對照*
+- [ ] *【26】章節實作：在 sandbox 開分支讓兩邊分岔 → 站在分支上 rebase main → log --graph 前後對照*
+- [ ] *【26】章節補充*
 - [ ] >rebase 遇到衝突怎麼辦
 - [ ] >rebase 改寫了什麼：commit hash 為什麼變了
 
-## P5 — 衝突實戰（16 頁）
+## P5 — 衝突實戰
 
 - [ ] **【27】衝突：Git 不會通靈**
 - [ ] 【？】兩個人改同一行，Git 該聽誰的？
@@ -149,12 +158,13 @@
 - [ ] 收尾別忘了：add → commit 才算完成合併
 - [ ] 心態頁：衝突不是錯誤，是對話
 - [ ] 這件事不外包給 AI：衝突相撞的是兩個「意圖」，該留誰是人的判斷——所以本課刻意沒有「AI 解衝突」（AI 能代打的是指令，不是判斷）
-- [ ] *✋ 兩條分支改同一行 → merge 引爆 → merge editor 解掉 → commit 收尾*
+- [ ] *【27】章節實作：✋ 兩條分支改同一行 → merge 引爆 → merge editor 解掉 → commit 收尾*
+- [ ] *【27】章節補充*
 - [ ] >衝突時的逃生門：--abort
 - [ ] >同檔不同區塊會衝突嗎：Git 的合併單位
 - [ ] >語意衝突：Git（和 AI）都看不見——文字沒相撞、邏輯卻打架的衝突，只有人測得出來
 
-## P6 — 情境挑戰「兩條功能線撞在一起了」＋第一個 PR（27 頁）
+## P6 — 情境挑戰「兩條功能線撞在一起了」＋第一個 PR
 
 - [ ] **【28】🔨 情境挑戰：Dashboard 上兩條功能線撞在一起**
 - [ ] 🧭 Step 0：回到你的 Dashboard，git log 確認 main 乾淨
@@ -168,7 +178,8 @@
 - [ ] Step 6：VS Code merge editor 逐段選擇 → add → commit 完成合併
 - [ ] 【？】真實工作情境中會是什麼樣子？
 - [ ] 【！】真實版是「兩個人」各改各的——衝突不是誰的錯，是兩條線在同處相遇，而且常在合 PR 時才浮現
-- [ ] *Dashboard main 同時有新技能與收斂後的心得；Git Graph 一個 FF、一個 merge commit*
+- [ ] *【28】章節實作：Dashboard main 同時有新技能與收斂後的心得；Git Graph 一個 FF、一個 merge commit*
+- [ ] *【28】章節補充*
 - [ ] >順序思考：Step 4 若沒先動 main，這次 merge 還會炸嗎？
 
 - [ ] **【29】🔨 你的第一個 PR**
@@ -176,35 +187,38 @@
 - [ ] 【！】為了「有人看過」也「留下記錄」——PR 把改動變成能討論、能擋下、日後也查得到的提案
 - [ ] PR 是什麼：提案 → 審核 → 合併
 - [ ] Step 1：開一條命名合規的分支（feature/…）
-- [ ] Step 2：改 data.json——打勾這週學的技能（分支／合併／PR）、發一顆好 commit（Conventional Commits）
+- [ ] Step 2：改 data.json——打勾這週學的技能（分支／合併／PR）、發一個好 commit（Conventional Commits）
 - [ ] Step 3：git push -u origin \<branch\>——分支上遠端
 - [ ] Step 4：GitHub 上按「Compare & pull request」→ 標題沿用 commit 慣例
 - [ ] Step 5：看懂 PR 頁面（極簡版：diff 在哪、留言在哪）
 - [ ] Step 6：自己按下 Merge → 順手刪除已合併的分支（GitHub 的提示按鈕）
-- [ ] *main 上多一個 merged PR，Dashboard 技能樹亮了 W2 這批點*
+- [ ] *【29】章節實作：main 上多一個 merged PR，Dashboard 亮了 W2 這批點*
+- [ ] *【29】章節補充*
 - [ ] >為什麼繞一圈 PR、不直接改 main（W4 的 Branch Protection 伏筆）
 - [ ] >PR 開錯分支方向怎麼辦：close 掉重開
 
-## P7 — AI 動手做：讓 AI 接手 branch → PR（~14 頁）
+## P7 — AI 動手做：讓 AI 接手 branch → PR
 
 - [ ] **【30】給 AI 一隻手：gh（GitHub CLI）**
 - [ ] 【？】AI 一直給建議，但指令還是我自己打——它能不能直接動手？
 - [ ] 【！】給它一隻手：gh（GitHub CLI），AI 就能替你開 PR、查狀態（W4 會升級成更強的 MCP）
 - [ ] gh 是什麼：GitHub 官方 CLI（W1【03】預告過的 PATH 成員）
 - [ ] 安裝 gh ＋ gh auth login：一次把 gh 綁上你的帳號
+- [ ] *【30】章節補充*
 - [ ] >gh 認證兩種方式：瀏覽器授權 vs token
 
 - [ ] **【31】用 skills 讓 AI 接手：分支 → commit → PR**
 - [ ] 本週 skills：repo 下載連結＋裝進工具
 - [ ] 【？】你現有 repo 上「開分支 → commit → 開 PR」這串，AI 能一口氣接手嗎？
 - [ ] 【！】可以——使用 skills 接力，但每一步你都要看得懂才按下去
-- [ ] *AI 幫你開分支（skill: `create-branch`）*
-- [ ] *AI 幫你發 commit（skill: `create-commit`）（升級版）*
-- [ ] *AI 用 gh 開 PR（skill: `create-pr`）*
+- [ ] *【31】章節實作：AI 幫你開分支（skill: `create-branch`）*
+- [ ] *【31】章節實作：AI 幫你發 commit（skill: `create-commit`）（升級版）*
+- [ ] *【31】章節實作：AI 用 gh 開 PR（skill: `create-pr`）*
+- [ ] *【31】章節補充*
 - [ ] >邊界頁：gh／AI 開的 PR，你仍要看過再合
 - [ ] >建 repo 那段留到 W3 P7：讓 AI 從 0 更完整地跑（git init＋.gitignore）
 
-## P8 — Ending（2 頁）
+## P8 — Ending
 
 - [ ] ✅ Recap：打開 Dashboard，確認 W2 這批技能點亮了（實質更新已在 P6 走 branch＋PR）
 - [ ] 下週預告：時光機與救援＋回家任務（在自己 repo 完整走一次 rebase，口頭發布）

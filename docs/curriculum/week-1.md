@@ -1,224 +1,270 @@
 # Week 1（7/18）
 
 - 當日終點：
-  - 每位學員擁有一個上線的個人 Dashboard（GitHub Pages）
-  - 裝好（或看過）AI 副駕
+  - 每位學員擁有一個公開的個人 Dashboard（GitHub Pages）
+  - 裝好（或看過）AI
 - 堂次結構（本週特例）：
   - P1 = [onboarding deck](onboarding.md)（`/`）整堂開場放映
   - 講完切入本 deck 自 P2 起。
 
-## Kit — 週 repo：`my-dashboard`
+## Kit — 無週儲存庫；學員自建 `skill-dashboard`（模板庫發 ZIP）
 
-見 [docs/kit/week-1.md](../kit/week-1.md)（週 repo／skills／知識點清單）。
+見 [docs/kit/week-1.md](../kit/week-1.md)（模板／skills／知識點清單）。
 
-## P0 — Starting（2 頁）
+## P0 — Starting
 
-- [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · ORIGIN／2026.07.18 · 第一週）
-- [ ] 本日目標：技能樹 Dashboard 上線
+- [x] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · ORIGIN／2026.07.18 · 第一週）
+- [x] 本週簡報 QR
+- [x] 上午目標
 
-## P2 — 認識 Git 與環境準備（42 頁）
+## P2 — 認識 Git 與環境準備
 
-- [ ] **【01】介紹 Git**
-- [ ] Git 是什麼？（關鍵字：分散式版本控制系統）
-- [ ] 【？】Google Doc 的版本紀錄，幫你躲過什麼災難？
-- [ ] 【！】躲過「回不去」——每一版都留著，改壞、刪錯都能退回任一個時間點
-- [ ] 什麼是版控？（用 Google Doc 做比喻＆解釋分散式概念）
-- [ ] 為什麼需要版本控制？（final_final_v3、每天複製一份資料夾的悲劇）
-- [ ] 版本控制在解決什麼？（快照、回溯、協作）
-- [ ] *開啟 Git 官網*
-- [ ] >集中式 vs 分散式：SVN 時代一頁對照
-- [ ] >Git 的誕生小故事：Linus 與兩週
+- [x] **【01】Git：專案的「時光機」**
+- [x] Git 是什麼？
+- [x] 【？】你用過 Google Doc 的「版本紀錄」嗎？它能做什麼？
+- [x] 【！】改壞或刪錯內容的時候，它能帶你回到先前的狀態
+- [x] 用 Google Doc 想像版本控制
+- [x] 為什麼需要版本控制？
+- [x] 版本控制在解決什麼？
+- [x] *【01】章節實作：開啟 Git 官網，點擊按鈕進入下載頁面*
+- [x] *【01】章節補充：先多看一點 Git 的背景，理解它為什麼適合多人專案*
+- [x] >Git 的誕生小故事：Linus 與兩週
+- [x] >集中式 vs 分散式：SVN 時代一頁對照
 
-- [ ] **【02】安裝 Git**
-- [ ] 安裝 git：macOS & Windows（windows 選 Vim）
-- [ ] 【？】為什麼工程師偏好在終端機裡工作，而不是到處點按鈕？
-- [ ] 【！】因為指令是文字——能複製、能重來、能自動化、能交給 AI；點按鈕留不下這些
-- [ ] 選擇終端機（mac 使用內建的 Terminal，windows 使用／安裝 Windows Terminal——shell 用預設的 PowerShell，linux 使用發行版內建終端機）
-- [ ] Windows 限定：解鎖指令碼執行——`Set-ExecutionPolicy RemoteSigned`（管理員開 PowerShell → 按 A → 重開終端機；今天 P7 的 AI CLI 與之後的 npm 都靠這步）
-- [ ] *git --version 有輸出*
-- [ ] >安裝排雷：macOS 常見狀況
-- [ ] >安裝排雷：Windows 常見狀況
-- [ ] >為什麼 PowerShell 預設擋指令碼：ExecutionPolicy 一分鐘版（Restricted vs RemoteSigned）
+- [x] **【02】Git：完成安裝與驗證**
+- [x] 安裝 git
+- [x] 【？】為什麼工程師偏好用終端機，而不是一路點按鈕？
+- [x] 【！】因為指令是文字——能複製、重複、自動化，也能交給 AI
+- [x] macOS 的終端機
+- [x] Windows 的終端機
+- [x] Windows 先調整 PowerShell 執行原則
+- [x] *【02】章節實作：執行 `git --version`，看到版本號就代表 Git 已經安裝成功*
+- [x] *【02】章節補充：裝不起來時，通常先從系統環境與權限設定排查*
+- [x] >安裝排雷：macOS 常見狀況
+- [x] >安裝排雷：Windows 常見狀況
 
-- [ ] **【03】終端機常見指令**
-- [ ] pwd：我在哪
-- [ ] ls：這裡有什麼
-- [ ] cd：移動
-- [ ] mkdir：建立資料夾
-- [ ] rm：刪除檔案與資料夾（謹慎使用）
-- [ ] git --version：指令從哪裡來（PATH 概念一分鐘版）
-- [ ] 【？】終端機為什麼認得 git 這個字？
-- [ ] 【！】靠 PATH——系統照 PATH 清單去找，才找得到 git
-- [ ] 預告：今天還會用到其他的 PATH（gh & claude/codex/agy）
-- [ ] *用 mkdir 建立一個空專案（資料夾），下一遍 pwd／ls，最後 cd 進去*
-- [ ] >cd 可以用拖曳資料夾的方式
-- [ ] >安裝排雷：git 常見狀況（如果有的話）
+- [x] **【03】終端機：下達指令的「控制台」**
+- [x] 終端機是什麼？（CLI vs GUI）
+- [x] pwd：確認目前位置
+- [x] ls：查看資料夾內容
+- [x] cd：切換所在資料夾
+- [x] mkdir：新增資料夾
+- [x] git --version：確認 Git 版本
+- [x] 【？】為什麼輸入 git，終端機就知道要執行誰？
+- [x] 【！】靠 PATH——系統找得到程式，指令才能執行
+- [x] PATH：系統尋找程式的清單
+- [x] 指令一定都靠 PATH 嗎？
+- [x] *【03】章節實作：用 `mkdir hello-git` 建立專案資料夾，再用 pwd／ls 確認位置，最後 cd 進去*
+- [x] *【03】章節補充：多認識幾個常用指令，之後使用終端機會更順手*
+- [x] >git 指令找不到？
+- [x] >ls -a：連隱藏檔一起看
+- [x] >ls -l：看檔案詳細資訊
+- [x] >cd ..：回到上一層
+- [x] >cd -：切回上一個資料夾
+- [x] >cd ~：回到使用者目錄
+- [x] >cd＋滑鼠拖曳資料夾
+- [x] >open / explorer：打開目前資料夾（拖曳的反向：終端機 → 圖形介面）
+- [x] >mkdir -p：一次建多層資料夾
+- [x] >touch：新增空白檔案
+- [x] >cp：複製一份檔案
+- [x] >mv：移動或重新命名
+- [x] >cat：查看檔案內容
+- [x] >rm：移除檔案
+- [x] >rm -r：移除資料夾
 
-- [ ] **【04】安裝 VS Code**
-- [ ] 【？】記事本也能寫 code，為什麼還要專門的編輯器？
-- [ ] 【！】VS Code 不只是編輯器，是可裝套件的工作台——之後的 Git GUI（W2 的 Git Graph）、整合終端裡的 AI 副駕都長在這
-- [ ] 安裝 VS Code：macOS & Windows
-- [ ] 用 VS Code 打開專案資料夾
-- [ ] *用 VS Code 打開剛剛 mkdir 的專案資料夾*
-- [ ] >code：把 VS Code 加進 PATH（呼應【03】）
-- [ ] >open：開啟當前目錄（mac `open .`／win `explorer .`／linux `xdg-open .`）
-- [ ] >VS Code 整合終端：編輯器裡也有黑窗
+- [x] **【04】VS Code：撰寫程式的「工作台」**
+- [x] 【？】只用記事本寫程式，會少了哪些工作上的幫手？
+- [x] 【！】VS Code 把檔案、終端機、Git 與 AI 放在同一個工作台
+- [x] 安裝 VS Code
+- [x] 使用 VS Code 開啟資料夾
+- [x] *【04】章節實作：從 File → Open Folder 選擇剛建立的專案資料夾，左側檔案總管出現資料夾名稱就代表成功*
+- [x] *【04】章節補充：把 VS Code 和終端機接起來，工作時就少切幾個視窗*
+- [x] >code：從終端機開啟 VS Code
+- [x] >VS Code 整合終端：編輯器裡也有黑窗
 
-## P3 — Git 身分與第一個 commit（31 頁）
+## P3 — Git 身分與第一個 commit
 
-- [ ] **【05】Git 身分**
-- [ ] 【？】為什麼 Git 堅持要知道你是誰？
-- [ ] 【！】因為每個 commit 都是用你的身分是寫進歷史的，不是拿來登入的
-- [ ] git config：告訴 Git 你是誰
-- [ ] git config --global user.name
-- [ ] git config --global user.email
-- [ ] git config --list
-- [ ] 【？】公司專案跟個人專案想用不同 email，怎麼辦？
-- [ ] --global 的差別（全域 vs 單一專案）
-- [ ] *身分設定完成（git config --list＋用 VS Code 開啟 .gitconfig 確認）*
-- [ ] >.gitconfig 的位置（Mac & Windows & Linux）
-- [ ] >為專案設定不同的 name 與 email
+- [x] **【05】Git 身分：留下作者署名**
+- [x] 【？】Git 為什麼要先知道這份作品是誰在編輯？
+- [x] 【！】這是版本紀錄裡的作者署名，不是 GitHub 登入
+- [x] git config：告訴 Git 你是誰
+- [x] git config --global：設定名字與 email
+- [x] git config --list：確認目前設定
+- [x] 【？】公司專案和個人專案需要不同 email，該怎麼設定？
+- [x] 【！】在專案資料夾內設定一次，就能覆蓋全域身分
+- [x] 全域身分是預設值：`--global` 放平常最常用的名字和 email；公司或特定專案需要不同身分時，就在專案資料夾內另外設定一次
+- [x] *【05】章節實作：執行 `git config --list`，確認 user.name 和 user.email 已經寫進 Git 設定*
+- [x] *【05】章節補充：身分設定其實寫在檔案裡，也可以依專案分開管理*
+- [x] >Git 設定存在哪裡？
+- [x] >為單一專案改身分
 
-- [ ] **【06】初始化專案的 Git**
-- [ ] git init：讓資料夾開始被追蹤
-- [ ] 【？】git init 之後，資料夾裡多了什麼？
-- [ ] 【！】多了一個隱藏的 .git——整個版控就活在裡面，刪了它就退回沒版控
-- [ ] .git 資料夾是什麼（不要動它）
-- [ ] git status：察看專案的狀態
-- [ ] *使用 git status 確認專案當前的狀態*
-- [ ] >init 錯資料夾怎麼辦（刪掉 .git 重來）
-- [ ] >看見隱藏的 .git：ls -a 與檔案總管的顯示設定
+- [x] **【06】儲存庫初始化：開始用 Git 追蹤**
+- [x] git init：讓資料夾開始被追蹤
+- [x] 【？】如果不小心刪掉 .git，這個專案會怎麼樣？
+- [x] 【！】檔案還在，但 Git 歷史會不見，資料夾會退回普通資料夾
+- [x] .git 讓資料夾變成儲存庫
+- [x] git status：查詢目前狀態
+- [x] *【06】章節實作：新增 index.html 後執行 `git status`，確認它出現在 Untracked files*
+- [x] *【06】章節補充：初始化後多出的 .git 很重要，先知道去哪裡找它，以及 init 錯資料夾時怎麼救援*
+- [x] >git init 錯地方了？
+- [x] >找出被隱藏的 .git
 
-- [ ] **【07】第一個 commit**
-- [ ] git add：放上暫存區
-- [ ] git commit：拍下快照＋commit message（中文）
-- [ ] 【？】為什麼要分兩步——先 add 再 commit？
-- [ ] 【！】暫存區是為了讓你挑——先選哪些變更進這次 commit
-- [ ] git status：隨時看狀態
-- [ ] 日常循環：改 → status → add → commit
-- [ ] git commit --amend：剛發現上一顆 commit 訊息打錯——改掉它（還沒 push，安全）
-- [ ] *建立 index.html 並連做三個 commit（變更都發生在 index.html），使用 git status 確認狀態*
-- [ ] >git add . 與指定檔案的差別
+- [x] **【07】版本快照：完成第一個 commit**
+- [x] 三層架構：檔案目前在哪裡
+- [x] 用「拍團體照」記住三層架構
+- [x] git add：放進暫存區（入鏡構圖）
+- [x] git commit：保存到儲存庫（按下快門）
+- [x] 【？】commit 前，為什麼要先把變更放進暫存區？
+- [x] 【！】暫存區讓你先挑選，哪些變更要進入這次 commit
+- [x] 日常循環：修改 → status → add → commit
+- [x] *【07】章節實作：對 index.html 重複三次「修改 → add → commit」，最後用 `git log --oneline` 確認三個 commit*
+- [x] *【07】章節補充：add 的範圍會影響 commit 內容，方便和精準要自己取捨*
+- [x] >git add .：將所有變更放進暫存區
+- [x] >git commit --amend：修改訊息
+- [x] >git commit --amend：修改內容
 
-## P4 — 三層架構、歷史與 .gitignore（27 頁）
+## P4 — 整理暫存區、歷史與 .gitignore
 
-- [ ] **【08】三層架構與部分提交**
-- [ ] 三層架構：工作目錄 → 暫存區 → 儲存庫
-- [ ] 三層架構的比喻：拍團體照（就位 → 構圖 → 快門）
-- [ ] 【？】改了三個檔案但只想先交出一個，怎麼辦？
-- [ ] 【！】git add 只加那一個檔案——暫存區是逐檔挑的，三個變更能拆成三顆乾淨的 commit
-- [ ] 暫存區為什麼存在：部分提交
-- [ ] *改三個檔案，使用 git add 指定檔案，發成三個 commit*
-- [ ] >git restore --staged：放錯暫存區的後悔藥
-- [ ] >add 之後又改了檔案會怎樣（三層的常見誤會）
+- [x] 下午目標
 
-- [ ] **【09】看懂歷史與差異**
-- [ ] git log：時光的目錄
-- [ ] git log --oneline 與常用參數
-- [ ] 【？】只知道「有改過」，怎麼看到「改了什麼」？
-- [ ] 【！】git diff 看逐行改了什麼、git log 看改過幾次——一個看內容、一個看時間軸
-- [ ] git diff：改了什麼一目了然
-- [ ] git diff --staged
-- [ ] *使用 git log 與 git diff 確認專案當前的狀態*
-- [ ] >git log --graph：文字版的分支圖（下週接 GUI）
-- [ ] >git log -p：歷史連同差異一起看
+- [x] **【08】暫存區：整理要提交的變更**（2026-07-16 重新界定：三層架構移入【07】後，本章專注「**怎麼用**暫存區整理」——分批提交、拿回來、add 後又改；模型本身不再重講）
+- [x] 【？】改動混在一起時，怎麼讓 commit 仍然清楚？
+- [x] 【！】用暫存區分批整理，把不同目的的變更拆開提交
+- [x] 暫存區為什麼存在？
+- [x] git restore --staged：移出暫存區，取消暫存但不刪檔案、不改內容
+- [x] *【08】章節實作：新增 style.css 與 main.js，再指定檔名分別「add → commit」，把兩個變更拆成兩個乾淨的 commit*
+- [x] *【08】章節補充：add 只收下當下的版本，後面又改了檔案，就要再確認一次暫存區*
+- [x] >add 之後又改了檔案會怎麼樣？
 
-- [ ] **【10】忽略不該追蹤的檔案**
-- [ ] .gitignore：不是每個檔案都要追蹤
-- [ ] 【？】哪些檔案不該進版控？（密碼？肥大的依賴？）
-- [ ] 【！】不能外流的（密碼）＋能重生的（node_modules、產物）——這兩種都別追蹤
-- [ ] .gitignore 常見規則：node_modules、.env、.DS_Store
-- [ ] *新增一個 .gitignore，設定忽略 html 並確認效果（新增第二個未追蹤的 html，看它從 git status 消失）*
-- [ ] >.gitignore 不回溯：已追蹤的 index.html 不受影響，要先 git rm --cached
-- [ ] >.gitignore 範本哪裡找：GitHub 官方 templates
+- [x] **【09】歷史與差異：找出改了哪些地方**
+- [x] git log：查看提交紀錄
+- [x] git log --oneline：一行一筆
+- [x] git log --graph：文字線圖
+- [x] 【？】只知道檔案有改，怎麼看出到底改了哪裡？
+- [x] 【！】比對內容差異用 git diff，確認歷史紀錄用 git log
+- [x] git diff：查看未暫存改動
+- [x] *【09】章節實作：先用 `git log --oneline` 看歷史，再用 `git diff` 看目前改動，分清楚時間軸和內容差異*
+- [x] *【09】章節補充：log 與 diff 都還有常用旗標：限制列出的數量、連同改動一起看，以及查看已經暫存的差異*
+- [x] >git log -n：指定顯示數量
+- [x] >git log -p：附上變更差異
+- [x] >git diff --staged：查看暫存區改動
 
-## P5 — GitHub 初登場：從 push 到 Pages（40 頁）
+- [x] **【10】忽略清單：排除不該追蹤的檔案**
+- [x] 不是每個檔案都該進 Git
+- [x] 【？】準備讓 Git 追蹤前，哪些檔案要先略過？
+- [x] 【！】祕密、本機設定、可重建的檔案，都先放進忽略清單
+- [x] .gitignore 常見規則
+- [x] .gitignore 生效後的樣子
+- [x] *【10】章節實作：新增 `.env` 寫一行假密碼，`git status` 會看到它；把它加進 `.gitignore` 後再跑一次，確認它從清單消失*
+- [x] *【10】章節補充：先釐清 .gitignore 的常見誤會，再用範本快速建立忽略清單*
+- [x] >.gitignore 不會回溯
+- [x] >.gitignore 範本哪裡找？
 
-- [ ] **【11】介紹 GitHub**
-- [ ] Git vs GitHub（引擎與車庫）
-- [ ] 【？】code 只存在自己的電腦上，會有什麼風險？
-- [ ] 【！】就這麼一份、全在本機——機器掛了或整個 repo 搞爛，連 Git 歷史都一起沒；遠端才是你存在別處的備份
-- [ ] 註冊帳號與個人頁導覽
-- [ ] 本地與遠端的關係圖：remote 概念
-- [ ] public 與 private repo 的差異
-- [ ] 【？】你的 Dashboard 要 public 還是 private？
-- [ ] 【！】public——Pages 免費層只吃 public，作品集本來就要被看見
-- [ ] *新增一個 Repo（畫面要出現「…or push an existing repository from the command line」）*
-- [ ] >介紹 GitLab
-- [ ] >GitHub repo 頁面各區塊導覽
+## P5 — GitHub 初登場：從 push 到 Pages
 
-- [ ] **【12】設定 GitHub 的通行證**
-- [ ] 【？】GitHub 怎麼確認推東西的人是你本人？
-- [ ] 【！】靠 token 不靠密碼——PAT 是給機器讀的通行證，權限、期限你自己框
-- [ ] 「通行證」的概念是什麼？（其他託管平台也會有）
-- [ ] PAT 設定方式（SSH 下週介紹）
-- [ ] *產生一組 PAT 並妥善保存（下一段 push 會用到）*
-- [ ] >為什麼不能用帳號密碼而是 PAT
-- [ ] >PAT 的權限範圍與期限：最小權限原則
+- [x] **【11】GitHub：把儲存庫放到雲端**
+- [x] Git 與 GitHub：工具與平台
+- [x] 本地與遠端：同一個專案，兩份儲存庫
+- [x] 【？】既然 Git 在本機就能記錄版本，為什麼還需要 GitHub？
+- [x] 【！】因為 GitHub 讓版本不只留在自己的電腦，之後才能分享、協作與部署
+- [x] 註冊帳號與個人頁導覽
+- [x] public 與 private 的差異
+- [x] 【？】專案要設定成 public，還是設定成 private？
+- [x] 【！】public 任何人都看得到，private 只限你和受邀的人
+- [x] *【11】章節實作：在 GitHub 建立名為 hello-git 的 public 儲存庫，建立完成後記下頁面上的 push 指令*
+- [x] *【11】章節補充：GitHub 之外還有其他平台，也認識一下儲存庫頁面的常用功能*
+- [x] >GitHub 之外的託管平台
+- [x] >GitHub 頁面導覽
 
-- [ ] **【13】綁定遠端 repo**
-- [ ] 【？】本地的 repo 跟 GitHub 上的空 repo，誰認識誰？
-- [ ] 【！】本來誰都不認識——git remote add origin 綁上後，origin 就是本地幫遠端取的小名
-- [ ] git remote add origin：把本地綁上遠端
-- [ ] git push
-- [ ] 分支重新命名（master -> main）
-- [ ] origin 標籤
-- [ ] 【？】換一台電腦要繼續開發，第一步是什麼？
-- [ ] git clone（展示遠端與 origin 概念）
-- [ ] *push 遠端，然後重新 clone 下來*
-- [ ] >為什麼 GitHub 要求 main
-- [ ] >怎麼設定 git init 就預設 main
+- [x] **【12】通行證：取得 GitHub 推送權限**
+- [x] 【？】你 push 到 GitHub 時，它怎麼知道真的是你？
+- [x] 【！】靠 token 而不是密碼，PAT 就是給終端機使用的通行證
+- [x] 「通行證」是什麼概念？
+- [x] 產生 PAT 的位置
+- [x] *【12】章節實作：到 Developer settings 產生 PAT，勾選「最小權限」並設定到期日，產生後立刻複製保存*
+- [x] *【12】章節補充：通行證的安全性，關鍵在於「不用主密碼」和「限制權限範圍」*
+- [x] >為什麼不能用帳號密碼？
+- [x] >最小權限原則
 
-- [ ] **【14】Demo 畫面的 GitHub Pages**
-- [ ] 【？】一個 html 要讓全世界看到，最少需要什麼？
-- [ ] 【！】一個 public repo ＋開 Pages——GitHub 就免費幫你當主機（網址自動產生）
-- [ ] 什麼是 GitHub Pages
-- [ ] 設定 GitHub Pages 分支
-- [ ] *前面練習的 index.html 能夠在 GitHub Pages 顯示*
-- [ ] >部署不是即時的：部署狀態哪裡看（Actions tab 伏筆）
-- [ ] >Pages 的網址規則：username.github.io/repo
+- [x] **【13】遠端儲存庫：把本地接上 GitHub**
+- [x] 【？】本地儲存庫和 GitHub 上的儲存庫，一開始認得彼此嗎？
+- [x] 【！】要先設定 remote，才會知道要推到哪個 GitHub 儲存庫
+- [x] git remote：接上遠端儲存庫
+- [x] git branch -M：把主分支改成 main
+- [x] git push：推上遠端
+- [x] git clone：複製一份遠端儲存庫
+- [x] *【13】章節實作：把 commit push 到遠端，再換個資料夾 clone下來，確認 GitHub 上真的有你的版本*
+- [x] *【13】章節補充：設定新專案預設使用 main，之後就不用每次手動改分支名稱*
+- [x] >為什麼現在都用 main？
+- [x] >讓 git init 預設就是 main
 
-## P6 — 情境挑戰：部署技能樹 Dashboard（13 頁）
+- [x] **【14】GitHub Pages：作品的「展示台」**
+- [x] 【？】想讓一個 HTML 網頁被全世界看到，最少需要什麼？
+- [x] 【！】只要 public 儲存庫加上 Pages，GitHub 就能產生公開網址
+- [x] 什麼是 GitHub Pages？
+- [x] 設定 GitHub Pages 分支
+- [x] *【14】章節實作：打開 GitHub Pages 頁面，看到畫面顯示就代表部署成功*
+- [x] *【14】章節補充：GitHub Pages 上線需要部署時間，網址也有固定的命名規則*
+- [x] >部署不是即時的
+- [x] >Pages 的網址規則
 
-- [ ] **【15】🔨 實做：部署「技能樹 Dashboard」**
-- [ ] Step 1：Use this template 建立你的 repo
-- [ ] Step 2：git clone 到本地
-- [ ] Step 3：改 data.json——你的名字與第一批技能
-- [ ] Step 4：commit
-- [ ] Step 5：push
-- [ ] Step 6：GitHub Pages 手動設定
-- [ ] 【？】push 完，網頁會馬上更新嗎？
-- [ ] 【！】不會——Pages 要跑一輪部署（Actions 在動），等一下再重整
-- [ ] Step 7：你的網址誕生
-- [ ] *輸入 URL*
-- [ ] >Pages 沒出現畫面？常見三因：分支選錯、路徑不對、還在部署中
-- [ ] >data.json 改壞了？JSON 格式排錯（逗號、引號、括號）
+## P6 — 情境挑戰：部署技能 Dashboard
 
-## P7 — AI 初見面（~16 頁）
+- [x] **【15】🔨 Dashboard：公開你的技能頁面**
+- [x] Step · 01 / 09
+- [x] 建立專案資料夾
+- [x] Step · 02 / 09
+- [x] 初始化儲存庫
+- [x] Step · 03 / 09
+- [x] 下載模板
+- [x] Step · 04 / 09
+- [x] 編輯資料
+- [x] Step · 05 / 09
+- [x] 提交變更
+- [x] Step · 06 / 09
+- [x] 建立遠端儲存庫
+- [x] Step · 07 / 09
+- [x] 綁定並推送遠端
+- [x] Step · 08 / 09
+- [x] 設定 GitHub Pages
+- [x] 【？】push 之後，GitHub Pages 會立刻更新嗎？
+- [x] 【！】不會立刻更新，Pages 需要先完成一輪部署
+- [x] Step · 09 / 09
+- [x] 瀏覽公開頁面
+- [x] *【15】章節實作：打開 GitHub Pages 頁面，確認你的技能 Dashboard 已經公開*
+- [x] *【15】章節補充：如果 Dashboard 沒出現，先從部署設定和資料格式檢查起*
+- [x] >Pages 沒出現畫面？常見三因：分支選錯、路徑不對、還在部署中
+- [x] >data.json 改壞了？JSON 格式排錯（逗號、引號、括號）
 
-- [ ] **【16】請一位 AI 副駕：Antigravity CLI**
-- [ ] 【？】為什麼工程師現在都帶一個 AI 副駕？
-- [ ] 【！】指令是文字，AI 讀得懂也寫得出——幫你解釋指令、寫 commit，方向盤仍在你手上
-- [ ] Antigravity CLI 是什麼：Gemini CLI 的繼任者
-- [ ] 安裝 Antigravity CLI（Windows 若噴「指令碼已停用」→ 回看【02】的 ExecutionPolicy）
-- [ ] *請 AI 解釋你今天打過的指令*
-- [ ] *請 AI 寫 commit 訊息（預期格式與文案會不符合預期）*
-- [ ] >Antigravity 是 Gemini CLI 官方繼任：為何換、差在哪
+## P7 — AI 初見面
 
-- [ ] **【17】把 AI 教成你的樣子：Agent Skills**
-- [ ] 【？】AI 寫的 commit 不合你要的格式，怎麼辦？
-- [ ] 【！】給它一份 skill——SKILL.md 把「你要的樣子」寫成規則，AI 照著做
-- [ ] Agent Skills 是什麼？
-- [ ] SKILL.md 格式
-- [ ] 安裝 Agent Skills（skill: `create-commit`）
-- [ ] *請 AI 再寫一次 commit 訊息，對照跟剛剛差在哪*
-- [ ] Context 觀念（載入 skill 會佔 context）
-- [ ] >skill 安裝在 User Global 層級
+- [x] **【16】Antigravity CLI：終端機裡的「AI 幫手」**
+- [x] Antigravity CLI 是什麼
+- [x] 安裝 Antigravity CLI
+- [x] 【？】為什麼工程師現在會把 AI 放進日常開發？
+- [x] 【！】AI 適合當開發助理，幫你查資料、解釋狀況、先寫草稿
+- [x] *【16】章節實作：先整理暫存區，再請 AI 依「這次暫存的改動」撰寫 commit 草稿，之後再決定要採用、修改或重寫*
+- [x] *【16】章節補充：理解網頁 Chat 與終端機 CLI 的差別，以及 CLI 可用 tools 對開發流程的影響*
+- [x] >Chat 和 CLI 差在哪？
 
-## P8 — Ending（2 頁）
+- [x] **【17】Skills：AI 的「工作說明書」**
+- [x] 【？】AI 寫出的 commit 訊息不符合你的習慣，該怎麼辦？
+- [x] 【！】把規則寫成 skills，讓 AI 每次都照同一套方式工作
+- [x] 從「提醒一次」變成「固定規則」
+- [x] skills 長什麼樣子？
+- [x] 安裝 create-commit skill
+- [x] 載入 skill 會佔用 context
+- [x] *【17】章節實作：安裝 create-commit 後，請 AI 以「剛剛那則 commit 草稿」再寫一次，對照套用規則前後的差異*
+- [x] *【17】章節補充：看懂 skill 的放置層級，知道同一套規則會在哪些專案生效*
+- [x] >skill 安裝在專案層級
 
-- [ ] ✅ Recap：打開 Dashboard，確認第一批技能點亮了（實質更新已在 P6【15】commit→push 上線）
-- [ ] 下週預告：分支與衝突＋回家小任務（口頭發布）
+## P8 — Ending（前置 story-01 收工轉場一頁）
+
+- [x] 轉場：「你的第一個作品，已經公開」
+- [x] ✅ 上午回顧
+- [x] ✅ 下午回顧
+- [x] 下週預告：分支與衝突
+- [x] THANK YOU（outro-02；badge BACK · 07.25 09:00）
 
 ## Spec 覆蓋
 

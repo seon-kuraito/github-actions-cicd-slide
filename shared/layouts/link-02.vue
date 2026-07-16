@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 defineProps<{
   qrs?: { heading?: string; url?: string; src?: string }[]
 }>()
@@ -16,7 +18,7 @@ const QR_PLACEHOLDER_SIZE = '400 × 400'
     <div class="qrs">
       <!-- 每欄＝link-01 中心那組（QR 圖＋heading 名稱＋URL 品牌 badge），兩欄水平並排。 -->
       <div v-for="(qr, i) in qrs ?? []" :key="i" class="qr-item">
-        <img v-if="qr.src" :src="qr.src" class="qr-img" />
+        <img v-if="qr.src" :src="withBase(qr.src)" class="qr-img" />
         <div v-else class="qr-placeholder">
           <span class="qr-ph-label">{{ QR_PLACEHOLDER_LABEL }}</span>
           <span class="qr-ph-size">{{ QR_PLACEHOLDER_SIZE }}</span>

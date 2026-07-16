@@ -14,12 +14,12 @@
 
 見 [docs/kit/week-6.md](../kit/week-6.md)（週 repo／skills／知識點清單）。
 
-## P0 — Starting（2 頁）
+## P0 — Starting
 
 - [ ] 簡報封面：GitHub Actions CI/CD 自動化與 AI 協作實務班（MODULE · LAUNCH／2026.08.29 · 第六週）
 - [ ] 本日目標：push 就部署、部署就通知
 
-## P1 — Docker 概念（14 頁）
+## P1 — Docker 概念
 
 - [ ] **【24】「在我電腦上可以跑」問題**
 - [ ] 【？】把整台電腦打包寄給別人，可行嗎？
@@ -32,11 +32,12 @@
 - [ ] 【！】不裝——本機裝有環境風險＋不可重現，交給 CI build（代勞正是主旨）★4
 - [ ] 講師 demo：docker run hello-world
 - [ ] 講師 demo：docker run 我們的 notify image（今天的終點預告）
-- [ ] *說得出 image／container 差別*
+- [ ] *【24】章節實作：說得出 image／container 差別*
+- [ ] *【24】章節補充*
 - [ ] >容器 vs 虛擬機
 - [ ] >貨櫃比喻補完：標準化才是革命的重點
 
-## P2 — Dockerfile（15 頁）
+## P2 — Dockerfile
 
 - [ ] **【25】環境的食譜（Dockerfile）**
 - [ ] 【？】要讓一台空白電腦跑起 notify，要裝什麼、照什麼順序？
@@ -50,11 +51,12 @@
 - [ ] 為 notify 寫 Dockerfile：逐行完成
 - [ ] ✋ 跟做：Dockerfile 進 repo
 - [ ] .dockerignore（呼應 .gitignore）
-- [ ] *Dockerfile 全文讀得懂*
+- [ ] *【25】章節實作：Dockerfile 全文讀得懂*
+- [ ] *【25】章節補充*
 - [ ] >layer 與快取概念
 - [ ] >底 image 怎麼挑
 
-## P3 — CI build & push（12 頁）
+## P3 — CI build & push
 
 - [ ] **【26】讓 CI 幫你打包出貨**
 - [ ] 在 Actions 裡 build image ★4
@@ -65,11 +67,12 @@
 - [ ] build-push-action：context、tags、push
 - [ ] ✋ 跟做：workflow 上車、push 觸發
 - [ ] 看結果：Packages 頁面有你的 image
-- [ ] *Packages 出現 image*
+- [ ] *【26】章節實作：Packages 出現 image*
+- [ ] *【26】章節補充*
 - [ ] >Docker Hub 對照
 - [ ] >image tag 策略
 
-## P4–P6 — Capstone「完成你的通知系統最後一哩」（~20 頁）
+## P4–P6 — Capstone「完成你的通知系統最後一哩」
 
 - [ ] **【27】🔨 接上部署：Dockerfile → GHCR → Render 拉起來跑**
 - [ ] 🧭 capstone 導覽：你的服務現在缺什麼——Dockerfile、deploy、通知（對照 W4–W5 養到哪）
@@ -78,7 +81,8 @@
 - [ ] Step 1：為你的服務補上 Dockerfile（回收 P2）
 - [ ] Step 2：workflow 加 build & push GHCR（回收 P3）
 - [ ] Step 3：Render 接上你的 GHCR image（設 registry 認證）→ Deploy Hook
-- [ ] *push 一次，Render 上你的服務跑起來了（先不管通知）*
+- [ ] *【27】章節實作：push 一次，Render 上你的服務跑起來了（先不管通知）*
+- [ ] *【27】章節補充*
 - [ ] >救援 fallback：自己的 repo 收不了？Fork 講師完整版照樣出貨
 
 - [ ] **【28】🔨 接上通知，一條龍跑完**
@@ -87,17 +91,19 @@
 - [ ] Step 4：webhook（LINE/Discord）存成 Secret（回收 W5）→ 加 notify step
 - [ ] Step 5：push 一次 → CI→GHCR→Render→通知一條龍跑完
 - [ ] Step 6：搭檔互驗——交換服務、各自 trigger 對方一次，確認對方頻道也跳通知（W4 配對收官）
-- [ ] *手機／頻道跳出「已部署」的那一刻——你的，跟搭檔的*
+- [ ] *【28】章節實作：手機／頻道跳出「已部署」的那一刻——你的，跟搭檔的*
+- [ ] *【28】章節補充*
 - [ ] >e-mail 通知對照
 - [ ] >彩蛋：Dashboard 部署也自動化（學習基地 CI 化）
 
-## P7 — AI 壓軸（~10 頁）
+## P7 — AI 壓軸
 
 - [ ] **【29】AI 進到部署層：優化與 Render MCP**
 - [ ] 【？】workflow 跑起來了，AI 還能幫上什麼？
 - [ ] 【！】往部署層走——`optimize-workflow` 幫你精簡、Render MCP 讓 AI 直接部署／查服務（呼應 W4 GitHub MCP，同一種「AI ↔ 工具」的橋）
 - [ ] Demo：AI 優化你的 workflow（skill: `optimize-workflow`）〔d6-PM③〕
 - [ ] Demo：AI 用 **Render MCP** 部署／查你的服務——AI 直接操作 Render
+- [ ] *【29】章節補充*
 - [ ] >MCP 成對回收：W4 GitHub、W6 Render，都是「AI ↔ 工具」層、非管線本身
 
 - [ ] **【30】壓軸：AI 的天花板，你才是駕駛**
@@ -106,13 +112,13 @@
 - [ ] 【！】因為你看得懂它每一步在做什麼，你才是駕駛——這六週就是「看得懂」的底氣
 - [ ] AI 協作收官心法：你是駕駛，它是副駕（agent 的天花板，也是你的起點）
 
-## P8 — Ending：結業（6 頁）
+## P8 — Ending：結業
 
 - [ ] 六週回顧：從 final_final_v3 到自動部署
 - [ ] 你現在會的東西：知識點總覽（Dashboard 全亮）
 - [ ] 下一步學習地圖
 - [ ] 資源怎麼帶走：repo、skills、簡報
-- [ ] ✅ 最終 Recap：打開 Dashboard，點亮 W6 這批技能——技能樹最後一次全亮
+- [ ] ✅ 最終 Recap：打開 Dashboard，點亮 W6 這批技能——Dashboard 最後一次全亮
 - [ ] 謝幕＋訓後動態調查預告
 
 ## Spec 覆蓋

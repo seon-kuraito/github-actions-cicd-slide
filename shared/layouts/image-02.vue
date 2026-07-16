@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 defineProps<{
   heading?: string
   sub?: string
@@ -13,7 +15,7 @@ defineProps<{
   <div class="slidev-layout image-02">
     <PageNo />
     <div v-if="image" class="media">
-      <img :src="image" :alt="alt" class="media-img" />
+      <img :src="withBase(image)" :alt="alt" class="media-img" />
     </div>
     <div v-else class="placeholder">
       <span class="ph-label">{{ imageLabel }}</span>

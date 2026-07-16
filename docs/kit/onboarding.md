@@ -13,7 +13,7 @@
 - [ ] 為什麼不學 AI 就好
 - [ ] 為什麼不直接實作（流程＝多節點，先補知識點）
 - >【目標】課程兩大產物（前三週 Dashboard／後三週通知系統）
-- [ ] 技能樹 Dashboard（含全程知識追蹤：技能樹點亮）
+- [ ] 技能 Dashboard（含全程知識追蹤：技能點亮）
 - [ ] CI/CD 部署通知系統
 - >【調整】與 spec 的差異
 - [ ] LINE Notify → LINE Messaging API

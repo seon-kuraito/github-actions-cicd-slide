@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg data-dc-tpl="27" id="svg-term" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="macOS Terminal icon">
+              <defs data-dc-tpl="28">
+                <linearGradient data-dc-tpl="29" id="t-rim" x1="0" y1="0" x2="0" y2="1">
+                  <stop data-dc-tpl="30" offset="0" stop-color="#d8e4ec"></stop>
+                  <stop data-dc-tpl="31" offset="0.35" stop-color="#c2cace"></stop>
+                  <stop data-dc-tpl="32" offset="1" stop-color="#a4a9ad"></stop>
+                </linearGradient>
+                <filter data-dc-tpl="33" id="t-shadow" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow data-dc-tpl="34" dx="0" dy="16" stdDeviation="17" flood-color="#000000" flood-opacity="0.34"></feDropShadow>
+                </filter>
+              </defs>
+              
+              <rect data-dc-tpl="35" x="100" y="100" width="824" height="800" rx="172" ry="172" fill="url(#t-rim)" filter="url(#t-shadow)"></rect>
+              
+              <rect data-dc-tpl="36" x="124" y="124" width="776" height="776" rx="160" ry="160" fill="#0a0a0c"></rect>
+              
+              <rect data-dc-tpl="37" x="182" y="182" width="660" height="660" rx="105" ry="105" fill="#262626"></rect>
+              
+              <path data-dc-tpl="38" d="M252 245 L351 311 L252 377 L252 350 L325 311 L252 272 Z" fill="#ffffff"></path>
+              
+              <rect data-dc-tpl="39" x="386" y="396" width="114" height="22" rx="3" ry="3" fill="#ffffff"></rect>
+            </svg>

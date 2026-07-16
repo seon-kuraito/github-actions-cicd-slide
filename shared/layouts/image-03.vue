@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 defineProps<{
   heading?: string
   panels?: { src?: string; alt?: string; label?: string; note?: string; tag?: string; caption?: string; active?: boolean }[]
@@ -21,7 +23,7 @@ defineProps<{
            那圓角規則只給終端機與其配對淺色面板；雙圖框維持方角。 -->
       <div v-for="(panel, i) in panels" :key="i" class="frame">
         <div v-if="panel.src" class="media">
-          <img :src="panel.src" :alt="panel.alt" class="media-img" />
+          <img :src="withBase(panel.src)" :alt="panel.alt" class="media-img" />
         </div>
         <div v-else class="placeholder">
           <span class="ph-label">{{ panel.label }}</span>

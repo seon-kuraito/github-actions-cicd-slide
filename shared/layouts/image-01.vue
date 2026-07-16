@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 defineProps<{
   slug?: string
   heading?: string
@@ -25,7 +27,7 @@ defineProps<{
         <span class="body-text"><MdInline :text="body" /></span>
       </div>
       <div v-if="image" class="media">
-        <img :src="image" :alt="alt" class="media-img" />
+        <img :src="withBase(image)" :alt="alt" class="media-img" />
       </div>
       <div v-else class="placeholder">
         <span class="ph-label">{{ imageLabel }}</span>

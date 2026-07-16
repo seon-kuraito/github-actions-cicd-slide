@@ -271,18 +271,6 @@ imageNote: 1920 × 560 · placeholder
 ---
 
 ---
-layout: lab-01
-heading: 指令示範標題佔位
-file: git-basics.sh
-lines:
-  - { type: comment, text: "# 註解佔位：說明這段指令在做什麼" }
-  - { type: command, text: "git init placeholder-project" }
-  - { type: command, text: "git add . && git status" }
-  - { type: command, text: "git commit -m \"placeholder: first commit\"" }
-  - { type: output, text: "[main (root-commit) a1b2c3d] placeholder: first commit" }
----
-
----
 layout: lab-02
 heading: 實機示範
 command: "$ live-demo --module 01"
@@ -1220,7 +1208,7 @@ tree:
       - name: home/
         children:
           - name: user/
-            label: 家目錄
+            label: 使用者目錄
             chip: "~"
             children:
               - name: project/
@@ -1234,7 +1222,7 @@ tree:
 terminal:
   - { type: comment, text: "# 四個常用的路徑符號" }
   - { type: cmd, text: cd /, comment: "# 根目錄" }
-  - { type: cmd, text: cd ~, comment: "# 家目錄 /home/user" }
+  - { type: cmd, text: cd ~, comment: "# 使用者目錄 /home/user" }
   - { type: cmd, text: cd .., comment: "# 回上一層" }
   - { type: cmd, text: cd ./tests, comment: "# 從目前往下" }
   - { type: comment, text: "# .目前　..上層　~家　/根", accent: true }
