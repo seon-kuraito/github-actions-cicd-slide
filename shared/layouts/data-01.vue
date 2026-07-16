@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 defineProps<{
   heading?: string
   // icon：選填，顯示於區塊右下角（品牌 logo 等裝飾用途）；
@@ -30,7 +32,7 @@ defineProps<{
         <span class="col-desc"><MdInline :text="col.desc" /></span>
         <img
           v-if="col.icon"
-          :src="col.icon"
+          :src="withBase(col.icon)"
           class="col-icon"
           :style="col.iconSize ? { '--icon-h': `${col.iconSize}px` } : undefined"
           alt=""

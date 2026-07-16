@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from '../utils/with-base'
+
 defineProps<{
   label?: string
   heading?: string
@@ -19,7 +21,7 @@ defineProps<{
     </div>
     <div class="body">
       <div v-if="image" class="figure">
-        <img :src="image" class="figure-img" alt="" />
+        <img :src="withBase(image)" class="figure-img" alt="" />
       </div>
       <div v-else class="figure-placeholder">
         <span class="placeholder-label">{{ imageLabel }}</span>
