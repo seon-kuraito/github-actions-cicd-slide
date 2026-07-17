@@ -6,7 +6,7 @@
   - SSH 換裝完成
   - fetch/pull 補課完成
 
-## Kit — 週 repo：你的 Dashboard（W1 建立）
+## Kit — 週 repo：你的儀表板（W1 建立）
 
 見 [docs/kit/week-2.md](../kit/week-2.md)（週 repo／skills／知識點清單）。
 
@@ -166,19 +166,19 @@
 
 ## P6 — 情境挑戰「兩條功能線撞在一起了」＋第一個 PR
 
-- [ ] **【28】🔨 情境挑戰：Dashboard 上兩條功能線撞在一起**
-- [ ] 🧭 Step 0：回到你的 Dashboard，git log 確認 main 乾淨
-- [ ] Step 1：開 `feature/new-skill` → 在 data.json 加一筆新技能 → commit
+- [ ] **【28】🔨 情境挑戰：儀表板上兩條功能線撞在一起**
+- [ ] 🧭 Step 0：回到你的儀表板，git log 確認 main 乾淨
+- [ ] Step 1：開 `feature/new-skill` → 在 data.js 加一筆新技能 → commit
 - [ ] Step 2：回 main → merge `feature/new-skill`（Fast-forward，無痛）
 - [ ] 【？】剛剛這次 merge，Git Graph 上有留下「合併點」嗎？
-- [ ] Step 3：開 `feature/reword-note` → 改 data.json 的某一行 → commit
+- [ ] Step 3：開 `feature/reword-note` → 改 data.js 的某一行 → commit
 - [ ] Step 4：回 main → 把**同一行**改成別的內容 → commit（兩邊都動同一行）
 - [ ] 【？】接下來 merge `feature/reword-note`，會順還是會炸？
 - [ ] Step 5：merge `feature/reword-note`——衝突爆了（讀懂終端機訊息
 - [ ] Step 6：VS Code merge editor 逐段選擇 → add → commit 完成合併
 - [ ] 【？】真實工作情境中會是什麼樣子？
 - [ ] 【！】真實版是「兩個人」各改各的——衝突不是誰的錯，是兩條線在同處相遇，而且常在合 PR 時才浮現
-- [ ] *【28】章節實作：Dashboard main 同時有新技能與收斂後的心得；Git Graph 一個 FF、一個 merge commit*
+- [ ] *【28】章節實作：儀表板 main 同時有新技能與收斂後的心得；Git Graph 一個 FF、一個 merge commit*
 - [ ] *【28】章節補充*
 - [ ] >順序思考：Step 4 若沒先動 main，這次 merge 還會炸嗎？
 
@@ -187,12 +187,12 @@
 - [ ] 【！】為了「有人看過」也「留下記錄」——PR 把改動變成能討論、能擋下、日後也查得到的提案
 - [ ] PR 是什麼：提案 → 審核 → 合併
 - [ ] Step 1：開一條命名合規的分支（feature/…）
-- [ ] Step 2：改 data.json——打勾這週學的技能（分支／合併／PR）、發一個好 commit（Conventional Commits）
+- [ ] Step 2：改 data.js——打勾這週學的技能（分支／合併／PR）、發一個好 commit（Conventional Commits）
 - [ ] Step 3：git push -u origin \<branch\>——分支上遠端
 - [ ] Step 4：GitHub 上按「Compare & pull request」→ 標題沿用 commit 慣例
 - [ ] Step 5：看懂 PR 頁面（極簡版：diff 在哪、留言在哪）
 - [ ] Step 6：自己按下 Merge → 順手刪除已合併的分支（GitHub 的提示按鈕）
-- [ ] *【29】章節實作：main 上多一個 merged PR，Dashboard 亮了 W2 這批點*
+- [ ] *【29】章節實作：main 上多一個 merged PR，儀表板亮了 W2 這批點*
 - [ ] *【29】章節補充*
 - [ ] >為什麼繞一圈 PR、不直接改 main（W4 的 Branch Protection 伏筆）
 - [ ] >PR 開錯分支方向怎麼辦：close 掉重開
@@ -220,7 +220,7 @@
 
 ## P8 — Ending
 
-- [ ] ✅ Recap：打開 Dashboard，確認 W2 這批技能點亮了（實質更新已在 P6 走 branch＋PR）
+- [ ] ✅ Recap：打開儀表板，確認 W2 這批技能點亮了（實質更新已在 P6 走 branch＋PR）
 - [ ] 下週預告：時光機與救援＋回家任務（在自己 repo 完整走一次 rebase，口頭發布）
 
 ## Spec 覆蓋

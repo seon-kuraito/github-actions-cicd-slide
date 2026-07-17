@@ -108,14 +108,14 @@ heading: 下午回顧
 items:
   - { no: "04", text: "能說出什麼時候該 merge、什麼時候可以 rebase" }
   - { no: "05", text: "已親手收掉一次衝突，知道衝突標記與收尾步驟" }
-  - { no: "06", text: "第一個 Pull Request 已送出，Dashboard 也透過 PR 繼續長大" }
+  - { no: "06", text: "第一個 Pull Request 已送出，儀表板也透過 PR 繼續長大" }
   - { no: "07", text: "AI 已能協助完成開分支、commit 與建立 PR 的流程" }
 ---
 
 ---
 layout: content-01
 heading: "下週預告：==時光機與救援=="
-body: 下週會學會 stash、reset、revert 與 reflog，就算改壞了也能救回來，並為你的 Dashboard 完成第一次發版。
+body: 下週會學會 stash、reset、revert 與 reflog，就算改壞了也能救回來，並為你的儀表板完成第一次發版。
 ---
 
 ---

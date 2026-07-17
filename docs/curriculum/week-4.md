@@ -169,7 +169,7 @@
 
 ## P8 — Ending
 
-- [ ] ✅ Recap：打開 Dashboard，點亮 W4 這批技能（協作＋CI 首綠勾）
+- [ ] ✅ Recap：打開儀表板，點亮 W4 這批技能（協作＋CI 首綠勾）
 - [ ] 下週預告＋課前準備：測試與 Pipeline——**回家先裝 Node LTS、用 `npm -v` 驗證**（Windows 若噴「指令碼已停用」→ 回看 W1 的 ExecutionPolicy 頁）
 
 ## Spec 覆蓋

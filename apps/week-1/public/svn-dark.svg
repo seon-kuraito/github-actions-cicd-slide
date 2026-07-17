@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="900" viewBox="0 0 1920 900" font-family="&#39;IBM Plex Mono&#39;, &#39;Noto Sans TC&#39;, monospace">
+<desc>palette(dark): #F05133 主橘 / #4A302C 橘底 / #683026 橘暈 / #E6E6E6 主文字 / #ABABAB 次要 / #6E6E6E 提示 / #383838 線 / #454545 框 / #1F1F1F 卡面 / 底透明（走 image-02 的 --panel）</desc>
+<g transform="translate(267 126.6) scale(1.05)">
+<rect x="410" y="16" width="500" height="168" fill="#4A302C" stroke="#F05133" stroke-width="2"></rect>
+          <text x="660" y="58" text-anchor="middle" font-size="21" font-weight="600" fill="#F05133" style="font-family:&#39;IBM Plex Mono&#39;,monospace;letter-spacing:0.12em;">CENTRAL REPOSITORY</text>
+          <path d="M 470 112 L 850 112" fill="none" stroke="#F05133" stroke-width="5"></path>
+          <circle cx="470" cy="112" r="11" fill="#1F1F1F" stroke="#454545" stroke-width="5"></circle>
+          <circle cx="596" cy="112" r="11" fill="#1F1F1F" stroke="#ABABAB" stroke-width="5"></circle>
+          <circle cx="722" cy="112" r="11" fill="#1F1F1F" stroke="#F05133" stroke-width="5"></circle>
+          <circle cx="848" cy="112" r="18" fill="none" stroke="#683026" stroke-width="4"></circle>
+          <circle cx="848" cy="112" r="11" fill="#F05133"></circle>
+          <text x="470" y="158" text-anchor="middle" font-size="19" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">r101</text>
+          <text x="596" y="158" text-anchor="middle" font-size="19" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">r102</text>
+          <text x="722" y="158" text-anchor="middle" font-size="19" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">r103</text>
+          <text x="848" y="158" text-anchor="middle" font-size="19" font-weight="600" fill="#F05133" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">r104</text>
+          <text x="660" y="226" text-anchor="middle" font-size="20" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">唯一的版本歷史</text>
+
+          <path d="M 220 428 L 562 250" fill="none" stroke="#383838" stroke-width="4" stroke-dasharray="8 8"></path>
+          <path d="M 1100 428 L 758 250" fill="none" stroke="#383838" stroke-width="4" stroke-dasharray="8 8"></path>
+          <path d="M 660 428 L 660 252" fill="none" stroke="#F05133" stroke-width="4" stroke-dasharray="8 8"></path>
+          <path d="M 648 268 L 660 252 L 672 268" fill="none" stroke="#F05133" stroke-width="4" stroke-linejoin="round"></path>
+          <path d="M 648 412 L 660 428 L 672 412" fill="none" stroke="#F05133" stroke-width="4" stroke-linejoin="round"></path>
+          <text x="640" y="334" text-anchor="end" font-size="21" font-weight="600" fill="#F05133" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">svn commit ↑</text>
+          <text x="680" y="334" text-anchor="start" font-size="21" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">svn update ↓</text>
+
+          <rect x="40" y="432" width="360" height="168" fill="#1F1F1F" stroke="#454545" stroke-width="2"></rect>
+          <text x="70" y="474" text-anchor="start" font-size="21" font-weight="600" fill="#E6E6E6" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">WORKING COPY · A</text>
+          <circle cx="90" cy="524" r="10" fill="#1F1F1F" stroke="#ABABAB" stroke-width="4"></circle>
+          <text x="114" y="531" text-anchor="start" font-size="19" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">r104 · 僅目前版本</text>
+          <text x="70" y="576" text-anchor="start" font-size="19" fill="#6E6E6E" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">無本地歷史 · 離線無法 commit</text>
+          <rect x="480" y="432" width="360" height="168" fill="#1F1F1F" stroke="#454545" stroke-width="2"></rect>
+          <text x="510" y="474" text-anchor="start" font-size="21" font-weight="600" fill="#E6E6E6" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">WORKING COPY · B</text>
+          <circle cx="530" cy="524" r="10" fill="#1F1F1F" stroke="#ABABAB" stroke-width="4"></circle>
+          <text x="554" y="531" text-anchor="start" font-size="19" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">r104 · 僅目前版本</text>
+          <text x="510" y="576" text-anchor="start" font-size="19" fill="#6E6E6E" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">無本地歷史 · 離線無法 commit</text>
+          <rect x="920" y="432" width="360" height="168" fill="#1F1F1F" stroke="#454545" stroke-width="2"></rect>
+          <text x="950" y="474" text-anchor="start" font-size="21" font-weight="600" fill="#E6E6E6" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">WORKING COPY · C</text>
+          <circle cx="970" cy="524" r="10" fill="#1F1F1F" stroke="#ABABAB" stroke-width="4"></circle>
+          <text x="994" y="531" text-anchor="start" font-size="19" fill="#ABABAB" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">r104 · 僅目前版本</text>
+          <text x="950" y="576" text-anchor="start" font-size="19" fill="#6E6E6E" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">無本地歷史 · 離線無法 commit</text>
+</g>
+</svg>

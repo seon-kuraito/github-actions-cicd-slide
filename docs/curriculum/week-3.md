@@ -6,7 +6,7 @@
 - 注意：
   - 下週 8/8 停課，Ending 要交代兩週後見＋回家任務加量
 
-## Kit — 週 repo：你的 Dashboard（延續 W2）
+## Kit — 週 repo：你的儀表板（延續 W2）
 
 見 [docs/kit/week-3.md](../kit/week-3.md)（週 repo／skills／知識點清單）。
 
@@ -119,7 +119,7 @@
 - [ ] GitHub Releases：從 tag 到發布頁（Draft → Publish）
 - [ ] Release Notes 寫什麼：從 commit 記錄長出的發版說明（P7 AI 會示範生成）
 - [ ] SemVer：版本號三碼怎麼取
-- [ ] *【39】章節實作：幫自己的技能 Dashboard 打 `v1.0.0`（annotated）→ push tag → 發第一個 Release*
+- [ ] *【39】章節實作：幫自己的技能儀表板打 `v1.0.0`（annotated）→ push tag → 發第一個 Release*
 - [ ] *【39】章節補充*
 - [ ] >tag 打錯了怎麼辦
 
@@ -143,7 +143,7 @@
 - [ ] 【？】那「上線前的測試環境」放哪一條分支？
 - [ ] 【！】GitHub Flow 沒給正式位置——它賭 main 永遠可部署、merge 即上線
 - [ ] 為什麼是 2026 主流：SaaS／Web 持續部署的預設節奏
-- [ ] *【41】章節實作：把你 Dashboard 的一次改動，畫成 GitHub Flow 路徑（feature→PR→main→上線）*
+- [ ] *【41】章節實作：把你儀表板的一次改動，畫成 GitHub Flow 路徑（feature→PR→main→上線）*
 - [ ] *【41】章節補充*
 - [ ] >main 永遠可部署的代價：沒綠勾不敢 merge（W4 Branch Protection 伏筆）
 - [ ] >trunk-based：連 feature 分支都省了——光譜最輕的一端
@@ -155,14 +155,14 @@
 - [ ] 這正是本課簡報自己的部署：preparing → main（你 repo 天天在跑）
 - [ ] 【？】三套都看過了，你的專案該用哪一套？
 - [ ] 【！】看你要不要「環境」與「版本」：純上線 GitHub Flow／要 staging 用 GitLab Flow／多版並存才回頭找 Git Flow
-- [ ] *【42】章節實作：說得出你 Dashboard 現在屬哪一套、為何還用不到環境分支*
+- [ ] *【42】章節實作：說得出你儀表板現在屬哪一套、為何還用不到環境分支*
 - [ ] *【42】章節補充*
 - [ ] >W5／W6 伏筆：notify 系統會真的走一次 staging → production
 
-## P6 — 情境挑戰「搞爛再救」＋收進 Dashboard 發版
+## P6 — 情境挑戰「搞爛再救」＋收進儀表板發版
 
-- [ ] **【43】🔨 情境挑戰：把自己的 Dashboard 搞爛，再一一救回**
-- [ ] 🧭 Step 0：回到你的 Dashboard（乾淨的 main）
+- [ ] **【43】🔨 情境挑戰：把自己的儀表板搞爛，再一一救回**
+- [ ] 🧭 Step 0：回到你的儀表板（乾淨的 main）
 - [ ] 【？】「弄壞」跟「救回」你覺得哪個難？先猜，等下驗證
 - [ ] 【！】對症看三件事：東西還在不在、要不要留痕、私有還公開
 - [ ] 每種災情動手前先分診：stash／reset／reflog／revert／cherry-pick 該用哪個
@@ -175,15 +175,15 @@
 - [ ] *【43】章節補充*
 - [ ] >救援順序：為什麼「推過的」只能 revert、不能 reset
 
-- [ ] **【44】🔨 收進 Dashboard，正式發版**
-- [ ] 🧭 救回的 Dashboard 乾淨了——把這週技能收進去、發第一個正式版
-- [ ] Step 1：開 branch → 改 data.json 打勾這週的救援技能 → 好 commit（Conventional Commits）
+- [ ] **【44】🔨 收進儀表板，正式發版**
+- [ ] 🧭 救回的儀表板乾淨了——把這週技能收進去、發第一個正式版
+- [ ] Step 1：開 branch → 改 data.js 打勾這週的救援技能 → 好 commit（Conventional Commits）
 - [ ] Step 2：push → 開 PR → merge 進 main
 - [ ] 【？】改完就直接 tag，還是先讓它進 main？
 - [ ] 【！】先 PR 進 main、確認乾淨再 tag——版本標的是 main 上那一刻的狀態
 - [ ] Step 3：打 `v1.0.0`（annotated）→ `git push origin v1.0.0`
 - [ ] Step 4：GitHub Releases 從 tag 發第一個 Release（Draft → Publish）
-- [ ] *【44】章節實作：Dashboard 亮了 W3 這批點、Releases 頁有 v1.0.0*
+- [ ] *【44】章節實作：儀表板亮了 W3 這批點、Releases 頁有 v1.0.0*
 - [ ] *【44】章節補充*
 - [ ] >Release Notes 交給 P7 AI 生成（skill 預告）
 
@@ -210,7 +210,7 @@
 
 ## P8 — Ending
 
-- [ ] ✅ Recap：打開 Dashboard，確認 W3 這批技能點亮了、Releases 有 v1.0.0
+- [ ] ✅ Recap：打開儀表板，確認 W3 這批技能點亮了、Releases 有 v1.0.0
 - [ ] 下週預告：**兩週後見（8/8 停課）**——團隊協作與 CI 初見＋回家任務（把 reset／reflog 練到不心虛，口頭發布）
 
 ## Spec 覆蓋
