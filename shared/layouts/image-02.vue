@@ -5,6 +5,7 @@ defineProps<{
   heading?: string
   sub?: string
   image?: string
+  imageDark?: string
   alt?: string
   imageLabel?: string
   imageNote?: string
@@ -15,7 +16,8 @@ defineProps<{
   <div class="slidev-layout image-02">
     <PageNo />
     <div v-if="image" class="media">
-      <img :src="withBase(image)" :alt="alt" class="media-img" />
+      <img :src="withBase(image)" :alt="alt" class="media-img" :class="{ 'media-img--light': imageDark }" />
+      <img v-if="imageDark" :src="withBase(imageDark)" :alt="alt" class="media-img media-img--dark" />
     </div>
     <div v-else class="placeholder">
       <span class="ph-label">{{ imageLabel }}</span>
@@ -41,15 +43,28 @@ defineProps<{
   display: flex;
   flex-direction: column;
 }
+/* 分隔線只給圖態（佔位態自帶 dashed 線）：圖區＝--panel、caption bar＝--paper 只差 1.05，
+   撐不出兩個面——同構的 image-05 也是靠這條 --line 實線把圖帶與下方文字切開。 */
 .media {
   flex: 1;
   min-height: 0;
   overflow: hidden;
+  border-bottom: 2px solid var(--line);
+  box-sizing: border-box;
 }
 .media-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+.media-img--dark {
+  display: none;
+}
+html.dark .media-img--light {
+  display: none;
+}
+html.dark .media-img--dark {
   display: block;
 }
 .placeholder {
