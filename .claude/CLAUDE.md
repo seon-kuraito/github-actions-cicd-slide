@@ -83,10 +83,12 @@ them. Editing traps:
 
 - **【NN】 numbers are continuous per product arc** (W1→W2→W3 Dashboard; W4→W5→W6 notify
   system), NOT per week. Inserting/removing a block renumbers every downstream week in
-  that arc — curriculum headers and kit groups together. Current ranges live in
-  docs/README.md「【NN】編號規則」.
-- **curriculum ↔ kit are coupled**: every 【NN】 block has a same-numbered group in its
-  kit file; edit them as a pair (derivation rules in docs/README.md).
+  that arc — curriculum headers only (kit dropped 【NN】 on 2026-07-17). Current ranges
+  live in docs/README.md「【NN】編號規則」.
+- **curriculum ↔ kit are coupled**: kit knowledge-point lists group by class period
+  (`- >PN — 堂標題`, 1:1 with the skill-dashboard tiles), not by 【NN】 — but every point
+  still derives from that week's curriculum pages, so edit curriculum and kit as a pair
+  (derivation rules in docs/README.md). 【NN】 renumbers no longer touch kit.
 - **Cross-week prose references carry a source-week prefix** (`W1【03】`) so arc-wide
   renumbers must skip them.
 - Weekly repos ship **state, not exercises** — see 發放原則 in docs/README.md before adding
