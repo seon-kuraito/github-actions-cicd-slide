@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="900" viewBox="0 0 1920 900" font-family="&#39;IBM Plex Mono&#39;, &#39;Noto Sans TC&#39;, monospace">
+<desc>palette: #F05133 主橘 / #C93A20 深橘 / #FFD9CF 橘暈 / #FDEFEA 淡橘底 / #37352F 主文字 / #8A837C 次要 / #B5AEA6 提示 / #D9D2CC hairline / 底透明（走 image-02 的 --panel）</desc>
+<g transform="translate(267 126.6) scale(1.05)">
+<rect x="410" y="16" width="500" height="168" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="2"></rect>
+          <text x="660" y="58" text-anchor="middle" font-size="21" font-weight="600" fill="#37352F" style="font-family:&#39;IBM Plex Mono&#39;,monospace;letter-spacing:0.12em;">REMOTE · origin</text>
+          <path d="M 470 112 L 850 112" fill="none" stroke="#F05133" stroke-width="5"></path>
+          <circle cx="470" cy="112" r="11" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="5"></circle>
+          <circle cx="596" cy="112" r="11" fill="#FFFFFF" stroke="#8A837C" stroke-width="5"></circle>
+          <circle cx="722" cy="112" r="11" fill="#FFFFFF" stroke="#F05133" stroke-width="5"></circle>
+          <circle cx="848" cy="112" r="18" fill="none" stroke="#FFD9CF" stroke-width="4"></circle>
+          <circle cx="848" cy="112" r="11" fill="#F05133"></circle>
+          <text x="596" y="158" text-anchor="middle" font-size="19" fill="#8A837C" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">b2a3c4d</text>
+          <text x="848" y="158" text-anchor="middle" font-size="19" font-weight="600" fill="#C93A20" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">e4f5d6a</text>
+          <text x="660" y="226" text-anchor="middle" font-size="20" fill="#8A837C" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">完整歷史 · 共同同步點</text>
+
+          <path d="M 220 428 L 562 250" fill="none" stroke="#D9D2CC" stroke-width="4" stroke-dasharray="8 8"></path>
+          <path d="M 1100 428 L 758 250" fill="none" stroke="#D9D2CC" stroke-width="4" stroke-dasharray="8 8"></path>
+          <path d="M 660 428 L 660 252" fill="none" stroke="#F05133" stroke-width="4" stroke-dasharray="8 8"></path>
+          <path d="M 648 268 L 660 252 L 672 268" fill="none" stroke="#F05133" stroke-width="4" stroke-linejoin="round"></path>
+          <path d="M 648 412 L 660 428 L 672 412" fill="none" stroke="#F05133" stroke-width="4" stroke-linejoin="round"></path>
+          <text x="640" y="334" text-anchor="end" font-size="21" font-weight="600" fill="#F05133" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">git push ↑</text>
+          <text x="680" y="334" text-anchor="start" font-size="21" fill="#8A837C" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">git pull ↓</text>
+
+          <rect x="40" y="432" width="360" height="168" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="2"></rect>
+          <text x="70" y="474" text-anchor="start" font-size="21" font-weight="600" fill="#37352F" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">LOCAL REPO · A</text>
+          <path d="M 90 524 L 350 524" fill="none" stroke="#F05133" stroke-width="4"></path>
+          <circle cx="90" cy="524" r="9" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="4"></circle>
+          <circle cx="220" cy="524" r="9" fill="#FFFFFF" stroke="#8A837C" stroke-width="4"></circle>
+          <circle cx="350" cy="524" r="10" fill="#F05133"></circle>
+          <text x="90" y="576" text-anchor="start" font-size="19" fill="#8A837C" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">完整歷史 · 離線可 commit</text>
+          <rect x="480" y="432" width="360" height="168" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="2"></rect>
+          <text x="510" y="474" text-anchor="start" font-size="21" font-weight="600" fill="#37352F" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">LOCAL REPO · B</text>
+          <path d="M 530 524 L 790 524" fill="none" stroke="#F05133" stroke-width="4"></path>
+          <circle cx="530" cy="524" r="9" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="4"></circle>
+          <circle cx="660" cy="524" r="9" fill="#FFFFFF" stroke="#8A837C" stroke-width="4"></circle>
+          <circle cx="790" cy="524" r="10" fill="#F05133"></circle>
+          <text x="530" y="576" text-anchor="start" font-size="19" fill="#8A837C" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">完整歷史 · 離線可 commit</text>
+          <rect x="920" y="432" width="360" height="168" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="2"></rect>
+          <text x="950" y="474" text-anchor="start" font-size="21" font-weight="600" fill="#37352F" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">LOCAL REPO · C</text>
+          <path d="M 970 524 L 1230 524" fill="none" stroke="#F05133" stroke-width="4"></path>
+          <circle cx="970" cy="524" r="9" fill="#FFFFFF" stroke="#D9D2CC" stroke-width="4"></circle>
+          <circle cx="1100" cy="524" r="9" fill="#FFFFFF" stroke="#8A837C" stroke-width="4"></circle>
+          <circle cx="1230" cy="524" r="10" fill="#F05133"></circle>
+          <text x="970" y="576" text-anchor="start" font-size="19" fill="#8A837C" style="font-family:&#39;IBM Plex Mono&#39;,monospace;">完整歷史 · 離線可 commit</text>
+</g>
+</svg>
