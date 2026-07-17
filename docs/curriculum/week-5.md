@@ -183,7 +183,7 @@
 
 ## P8 — Ending
 
-- [ ] ✅ Recap：打開 Dashboard，點亮 W5 這批技能（pipeline 全綠）
+- [ ] ✅ Recap：打開儀表板，點亮 W5 這批技能（pipeline 全綠）
 - [ ] 下週預告＋課前準備：容器化與結業專題——**確保自己 repo 的 CI 全綠**（capstone 的起跑線）
 
 ## Spec 覆蓋
