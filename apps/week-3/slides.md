@@ -60,7 +60,7 @@ heading: 下午目標
 items:
   - { no: P4, heading: 歷史整理與發版, desc: 用互動式 rebase 整理歷史，發出你的第一版 }
   - { no: P5, heading: 分支策略三選一, desc: Git Flow、GitHub Flow、GitLab Flow 對照 }
-  - { no: P6, heading: 情境挑戰, desc: 分診四種災情，救回 Dashboard 並收進正式發版 }
+  - { no: P6, heading: 情境挑戰, desc: 分診四種災情，救回儀表板並收進正式發版 }
   - { no: P7, heading: AI 救援顧問, desc: 讓 AI 陪你診斷災難、整理歷史 }
 ---
 
@@ -82,7 +82,7 @@ sub: "休息十分鐘，走動一下、補水，整理剛剛的指令"
 badge: "BACK · 15:00"
 ---
 
-<!-- ── P6 15:00–15:50 · 情境挑戰「弄壞再救」＋收進 Dashboard 發版 ── -->
+<!-- ── P6 15:00–15:50 · 情境挑戰「弄壞再救」＋收進儀表板發版 ── -->
 
 ---
 layout: break-01
@@ -106,9 +106,9 @@ items:
 layout: end-01
 heading: 下午回顧
 items:
-  - { no: "04", text: "雜亂 commit 已整理乾淨，Dashboard 也有了 v1.0.0 Release" }
+  - { no: "04", text: "雜亂 commit 已整理乾淨，儀表板也有了 v1.0.0 Release" }
   - { no: "05", text: "能用專案型態判斷 Git Flow、GitHub Flow 或 GitLab Flow 的適用情境" }
-  - { no: "06", text: "四種災情都已救回，Dashboard 也已完成 tag 與 Release" }
+  - { no: "06", text: "四種災情都已救回，儀表板也已完成 tag 與 Release" }
   - { no: "07", text: "AI 已能協助判讀災情，但破壞性指令仍由你決定是否執行" }
 ---
 
