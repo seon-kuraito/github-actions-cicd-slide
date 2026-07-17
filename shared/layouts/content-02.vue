@@ -18,13 +18,13 @@ defineProps<{
         <Eyebrow />
       </div>
     </div>
-    <div class="title-block">
+    <div class="text-block">
       <span class="heading"><MdInline :text="heading" /></span>
-    </div>
-    <div class="bullets">
-      <div v-for="(item, i) in items ?? []" :key="i" class="bullet-row" :class="{ secondary: item.secondary }">
-        <span class="bullet-node"></span>
-        <span class="bullet-text"><MdInline :text="item.text" /></span>
+      <div class="bullets">
+        <div v-for="(item, i) in items ?? []" :key="i" class="bullet-row" :class="{ secondary: item.secondary }">
+          <span class="bullet-node"></span>
+          <span class="bullet-text"><MdInline :text="item.text" /></span>
+        </div>
       </div>
     </div>
     <div class="bottom-bar">
@@ -37,9 +37,9 @@ defineProps<{
 .content-02 {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 72px 100px 140px;
   box-sizing: border-box;
-  gap: 56px;
 }
 .top-bar {
   display: flex;
@@ -51,10 +51,15 @@ defineProps<{
   align-items: center;
   gap: 20px;
 }
-.title-block {
+/* heading ＋ bullets 綁成一組、root 改 justify-content: space-between 讓整組垂直置中
+   （原本 heading 貼頂、bullets flex:1 各自置中，兩者間會撐出過大的空白）。gap 56px：
+   content-01 的 44px 是為其散文 body 校準；此處是多列點、列點間距 52px，heading→列點
+   取 56px（＝略大於列點間距）才讓 heading 清楚凌駕清單、不比列點之間還擠。 */
+.text-block {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 56px;
+  max-width: 1500px;
 }
 .heading {
   font-family: var(--font-sans);
@@ -65,12 +70,9 @@ defineProps<{
   letter-spacing: 0.04em;
 }
 .bullets {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 52px;
-  max-width: 1500px;
 }
 .bullet-row {
   display: flex;
