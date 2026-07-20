@@ -1,0 +1,9 @@
+{
+  "name": "deck-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Local dev tooling — NOT a pnpm-workspace member (workspace is apps/* + shared), so `pnpm install` / CI never touch it. shot.mjs installs this on demand. See README.md.",
+  "devDependencies": {
+    "puppeteer-core": "^25.0.0"
+  }
+}

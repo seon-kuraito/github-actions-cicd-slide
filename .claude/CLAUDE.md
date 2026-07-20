@@ -119,6 +119,10 @@ adjusts details — current status lives in DECISIONS.md, not here.
   Scoped to `shared/layouts` + `shared/components` via `shared/tsconfig.json` (`strictTemplates:
   false` so Slidev global components / `$page` don't false-positive); `setup/` is excluded (uses
   the `#slidev/slides` virtual module). Not run in CI — a local safety net, not a test framework.
+- Visual-verify a change: `pnpm shot <deck> <pages>` (light/dark screenshots, drives system
+  Chrome) and `pnpm qr <url> <out>` (brand-styled QR + decode self-check). Local dev tools in
+  `scripts/`, self-bootstrapping and deliberately outside the workspace/lockfile/CI; usage in
+  [scripts/README.md](scripts/README.md).
 
 ## Build & deploy
 
