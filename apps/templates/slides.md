@@ -517,7 +517,7 @@ items:
 ---
 layout: link-01
 heading: 簡報名稱佔位
-url: url.placeholder/xyz
+href: "https://url.placeholder/xyz"
 ---
 
 ---
