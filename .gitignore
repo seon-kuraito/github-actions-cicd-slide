@@ -21,3 +21,8 @@ dist/
 
 # Logs / scratch
 *.log
+
+# scripts/ local dev tooling — self-bootstrapped deps + screenshot output
+# (node_modules/ already ignored above; these are the remaining artifacts)
+scripts/package-lock.json
+scripts/.shots/
