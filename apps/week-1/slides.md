@@ -22,7 +22,7 @@ date: 2026.07.18 · 第一週
 layout: link-01
 image: /qr-slides.png
 heading: 本週簡報
-url: github-actions-cicd-slide.seonkuraito.com/week-1
+href: "https://github-actions-cicd-slide.seonkuraito.com/week-1"
 ---
 
 <!-- p3 -->
@@ -1150,7 +1150,7 @@ steps:
   - { label: git add }
   - { label: git commit }
 calloutTag: KEY POINT
-calloutText: 改完先用 git status 看狀態，確認哪些檔案還在工作目錄、哪些已經進到暫存區。接著決定這次要 add 什麼，最後 commit 保存版本。
+calloutText: 改完先用 git status 檢查狀態，確認哪些檔案還在工作目錄、哪些已經放進暫存區。接著挑出這次要 add 的變更，最後用 commit 保存成一個版本。
 ---
 
 <!-- p96 -->
@@ -1668,10 +1668,13 @@ sub: 像 .env 可能外流祕密，node_modules 則能重新安裝
 
 <!-- p128 -->
 ---
-layout: content-01
+layout: content-02
 heading: .gitignore 常見規則
-body: "可以忽略的檔案大致有三類：`.env` 和金鑰這種==祕密==絕對不能外流；`node_modules/` 這種==依賴模組==需要時可以重新安裝；`.DS_Store` 這類==系統雜檔==則是電腦自己產生的。寫 `.gitignore` 時，每一行放一條規則；要忽略整個資料夾，就在名稱後面加 `/`。"
-note: "接著看 .env 被忽略後，git status 會發生什麼事情。"
+items:
+  - { text: "**祕密**：`.env`、金鑰這類，絕對不能外流" }
+  - { text: "**依賴模組**：`node_modules/`，需要時可以重新安裝" }
+  - { text: "**系統雜檔**：`.DS_Store` 這類電腦會自動產生的檔案" }
+  - { text: "**寫法**：每行一條規則；要忽略整個資料夾，就在名稱後面加 `/`", secondary: true }
 ---
 
 <!-- p129 -->
@@ -2267,14 +2270,17 @@ brand: github
 
 <!-- p179 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==01== / 09
+heading: 本地建立
 steps:
-  - { no: "01", heading: 建立專案資料夾, desc: 建立新的資料夾，先把儀表板專案獨立出來, state: now }
-  - { no: "02", heading: 初始化儲存庫, desc: 讓 Git 接手記錄版本，確認這裡就是新的儲存庫, state: todo }
-  - { no: "03", heading: 下載模板, desc: 下載模板，把資料夾裡的 index.html 和 data.js 搬進專案, state: todo }
-  - { no: "04", heading: 編輯資料, desc: 在 data.js 填入姓名與技能，讓儀表板顯示你的內容, state: todo }
+  - { label: 建立專案資料夾, active: true }
+  - { label: 初始化儲存庫 }
+  - { label: 下載模版 }
+  - { label: 編輯資料 }
+  - { label: 首次提交變更 }
+calloutTag: STEP 01 / 09
+calloutText: 先在電腦新增資料夾，把技能儀表板的專案準備好
 ---
 
 <!-- p180 -->
@@ -2305,14 +2311,17 @@ terminal:
 
 <!-- p181 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==02== / 09
+heading: 本地建立
 steps:
-  - { no: "01", heading: 建立專案資料夾, desc: 建立新的資料夾，先把儀表板專案獨立出來, state: done }
-  - { no: "02", heading: 初始化儲存庫, desc: 讓 Git 接手記錄版本，確認這裡就是新的儲存庫, state: now }
-  - { no: "03", heading: 下載模板, desc: 下載模板，把資料夾裡的 index.html 和 data.js 搬進專案, state: todo }
-  - { no: "04", heading: 編輯資料, desc: 在 data.js 填入姓名與技能，讓儀表板顯示你的內容, state: todo }
+  - { label: 建立專案資料夾 }
+  - { label: 初始化儲存庫, active: true }
+  - { label: 下載模版 }
+  - { label: 編輯資料 }
+  - { label: 首次提交變更 }
+calloutTag: STEP 02 / 09
+calloutText: 讓 Git 開始追蹤這個資料夾，確認它已經成為新的本地儲存庫
 ---
 
 <!-- p182 -->
@@ -2335,14 +2344,17 @@ terminal:
 
 <!-- p183 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==03== / 09
+heading: 本地建立
 steps:
-  - { no: "02", heading: 初始化儲存庫, desc: 讓 Git 接手記錄版本，確認這裡就是新的儲存庫, state: done }
-  - { no: "03", heading: 下載模板, desc: 下載模板，把資料夾裡的 index.html 和 data.js 搬進專案, state: now }
-  - { no: "04", heading: 編輯資料, desc: 在 data.js 填入姓名與技能，讓儀表板顯示你的內容, state: todo }
-  - { no: "05", heading: 提交變更, desc: add 後 commit 留下第一張快照，作為專案歷史起點, state: todo }
+  - { label: 建立專案資料夾 }
+  - { label: 初始化儲存庫 }
+  - { label: 下載模版, active: true }
+  - { label: 編輯資料 }
+  - { label: 首次提交變更 }
+calloutTag: STEP 03 / 09
+calloutText: 下載模板的 index.html 和 data.js 並放進專案資料夾
 ---
 
 <!-- p184 -->
@@ -2350,7 +2362,7 @@ steps:
 layout: image-01
 class: brand-github
 slug: download-template-files/
-heading: 下載技能儀表板
+heading: 下載模版
 body: 從 GitHub 下載課程提供的模板，把資料夾裡的 `index.html` 和 `data.js`，放進剛剛建立的 `skill-dashboard` 資料夾。放好後，網頁檔案和資料檔案就都準備好了。
 image: /github-download-light.png
 imageDark: /github-download-dark.png
@@ -2364,19 +2376,22 @@ layout: link-01
 class: brand-github
 image: /qr-dashboard.png
 heading: 技能儀表板
-url: github.com/…/W1/templates/skill-dashboard
+href: "https://github.com/seon-kuraito/github-actions-cicd-course/tree/main/W1/templates/skill-dashboard"
 ---
 
 <!-- p186 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==04== / 09
+heading: 本地建立
 steps:
-  - { no: "03", heading: 下載模板, desc: 下載模板，把 index.html 和 data.js 搬進專案, state: done }
-  - { no: "04", heading: 編輯資料, desc: 在 data.js 填入姓名與技能，讓儀表板顯示你的內容, state: now }
-  - { no: "05", heading: 提交變更, desc: add 後 commit 留下第一張快照，作為專案歷史起點, state: todo }
-  - { no: "06", heading: 建立遠端儲存庫, desc: 在 GitHub 建立新的儲存庫，準備接收本地專案, state: todo }
+  - { label: 建立專案資料夾 }
+  - { label: 初始化儲存庫 }
+  - { label: 下載模版 }
+  - { label: 編輯資料, active: true }
+  - { label: 首次提交變更 }
+calloutTag: STEP 04 / 09
+calloutText: 在 data.js 填入你的姓名與技能，讓儀表板顯示個人化內容
 ---
 
 <!-- p187 -->
@@ -2393,21 +2408,24 @@ alt: 在 VS Code 編輯 data.js
 
 <!-- p188 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==05== / 09
+heading: 本地建立
 steps:
-  - { no: "04", heading: 編輯資料, desc: 在 data.js 填入姓名與技能，讓儀表板顯示你的內容, state: done }
-  - { no: "05", heading: 提交變更, desc: add 後 commit 留下第一張快照，作為專案歷史起點, state: now }
-  - { no: "06", heading: 建立遠端儲存庫, desc: 在 GitHub 建立新的儲存庫，準備接收本地專案, state: todo }
-  - { no: "07", heading: 綁定並推送遠端, desc: 設定 remote、把主分支改成 main，再把本地版本推送上去, state: todo }
+  - { label: 建立專案資料夾 }
+  - { label: 初始化儲存庫 }
+  - { label: 下載模版 }
+  - { label: 編輯資料 }
+  - { label: 首次提交變更, active: true }
+calloutTag: STEP 05 / 09
+calloutText: 先 add 再 commit，留下第一個快照，作為專案 Git 歷史的起點
 ---
 
 <!-- p189 -->
 ---
 layout: git-files
 class: brand-github
-heading: 提交變更
+heading: 首次提交變更
 command: git add + git commit
 panelMeta: skill-dashboard/
 statusToggle: { label: 發 commit 之後？, labelOn: 回到 commit 之前 }
@@ -2418,21 +2436,23 @@ entries:
 terminal:
   - { type: comment, text: "# 把網頁檔和資料檔一起收進第一個 commit" }
   - { type: cmd, text: git add . }
-  - { type: cmd, text: 'git commit -m "初始 commit"' }
-  - { type: output, text: "[main (root-commit) a1b2c3d] 初始 commit" }
+  - { type: cmd, text: 'git commit -m "首次提交變更"' }
+  - { type: output, text: "[main (root-commit) a1b2c3d] 首次提交變更" }
   - { type: comment, text: "# 這是儀表板專案的起點，之後的修改都會接在這個 commit 後面", accent: true }
 ---
 
 <!-- p190 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==06== / 09
+heading: 公開上線
 steps:
-  - { no: "05", heading: 提交變更, desc: add 後 commit 留下第一張快照，作為專案歷史起點, state: done }
-  - { no: "06", heading: 建立遠端儲存庫, desc: 在 GitHub 建立新的儲存庫，準備接收本地專案, state: now }
-  - { no: "07", heading: 綁定並推送遠端, desc: 設定 remote、把主分支改成 main，再把本地版本推送上去, state: todo }
-  - { no: "08", heading: 設定 GitHub Pages, desc: 在 Settings 指定分支與路徑，啟用 Pages 部署流程, state: todo }
+  - { label: 建立遠端儲存庫, active: true }
+  - { label: 綁定並推送到遠端 }
+  - { label: 設定 GitHub Pages }
+  - { label: 瀏覽公開頁面 }
+calloutTag: STEP 06 / 09
+calloutText: 在 GitHub 建立新的遠端儲存庫，準備接收本機專案資料夾的內容
 ---
 
 <!-- p191 -->
@@ -2450,21 +2470,23 @@ alt: GitHub 建立新儲存庫（New repository）頁面
 
 <!-- p192 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==07== / 09
+heading: 公開上線
 steps:
-  - { no: "06", heading: 建立遠端儲存庫, desc: 在 GitHub 建立新的儲存庫，準備接收本地專案, state: done }
-  - { no: "07", heading: 綁定並推送遠端, desc: 設定 remote、把主分支改成 main，再把本地版本推送上去, state: now }
-  - { no: "08", heading: 設定 GitHub Pages, desc: 在 Settings 指定分支與路徑，啟用 Pages 部署流程, state: todo }
-  - { no: "09", heading: 瀏覽公開頁面, desc: 等部署完成後打開網址，確認儀表板已公開, state: todo }
+  - { label: 建立遠端儲存庫 }
+  - { label: 綁定並推送到遠端, active: true }
+  - { label: 設定 GitHub Pages }
+  - { label: 瀏覽公開頁面 }
+calloutTag: STEP 07 / 09
+calloutText: 設定 remote、將主分支改為 main，再把本機版本推送到 GitHub
 ---
 
 <!-- p193 -->
 ---
 layout: git-push
 class: brand-github
-heading: 綁定並推送遠端
+heading: 綁定並推送到遠端
 command: remote add + branch -M + push
 laneToggle: { label: push 之後, labelOn: 回到 push 之前 }
 meta: ↑ ahead 1
@@ -2502,14 +2524,16 @@ terminal:
 
 <!-- p194 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==08== / 09
+heading: 公開上線
 steps:
-  - { no: "06", heading: 建立遠端儲存庫, desc: 在 GitHub 建立新的儲存庫，準備接收本地專案, state: done }
-  - { no: "07", heading: 綁定並推送遠端, desc: 設定 remote、把主分支改成 main，再把本地版本推送上去, state: done }
-  - { no: "08", heading: 設定 GitHub Pages, desc: 在 Settings 指定分支與路徑，啟用 Pages 部署流程, state: now }
-  - { no: "09", heading: 瀏覽公開頁面, desc: 等部署完成後打開網址，確認儀表板已公開, state: todo }
+  - { label: 建立遠端儲存庫 }
+  - { label: 綁定並推送到遠端 }
+  - { label: 設定 GitHub Pages, active: true }
+  - { label: 瀏覽公開頁面 }
+calloutTag: STEP 08 / 09
+calloutText: 到 Settings 指定分支與路徑，啟用 GitHub Pages 的部署流程
 ---
 
 <!-- p195 -->
@@ -2545,14 +2569,16 @@ sub: 這個部署流程就是之後 CI/CD 的伏筆
 
 <!-- p198 -->
 ---
-layout: data-05
+layout: diagram-04
 class: brand-github
-heading: Step · ==09 / 09==
+heading: 公開上線
 steps:
-  - { no: "06", heading: 建立遠端儲存庫, desc: 在 GitHub 建立新的儲存庫，準備接收本地專案, state: done }
-  - { no: "07", heading: 綁定並推送遠端, desc: 設定 remote、把主分支改成 main，再把本地版本推送上去, state: done }
-  - { no: "08", heading: 設定 GitHub Pages, desc: 在 Settings 指定分支與路徑，啟用 Pages 部署流程, state: done }
-  - { no: "09", heading: 瀏覽公開頁面, desc: 等部署完成後打開網址，確認儀表板已公開, state: now }
+  - { label: 建立遠端儲存庫 }
+  - { label: 綁定並推送到遠端 }
+  - { label: 設定 GitHub Pages }
+  - { label: 瀏覽公開頁面, active: true }
+calloutTag: STEP 09 / 09
+calloutText: 等部署完成後打開公開網址，確認儀表板已經順利上線
 ---
 
 <!-- p199 -->
@@ -2765,7 +2791,7 @@ layout: link-01
 class: brand-ai
 image: /qr-skills.png
 heading: create-commit
-url: github.com/…/W1/skills/create-commit
+href: "https://github.com/seon-kuraito/github-actions-cicd-course/tree/main/W1/skills/create-commit"
 ---
 
 <!-- p219 -->
