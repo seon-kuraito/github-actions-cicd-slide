@@ -7,7 +7,7 @@
   - P1 = [onboarding deck](onboarding.md)（`/`）整堂開場放映
   - 講完切入本 deck 自 P2 起。
 
-## Kit — 無週儲存庫；學員自建 `skill-dashboard`（模板庫發 ZIP）
+## Kit — 無週儲存庫；學員自建 `skill-dashboard`（模板庫發檔）
 
 見 [docs/kit/week-1.md](../kit/week-1.md)（模板／skills／知識點清單）。
 
