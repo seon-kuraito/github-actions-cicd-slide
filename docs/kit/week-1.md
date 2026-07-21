@@ -6,17 +6,17 @@
 
 - 前三週主產物（產物①）＝**學員自建**的 `skill-dashboard`（非發下的 repo）：
   - 【15】走 init-first：學員 `mkdir` + `git init` 自建空儲存庫，再從課程模板庫
-    **Code → Download ZIP** 把模板檔案灌進去，最後自己建遠端、`remote add`／`push`。
+    下載模板檔案灌進去，最後自己建遠端、`remote add`／`push`。
   - **發檔案、不發 repo**（2026-07-14 改制，取代原「學員以 Use this template 建立自己的版本」）：
     模板庫**直接承載**模板檔案（定案 README「程式碼模板」待定項）；維護走**網頁上傳**（雲端硬碟式，
     不經本地版控——GitHub 仍替每次上傳生成 commit）。
-  - GitHub 無法只下載子資料夾，學員仍 **Download ZIP** 整包；ZIP 多包的層級（`<repo>-main/dashboard/`）
-    由【15】Step 3 文案「搬 `dashboard` 裡的檔案」承擔（2026-07-17 改制：原「檔案直接住 root」讓位給
-    dashboard／skills 分離——防學員把 `skills/` 誤搬進自己的 repo）。
-- 內容（模板庫 root＝兩個同層資料夾）：
-  - `dashboard/`：`index.html`（單檔承載畫面與程式——樣式與 JS 全數內聯，學員不需要編輯）
+  - 取用＝deck QR／url badge **直鏈模板資料夾頁**，學員在頁面下載兩檔（2026-07-18 改制：
+    原「Download ZIP 整包＋Step 3 文案承擔 `<repo>-main/dashboard/` 層級」退場；07-17「dashboard／skills
+    同層分離防誤搬」的動機由依週分層繼續承擔）。
+- 內容（2026-07-18 起**依週分層**：root＝`README.md`＋逐週 `W{N}/`）：
+  - `W1/templates/skill-dashboard/`：`index.html`（單檔承載畫面與程式——樣式與 JS 全數內聯，學員不需要編輯）
     ＋`data.js`（姓名、主力語言、知識點勾選——畫面唯一的資料源，學員只編輯這個檔）
-  - `skills/`（W1 skills，P7 安裝到專案的 `.agents/skills/` 用）
+  - `W1/skills/`（W1 skills，P7 安裝到專案的 `.agents/skills/` 用）
 - 無預埋分支、不設 template repo；學員的第一個 commit 即專案起點，整棵歷史都是他自己的
   （順向支持 W2–W3 在此 repo 上續教 Git）
 
