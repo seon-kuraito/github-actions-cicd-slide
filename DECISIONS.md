@@ -5,6 +5,16 @@
 
 頁級課綱見 [docs/README.md](docs/README.md)（索引）。
 
+## 課程大改：講義制（2026-07-20；W1 實授後全面轉向）
+
+W1（7/18）實授回饋：30+ 人、逾 2/3 非本科新手、50+ 歲 6–7 位；P2 起即落後（逐生排障後才能前進），P6 草草帶過、P7 整段跳過；約 1/3 學員用教室設備、關機還原（每週環境歸零）；學員反映投影片步驟性不足、頁數多到課後翻不到指令、希望有可留存檔案；deck 製作成本與教學效果不成比例。**Slidev deck 生產線就此暫停（W1–W6 內容線與視覺線全部擱置），改行「講義制」**：
+
+- **講義＝文件風單檔 HTML、一份兩用**（上課投影開同一份捲動講＋原檔發學員留存、可自行列印 PDF）——步驟性、可搜尋、可留存三痛點一次解。每週講義第一章固定「環境重建」（教室設備學員每週重裝用）。發放走 LINE 等行政管道直接發檔。
+- **內容產線移至 Claude Cowork project**：內容全部重新設計（忽略 docs/curriculum 舊規劃；spec.csv 鬆綁為參照、差異表不再維護）；MD 撰寫、MD→HTML 轉換（tmp/ 的單檔轉換工具，維持 untracked）、定稿全在 Cowork 端，**講義本體（MD/HTML）不進本 repo**。
+- **本 repo 暫時只做「轉譯層」**：收到當週定稿講義 → 生成 `course/week-N.md`（一週一檔、curriculum＋kit 同檔），把新內容轉譯成舊架構語彙——供 W6 跑完後回頭整合成對外公開版時有現成對照，不承擔課堂實錄。**轉譯 kit 為主**（知識點對磚／skills／發放記錄——儀表板是唯一有每週死線的消費者），curriculum 只留堂次大綱；【NN】／頁型標記／頁級 bullet 體系隨舊 docs 凍結不用。操作規則見 [course/README.md](course/README.md)。
+- **設計約束存活項**：技能儀表板續當主線（磚＝堂 1:1 不變；W1 部署殘尾 W2 收，P7 AI 段缺口由 Cowork 逐週設計時定）；P1–P7 網格保留（每堂密度大減＋預留巡場時間）；模板庫照舊當發放處（每週 data.js 磚資料、skills 走 `W{N}/`——學員取檔動線即隱性複習）。
+- **凍結範圍**：apps/（七份 deck）、shared/、docs/、Cloudflare 部署線原地凍結——production 站不改不部署（W2+ 的 release gate 到期會開放骨架 deck，已知、放任不管）。本檔自此為舊線歷史紀錄（僅此節為橋）；新線的決策與規則記 course/。W6 後回頭同步＆補充成對外公開版時再解凍。
+
 ## 貫穿原則
 
 - spec 字面列出的項目**至少 slide 級出現**；深度與講授順序自由裁量。
@@ -56,7 +66,7 @@
 | 1 | 兩大產物 | **課程＝兩大產物，以 8/8 停課週對半分：①「技能儀表板」（W1–W3，個人、solo Git 載體）②「CI/CD 部署通知系統」（W4–W6，團隊，＝課程終點）。** 通知系統自 **W4 起逐週親手建**（W4 CI → W5 pipeline → W6 上半場容器化）；**W6 下半場 capstone＝完成最後一哩**（deploy＋notify），非 Fork 重跑；上游 repo 降參考／救援 fallback。**規格 W4→W6 增量長出**（見「通知系統規格」節）。 |
 | 2 | 每日網格 | 7 堂 ×50 分（休 10 分）：P1–P5 教學 + sandbox 即幤練習 + GitHub 操作穿插；**P6 週 repo 情境挑戰**（當日技能重走一遍）；**P7 = AI 段 45 分 + Ending 5 分**。例外：W1 的 P1 為 onboarding 放映、W6 下半場（P4–P6）為 capstone。 |
 | 3 | 週 repo | **W1–W3：個人儀表板** 為 P6 情境載體——solo Git 技能（W2 分支/衝突/PR、W3 救援/發版）皆在學員自己的儀表板上逐步優化（技能與 repo 無關，用自己的東西擁有感最高）。**W4–W6：通知系統團隊 repo**（協作/CI/Docker/部署/通知——個人靜態儀表板結構上做不到的都在此）。敘事弧 solo→team、personal→product；切點落在 8/8 放假週之後（W4）。省下 v2 的 `notify-w2`／`notify-w3` 兩個 repo。 |
-| 4 | 儀表板（產物①）| **前三週主產物**。W1 建立（**init-first**：自建空 repo → 模板 ZIP 灌入 → commit → 建遠端 → push → Pages 手動上線；2026-07-14 改制，取代原「模板 → clone → 改資料 → push」，見表下條目）；**W2–W3 用當週 Git 技能逐步優化**（分支/衝突/PR、救援/發版），取代 v2 原「被動 Recap」。**技能點亮即其知識追蹤本體**（≠第二身分——名即所指；繼任 v2.1 前「全程兼知識追蹤」的副業框架）；W4 起退為每週 Recap。知識點見 `docs/kit/`。Pages 自動化部署為 W6 選配彩蛋。畫面歸 Claude Design，資料 schema 歸內容線。 |
+| 4 | 儀表板（產物①）| **前三週主產物**。W1 建立（**init-first**：自建空 repo → 模板檔案灌入 → commit → 建遠端 → push → Pages 手動上線；2026-07-14 改制，取代原「模板 → clone → 改資料 → push」，見表下條目）；**W2–W3 用當週 Git 技能逐步優化**（分支/衝突/PR、救援/發版），取代 v2 原「被動 Recap」。**技能點亮即其知識追蹤本體**（≠第二身分——名即所指；繼任 v2.1 前「全程兼知識追蹤」的副業框架）；W4 起退為每週 Recap。知識點見 `docs/kit/`。Pages 自動化部署為 W6 選配彩蛋。畫面歸 Claude Design，資料 schema 歸內容線。 |
 | 5 | PR 時機 | **W2 首見 PR**（分支概念與命名教完後，於情境挑戰收尾發第一個 PR——好 PR = 好 branch＋好 commit，不提前到 W1 當儀式）；W4 深化為 review 文化、配對互審、Branch Protection、Issue；W2 起 PR 日常化；**配對互審輕線延續** W5（pipeline PR 走搭檔 approve）／W6（capstone 互驗部署），協作不鎖在 W4（2026-07-10 補）。 |
 | 6 | W4 尾端前移 | spec day-5 的「CI/CD 概念 + 第一個 workflow」前移至 W4 P4，以 Branch Protection 的 required status checks 為橋；W5 專注測試/cache/artifacts/matrix。 |
 | 7 | 受眾與角色 | 學員偏初階工程師、概念從零帶起；deck 混合偏講課主軸（指令效果上 slide、實作切 VS Code）；BYOD 為主，環境設定頁雙平台——Windows 用 **PowerShell**（Windows Terminal，W1 含 ExecutionPolicy 解鎖步驟）、mac 用 Terminal（spec 原列 Git Bash，差異記錄見 overview #12）。 |
@@ -67,6 +77,7 @@ W1【15】改走 init-first ＋ Dashboard 模板改發 ZIP（拷問輪定案 202
 - **問題**：【15】deck 張數與 curriculum 節點對不起來（curriculum 列 Step 1–7、deck 卻是 10 張，差額＝4 張從未被記錄的 `data-05`；且 curriculum 的「Step 7 你的網址誕生」根本沒有對應投影片）。重排時翻出更上游的洞——**原流程（Use this template → clone）根本複習不到【13】剛教的 `git remote add`／`git branch -M`**：clone 會自動綁好 origin，那兩個指令直接被跳過。
 - **起手式＝init-first（九步）**：`mkdir` → `git init` → 下載模版 → 編輯資料 → `add`+`commit` → 建遠端 repo → `remote add`+`branch -M`+`push` → 設定 Pages → 瀏覽公開頁面。P6 因此**完整重演 P5**。**「網頁 template ＋ 本地 mkdir」是死路**（遠端已有 commit、本地 init 為空，push 撞 unrelated histories），故 template 與 init-first 不可混用，必須二選一。
 - **模板管道＝課程模板庫 Download ZIP**（取代 Use this template）：模板檔案**直接承載於庫的 root**——root 是必要條件，GitHub 無法只下載子資料夾，模板放子資料夾會讓 ZIP 多包**兩層**。ZIP 仍多包一層 `<repo>-main/`，由【15】Step 3 文案「只搬**裡面的檔案**」承擔（不另開排錯頁：一句話能防的事不需要教人爬坑）。棄用 `curl`+`unzip`：Windows 要再開一套語法，W1 不值得。
+- **模板管道再改制（2026-07-18；繼任上條「Download ZIP」與 README 的 07-17「dashboard／skills 同層分離」）**：模板庫改**依週分層**——root＝`README.md`＋逐週 `W{N}/`，儀表板模板住 `W1/templates/skill-dashboard/`（`index.html`＋`data.js`）、W1 skills 住 `W1/skills/`（防誤搬 `skills/` 的動機由週分層繼續承擔）。**取用改 deck QR／url badge 直鏈模板資料夾頁**、學員在頁面下載兩檔灌入，ZIP 整包敘事自 deck 退場——上條「root 是必要條件」是 ZIP 管道的前提、隨管道一併退役（「GitHub 無法只下載子資料夾」的事實不變，逐檔下載已無此需求）。deck Step 3 文案不逐字重寫（「從 GitHub 下載…放進 `skill-dashboard`」的粒度已涵蓋新流程，視作裝飾性文字）；Step 3／download 截圖已隨新結構重拍。docs 端（README「程式碼模板」＋發放原則、kit W1・W2、curriculum W1・onboarding）已同步（2026-07-20）。
 - **發放原則改制**：「狀態＝產物模板」**發檔案、不發 repo**（原「Use this template 發一次」作廢）。W1 自此**無週 repo**，產物①＝學員自建的 `skill-dashboard`。副作用是正向的：學員的第一個 commit 即專案起點，整棵歷史都是他自己的，順向支持 W2–W3 續教 Git。**W4 的通知服務週 repo 屬「預埋」類、仍走 template repo，不受此條影響。**
 - **repo 歸屬釐清**：P5 全程 `hello-git` 沙箱、【15】獨佔 `skill-dashboard` 生命週期（同輪修掉【11】章節實作誤叫學員建產物① repo、【13】卻去綁 `hello-git` 的既存 bug）。
 - **版面**：九步各配一張 `data-05`（四格**滑動視窗**，`起始格 = clamp(step−1, 1, 6)`）＋ heading 帶 `07 / 09` 絕對計數。**`data-05` 零程式碼改動**——視窗是 per-slide frontmatter 採出來的。取捨：滑動後長條退化為**局部**進度（`trackFill` 算的是可見四格的 index），全局感改由計數器承載；曾試加絕對 `fill` prop **更糟**（視窗 [6-9] 填到 78% 會點亮未做的 ⑧⑨），滑動視窗與全局長條數學上不相容，局部化是唯一自洽解。
